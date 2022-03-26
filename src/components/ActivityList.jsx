@@ -1,4 +1,4 @@
-import Activity from "./Activity"
+import Activity from './Activity'
 
 const ActivityList = () => {
 
@@ -45,10 +45,10 @@ const ActivityList = () => {
 
     return (
         <section className='flex flex-wrap max-w-screen-xl mt-14 mx-auto  items-baseline justify-center '>
-            <div className="text-center space-y-4">
-                <h2 className="text-gray-800 font-semibold mb-14 text-3xl md:text-4xl">
+            <div className='text-center space-y-4'>
+                <h2 className='text-gray-800 font-semibold mb-14 text-3xl md:text-4xl'>
                     The
-                    <span className="text-rose-600"> Hobbizer </span>
+                    <span className='text-hobbizer'> Hobbizer </span>
                     Selection
                 </h2>
             </div>

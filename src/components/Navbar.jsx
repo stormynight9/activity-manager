@@ -31,7 +31,7 @@ const Navbar = () => {
                         />
                     </a>
                     <div className="md:hidden">
-                        <button className="text-rose-700 outline-none p-2 rounded-md focus:border-rose-400 focus:border"
+                        <button className="text-hobbizer  outline-none p-2 rounded-md focus:border-hobbizer focus:border"
                             onClick={() => setState(!state)}
                         >
                             {
@@ -52,17 +52,17 @@ const Navbar = () => {
                     <div>
                         <ul className="flex flex-col-reverse space-x-0 md:space-x-6 md:flex-row">
                             <li className="mt-4 md:mt-0">
-                                <a href="javascript:void(0)" className="py-3 px-4 text-center border  text-gray-600 hover:text-rose-600 rounded-md block md:inline md:border-0">
+                                <a href="javascript:void(0)" className="py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
                                     How it works
                                 </a>
                             </li>
                             <li className="mt-4 md:mt-0">
-                                <a href="javascript:void(0)" className="py-3 px-4 text-center border text-gray-600 hover:text-rose-600 rounded-md block md:inline ">
+                                <a href="javascript:void(0)" className="py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Login
                                 </a>
                             </li>
                             <li className="mt-8 md:mt-0">
-                                <a href="javascript:void(0)" className="py-3 px-4 text-center text-white bg-rose-600 hover:bg-rose-700 rounded-md shadow block md:inline">
+                                <a href="javascript:void(0)" className="py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
                                     Sign Up
                                 </a>
                             </li>
