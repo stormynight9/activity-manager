@@ -1,16 +1,18 @@
 const Activity = (props) => {
     return (
-        <div className="max-w-sm bg-white rounded-lg border border-gray-200 m-2 shadow-md ">
+        <div className="flex flex-col m-1 justify-between bg-white rounded-lg border h-full border-gray-200 shadow-md ">
             <div className='h-60'>
                 <a href="#">
                     <img className="rounded-t-lg object-cover w-full h-full" src={props.coverImage} alt="" />
                 </a>
             </div>
-            <div className="p-5 ">
+            <div className="p-5">
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{props.title}</h5>
                 </a>
                 <p className="mb-3 font-normal text-gray-700 ">{props.description}</p>
+            </div>
+            <div className="pb-5 pr-5 pl-5 flex flex-col justify-between">
                 <div className="flex justify-between items-center">
                     <p className='font-semibold text-3xl'>
                         {props.price}<span className='text-sm font-normal'>TND</span>

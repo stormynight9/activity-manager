@@ -44,10 +44,20 @@ const ActivityList = () => {
     ]
 
     return (
-        <section className='flex flex-wrap max-w-screen-xl mx-auto  items-baseline justify-center '>
-            {activities.map((activity) => {
-                return <Activity key={activity.id} coverImage={activity.coverImage} title={activity.title} description={activity.description} price={activity.price} />
-            })}
+        <section className='flex flex-wrap max-w-screen-xl mt-14 mx-auto  items-baseline justify-center '>
+            <div className="text-center space-y-4">
+                <h2 className="text-gray-800 font-semibold mb-14 text-3xl md:text-4xl">
+                    The
+                    <span className="text-rose-600"> Hobbizer </span>
+                    Selection
+                </h2>
+            </div>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto gap-2'>
+                {activities.map((activity) => {
+                    return <Activity key={activity.id} coverImage={activity.coverImage} title={activity.title} description={activity.description} price={activity.price} />
+                })}
+            </div>
+            <button className='px-10 py-3.5 w-full mt-12 text-gray-500 text-center border rounded-md duration-300 hover:text-rose-600 hover:shadow block sm:w-auto'>See all activities</button>
         </section>
     )
 }
