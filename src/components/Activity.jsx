@@ -6,7 +6,7 @@ const Activity = (props) => {
                     <img className="rounded-t-lg object-cover w-full h-full" src={props.coverImage} alt="" />
                 </a>
             </div>
-            <div className="p-5">
+            <div className="p-5 mb-auto">
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{props.title}</h5>
                 </a>
