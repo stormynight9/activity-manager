@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         "hobbizer": "#ff5a5f",
         "hobbizer-dark": "#3a3839",
+        "hobbizer-gray": "#abb4b2",
       }
     },
   },

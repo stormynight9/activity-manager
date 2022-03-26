@@ -57,7 +57,9 @@ const ActivityList = () => {
                     return <Activity key={activity.id} coverImage={activity.coverImage} title={activity.title} description={activity.description} price={activity.price} />
                 })}
             </div>
-            <button className='px-10 py-3.5 w-full mt-12 text-gray-500 text-center border rounded-md duration-300 hover:text-rose-600 hover:shadow block sm:w-auto'>See all activities</button>
+            <div className='p-4 w-full sm:w-auto'>
+                <button className='px-10 py-3.5 w-full mt-12 text-gray-500 text-center border rounded-md duration-300 hover:text-rose-600 hover:shadow block sm:w-auto'>See all activities</button>
+            </div>
         </section>
     )
 }
