@@ -1,4 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
+import ModalContext from '../context/modal-context'
+import Login from './Login'
+import Register from './Register'
 
 const Navbar = () => {
 
@@ -15,11 +18,15 @@ const Navbar = () => {
         { title: "Blog", path: "javascript:void(0)" }
     ]
 
+    const modalCtx = useContext(ModalContext)
 
-
+    const modalHandler = (content) => {
+        modalCtx.setModalContent(content)
+        modalCtx.toggleModal()
+    }
 
     return (
-        <nav ref={navRef} className="bg-white w-full fixed top-0 z-20">
+        <nav ref={navRef} className="bg-white w-full fixed top-0 bg-gray-50 z-20">
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-4 md:block">
                     <a href="javascript:void(0)">
@@ -57,12 +64,12 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <li className="mt-4 md:mt-0">
-                                <a href="javascript:void(0)" className="py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                <a href="javascript:void(0)" onClick={() => modalHandler(<Login />)} className="py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Login
                                 </a>
                             </li>
                             <li className="mt-8 md:mt-0">
-                                <a href="javascript:void(0)" className="py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
+                                <a href="javascript:void(0)" onClick={() => modalHandler(<Register />)} className="py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
                                     Sign Up
                                 </a>
                             </li>
