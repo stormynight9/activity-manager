@@ -23,11 +23,11 @@ const Login = () => {
                 <h3 className='text-xl font-medium text-gray-900 '>Sign in to Hobbizer</h3>
                 <div>
                     <label htmlFor='email' className='block mb-2 text-sm font-medium text-gray-900 '>Your email</label>
-                    <input type='email' name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    ' placeholder='name@company.com' required />
+                    <input type='email' name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500 block w-full p-2.5    ' placeholder='name@company.com' required />
                 </div>
                 <div>
                     <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 '>Your password</label>
-                    <input type='password' name='password' id='password' placeholder='••••••••' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-hobbizer block w-full p-2.5  ' required />
+                    <input type='password' name='password' id='password' placeholder='••••••••' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-hobbizer block w-full p-2.5  ' required />
                 </div>
                 <div className='flex justify-between'>
                     <div className='flex items-start'>

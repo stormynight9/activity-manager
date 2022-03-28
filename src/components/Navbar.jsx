@@ -26,7 +26,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav ref={navRef} className="bg-white w-full fixed top-0 bg-gray-50 z-20">
+        <nav ref={navRef} className=" w-full fixed top-0 bg-gray-50 z-20">
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-4 md:block">
                     <a href="javascript:void(0)">
