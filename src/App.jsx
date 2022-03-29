@@ -9,18 +9,21 @@ import Register from "./components/Register";
 import Modal from "./components/Modal";
 import ProgrammeForm from "./components/ProgrammeForm";
 import ActivityHolder from "./components/ActivityHolder";
+import DayContainer from "./components/DayContainer";
+import Programme from "./components/Programme";
 
 function App() {
   return (
     <div className='bg-gray-50'>
-      <ActivityHolder />
-      {/* <Modal />
+      {/* <ActivityHolder />
+      <Modal /> */}
       <Navbar />
-      <Hero />
+      <Programme />
+      {/* <Hero />
       <ProgrammeForm />
       <ActivityList />
-      <How />
-      <Footer /> */}
+      <How /> */}
+      <Footer />
 
 
     </div>
