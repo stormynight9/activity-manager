@@ -8,17 +8,19 @@ import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import Modal from "./components/Modal";
 import ProgrammeForm from "./components/ProgrammeForm";
+import ActivityHolder from "./components/ActivityHolder";
 
 function App() {
   return (
     <div className='bg-gray-50'>
-      <Modal />
+      <ActivityHolder />
+      {/* <Modal />
       <Navbar />
       <Hero />
       <ProgrammeForm />
       <ActivityList />
       <How />
-      <Footer />
+      <Footer /> */}
 
 
     </div>
