@@ -5,7 +5,7 @@ const dayContainer = (props) => {
     const dayParts = ['Morning', 'Midday', 'Afternoon', 'Late afternoon', 'Evening', 'Night']
 
     return (
-        <div className='flex-col w-full sm:max-w-fit pb-4 px-1 sm:p-4'>
+        <div className='flex-col w-full sm:max-w-fit pb-4 px-1npm sm:p-4'>
             <div className='p-4 bg-[#eaeceb] rounded-t-lg'>
                 {props.day}
             </div>

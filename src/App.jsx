@@ -10,20 +10,17 @@ import Modal from "./components/Modal";
 import ProgrammeForm from "./components/ProgrammeForm";
 import ActivityHolder from "./components/ActivityHolder";
 import DayContainer from "./components/DayContainer";
-import Programme from "./components/Programme";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Programme from "./pages/Programme";
 
 function App() {
   return (
     <div className='bg-gray-50'>
-      {/* <ActivityHolder />
-      <Modal /> */}
-      <Navbar />
-      <Programme />
-      {/* <Hero />
-      <ProgrammeForm />
-      <ActivityList />
-      <How /> */}
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/programme" element={<Programme />} />
+      </Routes>
 
 
     </div>
