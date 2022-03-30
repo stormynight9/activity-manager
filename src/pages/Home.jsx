@@ -2,12 +2,14 @@ import ActivityList from "../components/ActivityList"
 import Footer from "../components/Footer"
 import Hero from "../components/Hero"
 import How from "../components/How"
+import Modal from "../components/Modal"
 import Navbar from "../components/Navbar"
 import ProgrammeForm from "../components/ProgrammeForm"
 
 const Home = () => {
     return (
         <>
+            <Modal />
             <Navbar />
             <Hero />
             <ProgrammeForm />

@@ -1,4 +1,5 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ModalContext from '../context/modal-context'
 import Login from './Login'
 import Register from './Register'
@@ -29,14 +30,14 @@ const Navbar = () => {
         <nav ref={navRef} className=" w-full fixed top-0 bg-gray-50 z-20">
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-4 md:block">
-                    <a href="javascript:void(0)">
+                    <Link to='/'>
                         <img
                             src="https://hobbizer.com/bundles/hobbizerorganiser/images/logo.png"
                             width={120}
                             height={50}
                             alt="Float UI logo"
                         />
-                    </a>
+                    </Link>
                     <div className="md:hidden">
                         <button className="text-hobbizer  outline-none p-2 rounded-md focus:border-hobbizer focus:border"
                             onClick={() => setState(!state)}

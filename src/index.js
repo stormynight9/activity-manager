@@ -5,15 +5,19 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 import { ModalContectProvider } from './context/modal-context';
+import { DateContextProvider } from './context/date-context';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <ModalContectProvider>
-        <App />
-      </ModalContectProvider>
-    </React.StrictMode>
-  </BrowserRouter>,
+  <DateContextProvider>
+    <ModalContectProvider>
+      <BrowserRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </ModalContectProvider >
+  </DateContextProvider>
+  ,
   document.getElementById('root')
 );
 
