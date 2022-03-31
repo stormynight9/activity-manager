@@ -33,7 +33,6 @@ export const DateContextProvider = (props) => {
     }, [startDate, endDate])
 
 
-    console.log(participants, startDate, endDate, datesInterval);
 
 
     return (

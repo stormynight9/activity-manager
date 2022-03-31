@@ -1,7 +1,7 @@
 export const activities = [
     {
         id: 1,
-        title: 'degustation interactive de vins',
+        title: 'Degustation interactive de vins',
         duration: 60,
         range: [2, 100],
         location: 'En visio',
@@ -32,7 +32,7 @@ export const activities = [
     },
     {
         id: 2,
-        title: 'murder party en visio',
+        title: 'Murder party en visio',
         duration: 90,
         range: [2, 100],
         location: 'En visio',
@@ -46,12 +46,12 @@ export const activities = [
         ],
         catchPhrase: 'Panique à l’Accor Hôtel Arena ! Qui a tué Tabatina Fox ?',
         shortDescription: 'Participez à une enquête policière immersive complétement déjantée et élucidez un meurtre qui vient d’avoir lieu dans l’une des plus célèbres salles de spectacles parisiennes.',
-        longDecription: `<p>Vous avez toujours rêvé de participer à une <strong>enquête&nbsp;policière</strong> ? C’est possible grâce à notre&nbsp;<strong>murder party</strong> complètement déjantée à vivre<strong> en ligne depuis chez vous</strong> !</p></br>
-        <p>Votre mission ? <strong>Enquêter&nbsp;avec votre équipe</strong> sur la <strong>disparition inquiétante d'une grande chanteuse</strong> française&nbsp;retrouvée morte dans sa loge de l’Accor Hôtel Arena....une drôle de mise en scène a été élaborée et la police à l'air de ramer un peu. Elle a clairement besoin de vous !&nbsp;&nbsp;</p></br>
-        <p>Vous allez devoir <strong>tour à tour interroger quatre suspects tous plus fous les uns que les autres</strong> interprétés par des <strong>comédiens professionnels</strong> qui interagiront en live avec vous.</p></br>
-        <p>Débriefez avec votre équipe, trouvez le coupable&nbsp;et soyez le grand gagnant de notre murder party !&nbsp;</p></br>
-        <p>Serez-vous à la hauteur pour relever ce défi&nbsp;?<strong> Les fans de TABATINA&nbsp;FOX comptent sur vous !&nbsp;</strong></p></br>`,
-        practicalInfo: `<p>Pour mener l’enquête, vous serez accompagné de 4 comédiens au talent fou qui interagiront avec vous en direct&nbsp;!</p></br>
+        longDecription: `<p>Vous avez toujours rêvé de participer à une <strong>enquête&nbsp;policière</strong> ? C’est possible grâce à notre&nbsp;<strong>murder party</strong> complètement déjantée à vivre<strong> en ligne depuis chez vous</strong> !</p><br />
+        <p>Votre mission ? <strong>Enquêter&nbsp;avec votre équipe</strong> sur la <strong>disparition inquiétante d'une grande chanteuse</strong> française&nbsp;retrouvée morte dans sa loge de l’Accor Hôtel Arena....une drôle de mise en scène a été élaborée et la police à l'air de ramer un peu. Elle a clairement besoin de vous !&nbsp;&nbsp;</p><br />
+        <p>Vous allez devoir <strong>tour à tour interroger quatre suspects tous plus fous les uns que les autres</strong> interprétés par des <strong>comédiens professionnels</strong> qui interagiront en live avec vous.</p><br />
+        <p>Débriefez avec votre équipe, trouvez le coupable&nbsp;et soyez le grand gagnant de notre murder party !&nbsp;</p><br />
+        <p>Serez-vous à la hauteur pour relever ce défi&nbsp;?<strong> Les fans de TABATINA&nbsp;FOX comptent sur vous !&nbsp;</strong></p><br />`,
+        practicalInfo: `<p>Pour mener l’enquête, vous serez accompagné de 4 comédiens au talent fou qui interagiront avec vous en direct&nbsp;!</p><br />
         <p>Cette murder party se déroulera sur ZOOM, tous les détails vous seront envoyés pour que vous puissiez y assister facilement.</p>`
     },
     {
@@ -70,11 +70,13 @@ export const activities = [
         ],
         catchPhrase: 'Prenez un cours de cuisine original et décalé 100% en ligne !',
         shortDescription: 'Préparez-vous à assister à un cours de cuisine unique et fou avec le chef Merouan (Top Chef, Le Meilleur Pâtissier).',
-        longDecription: `<p>Qui a dit qu’on ne pouvait pas rigoler en cuisinant&nbsp;? Chez Hobbizer, on a envie de vous prouver le contraire&nbsp;!</p></br>
-        <p>Prenez un<strong> chef impertinent</strong> et <strong>drôle </strong>d’un côté, une bonne connexion Internet de l’autre, et c’est parti pour un <strong>cours de cuisine totalement fou</strong>.</p></br>
-        <p>Après avoir validé ensemble une recette simple qui plaira à tout votre groupe, <strong>vous recevrez en amont de l’atelier une boxe contenant la&nbsp;liste des ingrédients&nbsp;</strong>&nbsp;indispensables à sa bonne réalisation, <strong>une bouteille de vin</strong> pour accompagner votre repas et quelques <strong>surprises</strong>.&nbsp;</p></br>
+        longDecription: `<p>Qui a dit qu’on ne pouvait pas rigoler en cuisinant&nbsp;? Chez Hobbizer, on a envie de vous prouver le contraire&nbsp;!</p><br />
+        <p>Prenez un<strong> chef impertinent</strong> et <strong>drôle </strong>d’un côté, une bonne connexion Internet de l’autre, et c’est parti pour un <strong>cours de cuisine totalement fou</strong>.</p><br />
+        <p>Après avoir validé ensemble une recette simple qui plaira à tout votre groupe, <strong>vous recevrez en amont de l’atelier une boxe contenant la&nbsp;liste des ingrédients&nbsp;</strong>&nbsp;indispensables à sa bonne réalisation, <strong>une bouteille de vin</strong> pour accompagner votre repas et quelques <strong>surprises</strong>.&nbsp;</p><br />
         <p>Vous n’aurez aucun préparatif à faire en amont, si ce n’est quelques répartis bien trouvés pour affronter <strong>l’humour décapant de Merouan</strong>&nbsp;!</p>`,
-        practicalInfo: `<p>Le cours se déroulera sur ZOOM. Tous les détails vous seront envoyés pour assister au cours.</p></br>
+        practicalInfo: `<p>Le cours se déroulera sur ZOOM. Tous les détails vous seront envoyés pour assister au cours.</p><br />
         <p>Le prix comprend l'envoie de la boxe comprenant la liste des ingrédients et la bouteille de vin. Attention, cette option est valable pour les groupe de moins de 30 personnes.&nbsp;</p>`
     }
 ]
+
+
