@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Categories from "./pages/Categories";
+import CategoriesPage from "./pages/CategoriesPage";
 import Home from "./pages/Home";
 import Programme from "./pages/Programme";
 
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/programme" element={<Programme />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route path="/categories" element={<CategoriesPage />} />
       </Routes>
     </div>
   );

@@ -1,19 +1,18 @@
 import React from 'react'
-import CategoriesContainer from '../components/CategoriesContainer'
 import Footer from '../components/Footer'
 import Modal from '../components/Modal'
 import Navbar from '../components/Navbar'
-
-const Categories = () => {
+import Categories from '../components/Categories'
+const CategoriesPage = () => {
     return (
         <div className='mt-36'>
             <Modal />
             <Navbar />
-            <CategoriesContainer />
+            <Categories />
             <Footer />
         </div>
 
     )
 }
 
-export default Categories
+export default CategoriesPage
