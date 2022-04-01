@@ -1,6 +1,7 @@
 import { useParams, NavLink } from 'react-router-dom'
 import { activities } from '../../constants/activities'
 import { categories } from '../../constants/categories'
+import Timeline from '../shared/Timeline'
 const Activities = () => {
 
     const { categoryId } = useParams()
@@ -8,21 +9,9 @@ const Activities = () => {
     const activitiesByCategory = activities.filter(activity => category.activities.includes(activity.id))
 
     return (
-        <div className='flex justify-center mb-7'>
+        <div className='flex justify-center mb-7 mt-36'>
             <div className='max-w-7xl w-full'>
-                <div className='flex justify-between mb-8'> {/* header */}
-                    <div className='flex flex-col p-3'>
-                        <div className='flex items-center'>
-                            <span className='text-3xl'>Lundi 4 avril 2022</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-3xl text-hobbizer-gray" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <span className='text-3xl text-hobbizer'>Matin</span>
-                        </div>
-                        <p className='mt-2 text-gray-600'>Sélectionnez votre activité pour votre lundi matin</p>
-                    </div>
-
-                </div>
+                <Timeline />
                 <main className='flex justify-start md:ml-6'>
                     <div className='hidden lg:flex flex-col border-r-[1px]  border-r-gray-200 shrink-0'>
                         {categories.map(category => (
