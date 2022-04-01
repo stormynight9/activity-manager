@@ -9,7 +9,7 @@ const Activities = () => {
 
     return (
         <div className='flex justify-center mb-7'>
-            <div className='max-w-7xl'>
+            <div className='max-w-7xl w-full'>
                 <div className='flex justify-between mb-8'> {/* header */}
                     <div className='flex flex-col p-3'>
                         <div className='flex items-center'>
@@ -23,14 +23,14 @@ const Activities = () => {
                     </div>
 
                 </div>
-                <main className='flex justify-start'>
-                    <div className='flex flex-col border-r-[1px] border-r-gray-200'>
+                <main className='flex justify-start md:ml-6'>
+                    <div className='hidden lg:flex flex-col border-r-[1px]  border-r-gray-200 shrink-0'>
                         {categories.map(category => (
                             <NavLink to={`/categories/${category.id}`} className={(navData) => navData.isActive ? 'py-3 px-6 bg-hobbizer text-white' : 'py-3 px-6  hover:bg-hobbizer hover:text-white'} key={category.id} href="javascript:void(0)">{category.title}</NavLink>
                         ))}
                     </div>
                     <div className='p-4 '>
-                        <div className='flex gap-2 flex-wrap'>
+                        <div className='flex gap-2 flex-wrap justify-center md:justify-start'>
                             {activitiesByCategory.map(activity => (
                                 <a key={activity.id} href="javascript:void(0)" className='relative max-w-xs group flex flex-col border-[1px] rounded-md shadow-sm '>
                                     <img className='object-cover h-44 rounded-t-md group-hover:brightness-75 duration-200' src={activity.coverImage} alt="" />
