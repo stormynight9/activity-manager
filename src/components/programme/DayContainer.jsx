@@ -1,8 +1,8 @@
-import ActivityHolder from "../home/ActivityHolder"
+import ActivityHolder from "./ActivityHolder"
 
 const dayContainer = (props) => {
 
-    const dayParts = ['Morning', 'Midday', 'Afternoon', 'Late afternoon', 'Evening', 'Night']
+    const times = ['Matin', 'Midi', 'Après midi', 'Fin après midi', 'Soirée', 'Nuit']
 
     return (
         <div className='flex-col w-full sm:max-w-fit pb-4 px-1npm sm:p-4'>
@@ -10,7 +10,7 @@ const dayContainer = (props) => {
                 {props.day}
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 gap-1 p-4 border-x-[1px] border-b-[1px] rounded-b-lg'>
-                {dayParts.map(dayPart => <ActivityHolder key={dayPart} dayPart={dayPart} />)}
+                {times.map(time => <ActivityHolder key={time} day={props.day} time={time} />)}
             </div>
 
         </div>

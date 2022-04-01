@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState, createContext } from 'react';
 
-const ModalContext = React.createContext({
+const ModalContext = createContext({
     isOpen: true,
     toggleModal: () => { },
     modalContent: <></>,

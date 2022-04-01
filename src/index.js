@@ -6,17 +6,20 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { ModalContectProvider } from './context/modal-context';
 import { DateContextProvider } from './context/date-context';
+import { SelectedContextProvider } from './context/selected-context';
 
 ReactDOM.render(
-  <DateContextProvider>
-    <ModalContectProvider>
-      <BrowserRouter>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </BrowserRouter>
-    </ModalContectProvider >
-  </DateContextProvider>
+  <SelectedContextProvider>
+    <DateContextProvider>
+      <ModalContectProvider>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
+      </ModalContectProvider >
+    </DateContextProvider>
+  </SelectedContextProvider>
   ,
   document.getElementById('root')
 );
