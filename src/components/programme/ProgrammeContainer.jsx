@@ -1,5 +1,5 @@
 import DayContainer from "./DayContainer"
-import dateContext from '../context/date-context'
+import dateContext from '../../context/date-context'
 import { useContext } from "react"
 import { format } from 'date-fns'
 

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import ModalContext from "../context/modal-context"
+import ModalContext from "../../context/modal-context"
 
 
 const Modal = (props) => {

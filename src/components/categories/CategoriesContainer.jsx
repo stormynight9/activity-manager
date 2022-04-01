@@ -1,5 +1,5 @@
-import { activities } from '../constants/activities'
-import { categories } from '../constants/categories'
+import { activities } from '../../constants/activities'
+import { categories } from '../../constants/categories'
 const CategoriesContainer = () => {
     return (
         <div className='flex justify-center'>

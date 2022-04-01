@@ -1,4 +1,4 @@
-import { categories } from "../constants/categories"
+import { categories } from "../../constants/categories"
 const Categories = () => {
     return (
         <main className='flex items-center flex-col mb-8'>

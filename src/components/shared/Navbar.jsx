@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import ModalContext from '../context/modal-context'
+import ModalContext from '../../context/modal-context'
 import Login from './Login'
 import Register from './Register'
 

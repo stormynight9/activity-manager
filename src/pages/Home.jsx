@@ -1,21 +1,17 @@
-import ActivityList from "../components/ActivityList"
-import Footer from "../components/Footer"
-import Hero from "../components/Hero"
-import How from "../components/How"
-import Modal from "../components/Modal"
-import Navbar from "../components/Navbar"
-import ProgrammeForm from "../components/ProgrammeForm"
+import ActivityList from "../components/home/ActivityList"
+import Hero from "../components/home/Hero"
+import How from "../components/home/How"
+import Modal from "../components/shared/Modal"
+import ProgrammeForm from "../components/home/ProgrammeForm"
 
 const Home = () => {
     return (
         <>
             <Modal />
-            <Navbar />
             <Hero />
             <ProgrammeForm />
             <ActivityList />
             <How />
-            <Footer />
         </>
     )
 }

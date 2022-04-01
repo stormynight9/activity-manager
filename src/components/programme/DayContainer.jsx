@@ -1,4 +1,4 @@
-import ActivityHolder from "./ActivityHolder"
+import ActivityHolder from "../home/ActivityHolder"
 
 const dayContainer = (props) => {
 
