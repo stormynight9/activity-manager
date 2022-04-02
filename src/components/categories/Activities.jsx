@@ -18,7 +18,7 @@ const Activities = () => {
                             <NavLink to={`/categories/${category.id}`} className={(navData) => navData.isActive ? 'py-3 px-6 bg-hobbizer text-white' : 'py-3 px-6  hover:bg-hobbizer hover:text-white'} key={category.id} href="javascript:void(0)">{category.title}</NavLink>
                         ))}
                     </div>
-                    <div className='p-4 '>
+                    <div className='p-4'>
                         <div className='flex gap-2 flex-wrap justify-center md:justify-start'>
                             {activitiesByCategory.map(activity => (
                                 <a key={activity.id} href="javascript:void(0)" className='relative max-w-xs group flex flex-col border-[1px] rounded-md shadow-sm '>

@@ -3,37 +3,37 @@ export const categories = [
         id: 1,
         title: 'Experiences digitales',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/602e752442fb8_EXPERIENCES-DIGITALES-TEAM-BUILDING-VISIO.jpg',
-        activities: [1, 2, 3]
+        activities: [1, 2, 3, 4, 5]
     },
     {
         id: 2,
         title: 'Team building',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5f9038af57a68_TEAM-BUILDING-HOBBIZER.jpg',
-        activities: [1]
+        activities: [1, 5, 6, 2, 7]
     },
     {
         id: 3,
         title: 'EVJF',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5f90386e1cff5_EVJF-HOBBIZER.jpg',
-        activities: []
+        activities: [3, 6, 7]
     },
     {
         id: 4,
         title: 'EVG',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5f9038dc7bb2f_EVG-HOBBIZER.jpg',
-        activities: []
+        activities: [3, 6, 7]
     },
     {
         id: 5,
         title: 'Jeux et loisirs',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5f903e67a7c25_JEUX-HOBBIZER.jpg',
-        activities: []
+        activities: [2]
     },
     {
         id: 6,
         title: 'Micro aventure',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5f903a0e699be_AVENTURES-HOBBIZER.jpg',
-        activities: []
+        activities: [6, 7]
     },
     {
         id: 7,
@@ -63,13 +63,13 @@ export const categories = [
         id: 11,
         title: 'Do it yourself',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5f9041f89aa84_DIY-HOBBIZER-2.jpg',
-        activities: [1]
+        activities: [1, 5]
     },
     {
         id: 12,
         title: 'Experiences insolites',
         image: 'https://hobbizer.com/media/cache/category_first_level/images/category/list/5fa0276a80d4d_ACTIVITE-INSOLITE-HOBBIZER.jpg',
-        activities: [1]
+        activities: [1, 5, 6, 7]
     },
     {
         id: 13,
@@ -78,3 +78,4 @@ export const categories = [
         activities: []
     }
 ]
+

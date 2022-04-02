@@ -14,8 +14,8 @@ const Programme = () => {
 
     return (
         <div className='mt-36 flex flex-col justify-center items-center'>
-            <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Your programme from <span className='text-hobbizer'>{startDate}</span> until <span className='text-hobbizer'>{endDate}</span></h2>
-            <p className='text-gray-500 mb-3 text-center'>Click on a time of the day and select your activities.</p>
+            <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{startDate}</span> au <span className='text-hobbizer'>{endDate}</span></h2>
+            <p className='text-gray-500 mb-3 text-center'>Cliquez sur une période de la journée et sélectionnez vos activités</p>
             {dateCtx.datesInterval.map(day => <DayContainer key={day} day={day} />)}
         </div>
     )

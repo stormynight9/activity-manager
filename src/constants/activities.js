@@ -76,7 +76,118 @@ export const activities = [
         <p>Vous n’aurez aucun préparatif à faire en amont, si ce n’est quelques répartis bien trouvés pour affronter <strong>l’humour décapant de Merouan</strong>&nbsp;!</p>`,
         practicalInfo: `<p>Le cours se déroulera sur ZOOM. Tous les détails vous seront envoyés pour assister au cours.</p><br />
         <p>Le prix comprend l'envoie de la boxe comprenant la liste des ingrédients et la bouteille de vin. Attention, cette option est valable pour les groupe de moins de 30 personnes.&nbsp;</p>`
+    },
+    {
+        id: 4,
+        title: 'Créez votre soin cosmétique en ligne',
+        duration: 60,
+        range: [5, 15],
+        location: 'Votre domicile',
+        price: 65,
+        time: ['morning', 'midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5f9c20ca3bdf3_ATELIER-HUILE-EN-LIGNE-HOBBIZER.jpg',
+        images: [
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f9ae298c2985_ATELIER-EN-LIGNE-HOBBIZER-TEAM-BUILDING-COSMETIQUE.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f9c1eed692c8_AROMATHERAPIE-ATELIER-HOBBIZER-TEAM-BUILDING.jpg'
+        ],
+        catchPhrase: 'Réalisez votre soin naturel en ligne pour corps, visage ou cheveux au choix.',
+        shortDescription: 'Apprenez les bases de la cosmétique naturelle et de l’aromathérapie au cours d’un atelier 100% en ligne et créez un soin unique.',
+        longDecription: `<p>Participez à un <strong>atelier en visio-conférence</strong> avec Nathalie qui vous formera sur les bases de la <strong>cosmétique naturelle</strong>&nbsp;et vous apprendra à créer un produit cosmétique sur-mesure à l’aide des produits que vous aurez préalablement reçus à votre domicile.</p><br/>
+
+        <p>Choisissez votre produit (le même pour tout le groupe) parmi un large choix&nbsp;: &nbsp;<strong>soin corps</strong>, baumes, <strong>soin cheveux</strong>, démaquillant, gommage, <strong>Roll-on déstressant</strong>, shampoing ou gel douche.</p><br/>
+        
+        <p><strong>Tout le matériel sera fourni et envoyé</strong> dans une box à chaque participant, directement à son domicile&nbsp;! &nbsp;Vous retrouverez également dans votre box un<strong> livre de recettes</strong> simples pour faire vos cosmétiques chez vous + un <strong>coton lavable et son pochon</strong> fait main de la superbe marque <u><a href="https://paulettezerodechet.com/la-boutique/">Paulette Zero Dechet</a></u>.</p>
+        `,
+        practicalInfo: `<p><strong>Atelier en ligne sur ZOOM</strong> (nous vous fournirons des explications détaillées pour vous connecter au cours)</p><br/>
+        <p><strong>Matériel fourni </strong>et envoyé à votre domicile + <strong>CADEAUX</strong></p><br/>
+        <p><strong>Personnalisation des flacons</strong> possible sur-devis</p>`
+    },
+    {
+        id: 5,
+        title: 'Dégustation de vin sous hyonose en visio',
+        duration: 60,
+        range: [2, 100],
+        location: 'En viso',
+        price: 50,
+        time: ['morning', 'midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5fbcf1853993b_DEGUSTATION-VIN-HYPNOSE-HOBBIZER.jpg',
+        images: [
+            'https://hobbizer.com/media/cache/activity/images/activity/list/5fbcf1853993b_DEGUSTATION-VIN-HYPNOSE-HOBBIZER.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fbcf1f2b59ed_VIN-HYPNOSE-HOBBIZER-TEAM-BUILDING.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fbcf22d3329b_VIN-HYPNOSE-INSOLITE-TEAM-BUILDING-HOBBIZER.jpg',
+        ],
+        catchPhrase: 'Participez à une expérience de dégustation hors du commun et 100% en ligne',
+        shortDescription: 'Oubliez le tourisme œnologique classique et venez réveiller des sensations et de nouveaux goûts à travers l’hypnose.',
+        longDecription: `<p>Vous êtes à la recherche de nouvelles découvertes surprenantes ? D'un&nbsp;<strong>team building original</strong> ou d'un <strong>cadeau client</strong> qui marquera les esprits ?&nbsp;</p><br/>
+        <p>Alors lâchez prise et&nbsp;laissez-vous embarquer dans une expérience unique : une <strong>dégustation de vin sous hypnose</strong>.</p><br/>
+        <p><strong>Recevez chez vous une box</strong> contenant une bouteille de vin et un QR code qui vous permettra d’accéder à une<strong> séance d’hypnose</strong> couplée à une <strong>dégustation guidée par une œnologue.</strong>&nbsp;</p><br/>
+        <p>Cette dégustation sous hypnose vous permettra d’exacerber vos sens et ainsi mieux apprécier les saveurs, les odeurs et les sensations de cette expérience.</p><br/>
+        <p>Vous n’avez donc rien à prévoir, laissez-vous juste transporter&nbsp;dans cette univers œnologique.&nbsp;</p>
+        <p>&nbsp;</p>`,
+        practicalInfo: `<p>Cette expérience est également possible avec une bouteille de <strong>champagne.</strong></p><br/>
+        <p>L’expérience se déroule via une vidéo enregistrée en amont pour vous permettre d’en profiter quand vous le souhaitez mais elle peut se dérouler en live sur demande.</p><br/>
+        <p><strong>Le prix comprend l’envoi de la bouteille de vin ou champagne et l’expérience en vidéo.</strong></p>`
+    },
+    {
+        id: 6,
+        title: 'En immerson avec les loups',
+        duration: 180,
+        range: [2, 20],
+        location: 'Région parsienne',
+        price: 120,
+        time: ['morning', 'afternoon', 'late afternoon', 'evening'],
+        coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5f9050ee9661f_BALADE-LOUP-HOBBIZER-FICHE.jpg',
+        images: [
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f90510e6a068_BALADE-LOUPS-HOBBIZER-3.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f90510522774_BALADE-LOUPS-HOBBIZER-2.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f9050fc5fc96_BALADE-LOUPS-HOBBIZER-1.jpg'
+        ],
+        catchPhrase: `Avez-vous déjà rêvé d'approcher un loup ?`,
+        shortDescription: 'Vous êtes-vous déjà demandé quelle sensation vous procurerait de marcher en compagnie d’une meute ? Ne manquez pas cette occasion unique de rencontrer le plus mythique des animaux sauvages peuplant nos forêts, et approchez-le comme nul part ailleurs !',
+        longDecription: `<p>La <strong>balade en immersion avec des loups</strong> est un concept inédit en France&nbsp;: au sein d’un <strong>centre de dressage dédié au cinéma</strong>, vous évoluerez au sein de ces animaux impressionnants dans un espace naturel sécurisé de 2 hectares.</p><br/>
+        <p>Après un <strong>petit déjeuner</strong> d’accueil, vous partirez à la rencontre des loups pour apprendre leurs tactiques d’approches, observer leurs jeux et leurs relations sociales. Vous visiterez ensuite le centre de dressage&nbsp;qui accueille une quarantaine d’espèces d’animaux.</p><br/>
+        <p>Cette expérience peut être organisée sur&nbsp;toute journée en incluant d’autres activités telle&nbsp;que<strong> l'initiation&nbsp;à l'art de la Fauconnerie</strong>.</p><br/>
+        <p>Nous pouvons également organiser sur demande une <strong>nuit dans un lodge</strong> au sein du centre de dressage au plus près des loups.</p>`,
+        practicalInfo: `<p><strong>INCLUS :&nbsp;</strong></p><br/>
+        <p>Petit déjeuner d'accueil</p><br/>
+        <p>Visite du centre de dressage</p><br/>
+        <p><strong>EN OPTION SUR DEVIS&nbsp;</strong></p><br/>
+        <p><strong>Privatisation des lieux</strong> pour votre groupe</p><br/>
+        <p>Organisation d'une<strong> réunion&nbsp;de travail</strong> (salle de réception disponible)</p><br/>
+        <p>Organisation d'un déjeuner et/ ou goûter&nbsp;</p><br/>
+        <p>Découverte des autres animaux du centre de dressage</p><br/>
+        <p>Initiation&nbsp;à l'art de la Fauconnerie&nbsp;</p><br/>
+        <p>Nuit avec les loups dans un hôtel</p><br/>
+        `
+    },
+    {
+        id: 7,
+        title: 'Observation des étoiles',
+        duration: 'Une nuit',
+        range: [4, 20],
+        location: 'Région parsienne',
+        price: 60,
+        time: ['night'],
+        coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5f998898b8bb5_ASTROBIVOUAC-HOBBIZER.jpg',
+        images: [
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fa02aabe47e2_ASTROBIVOUAC-HOBBIZER-EVG.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fa02ab86c20e_ASTROBIVOUAC-HOBBIZER-TEAM-BUILDING.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fa02ac86f721_ASTROBIVOUAC-AVENTURE-INSOLITE-HOBBIZER.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fa02ad82762c_AVENTURE-TEAM-BUILDING-HOBBIZER.jpg'
+        ],
+        catchPhrase: 'Découvrez l’astronomie en pleine nature avec un passionné !',
+        shortDescription: `Partez observer les étoiles en pleine nature et découvrez le ciel et l’univers avec un guide.`,
+        longDecription: `<p>L’aventure à 1h de Paris, c’est possible&nbsp;!</p><br/>
+        <p>Suivez Stephen à la découverte des meilleurs spots en forêt pour <strong>observer les étoiles</strong>.</p><br/>
+        <p>Après une petite<strong> randonnée</strong> accessible à tous, vous installerez votre<strong> bivouac</strong> pendant que votre guide préparera le <strong>télescope</strong>. En attendant que la nuit tombe, vous pourrez avec un guide aller à la découverte de la faune et la flore qui se trouve autour de vous.</p><br/>
+        <p>Ça y est&nbsp;! Il fait nuit&nbsp;noire&nbsp;! Tout est prêt&nbsp;? Le spectacle peut commencer&nbsp;: &nbsp;A tour de rôle, observez la magie qui opère en direct du ciel et comprenez ce qui se joue au-dessus de vos têtes.</p><br/>
+        <p>Une expérience unique à vivre tout près de chez vous&nbsp;!</p>`,
+        practicalInfo: `<p>Repas (autour du feu évidemment) inclus</p><br/>
+        <p><strong>Nous pouvons vous organisez au choix une nuit en bivouac ou une nuit en hotel.</strong></p><br/>
+        <p><strong>Nous pouvons vous louer l’ensemble du matériel </strong>indispensable au bivouac si vous n’êtes pas équipés</p><br/>
+        <p>Pour toute personnalisation de l’aventure, contactez-nous.</p>`
     }
+
+
+
 ]
-
-
