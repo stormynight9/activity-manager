@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/shared/Footer';
 import Navbar from './components/shared/Navbar';
 import CategoriesPage from './pages/CategoriesPage';
@@ -20,6 +20,7 @@ function App() {
         <Route path='/categories' element={<CategoriesPage />} />
         <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
         <Route path='/activities/:activityId' element={<ActivityPage />} />
+        <Route path='/*' element={<Navigate to='/' />} />
       </Routes>
       <Footer />
     </div>
