@@ -10,7 +10,6 @@ export const SelectedContextProvider = (props) => {
     const [selectedDay, setSelectedDay] = useState('')
     const [selectedTime, setSelectedTime] = useState('')
 
-    console.log(selectedDay, selectedTime)
 
     return (
         <SelectedContext.Provider value={{

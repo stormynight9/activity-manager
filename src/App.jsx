@@ -8,7 +8,10 @@ import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityPage from './pages/ActivityPage';
 
 function App() {
+
+
   return (
+
     <div className='bg-gray-50'>
       <Navbar />
       <Routes>
