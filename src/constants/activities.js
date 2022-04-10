@@ -112,9 +112,10 @@ export const activities = [
         time: ['morning', 'midday', 'afternoon', 'late afternoon', 'evening', 'night'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5fbcf1853993b_DEGUSTATION-VIN-HYPNOSE-HOBBIZER.jpg',
         images: [
-            'https://hobbizer.com/media/cache/activity/images/activity/list/5fbcf1853993b_DEGUSTATION-VIN-HYPNOSE-HOBBIZER.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/602e8848a315a_VIN-SOUS-HYPNOSE-VISIO-DEGUSTATION-TEAM-BUILDING.jpg',
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fbcf1f2b59ed_VIN-HYPNOSE-HOBBIZER-TEAM-BUILDING.jpg',
-            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fbcf22d3329b_VIN-HYPNOSE-INSOLITE-TEAM-BUILDING-HOBBIZER.jpg',
+            'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fbcf22d3329b_VIN-HYPNOSE-INSOLITE-TEAM-BUILDING-HOBBIZER.jpg'
+
         ],
         catchPhrase: 'Participez à une expérience de dégustation hors du commun et 100% en ligne',
         shortDescription: 'Oubliez le tourisme œnologique classique et venez réveiller des sensations et de nouveaux goûts à travers l’hypnose.',

@@ -24,7 +24,7 @@ const SwiperComponent = (props) => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        {props.images.map((image, idx) => (<SwiperSlide key={idx}><img src={image} alt="" /></SwiperSlide>))}
+        {props.images.map((image, idx) => (<SwiperSlide key={idx}><div><img className='object-cover' src={image} alt="" /></div></SwiperSlide>))}
 
       </Swiper>
     </div>

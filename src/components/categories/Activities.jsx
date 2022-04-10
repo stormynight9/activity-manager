@@ -1,18 +1,14 @@
-import { useEffect } from 'react'
-import { useParams, NavLink, Link, useNavigate, Navigate } from 'react-router-dom'
+import { useParams, NavLink, Link, Navigate } from 'react-router-dom'
 import { activities } from '../../constants/activities'
 import { categories } from '../../constants/categories'
 import Timeline from '../shared/Timeline'
 const Activities = () => {
-    const navigate = useNavigate()
     const { categoryId } = useParams()
     const category = categories.find(category => category.id === +categoryId)
     if (!category) {
 
         return <Navigate to="/categories" />
     }
-
-
 
 
     const activitiesByCategory = activities.filter(activity => category.activities.includes(activity.id))
@@ -46,3 +42,20 @@ const Activities = () => {
 }
 
 export default Activities
+
+/*
+// admin
+// prostateur de services
+// client
+
+table compte : backoffice
+                client
+                prostateur
+
+// reservation
+// galerie
+
+
+
+
+*/
