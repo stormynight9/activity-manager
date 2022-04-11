@@ -1,0 +1,15 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pagination ul {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination li:not(:first-child):not(:last-child) {
+    display: none;
+}
