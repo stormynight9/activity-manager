@@ -1,5 +1,6 @@
 import DayContainer from "./DayContainer"
 import dateContext from '../../context/date-context'
+import programmeContext from '../../context/programme-context'
 import { useContext, useState, useLayoutEffect, useEffect } from "react"
 import { format } from 'date-fns'
 import ReactPaginate from "react-paginate"
@@ -7,15 +8,16 @@ import './ProgrammeContainer.css'
 
 const Programme = () => {
     const dateCtx = useContext(dateContext)
-    const startDate = format(new Date(dateCtx.startDate), 'd MMM, yyyy')
-    const endDate = format(new Date(dateCtx.endDate), 'd MMM, yyyy')
+    const programmeCtx = useContext(programmeContext)
+    const startDate = programmeCtx.selectedStartDate && format(new Date(programmeCtx.selectedStartDate), 'd MMM, yyyy')
+    const endDate = programmeCtx.selectedEndDate && format(new Date(programmeCtx.selectedEndDate), 'd MMM, yyyy')
 
-    const [days, setDays] = useState(dateCtx.datesInterval.slice(0, dateCtx.datesInterval.length))
+    const [days, setDays] = useState(programmeCtx.datesInterval.slice(0, programmeCtx.datesInterval.length))
     const [pageNumber, setPageNumber] = useState(0)
     const [daysPerPage, setDaysperPage] = useState(4)
     const pagesVisited = pageNumber * daysPerPage
     const diplayDays = days.slice(pagesVisited, pagesVisited + daysPerPage).map(day => {
-        return <DayContainer key={day} day={day} />
+        return <DayContainer selected={day.selected} key={day.date} day={day.date} />
     })
     const pageCount = Math.ceil(days.length / daysPerPage)
 
@@ -38,23 +40,39 @@ const Programme = () => {
         }
     }, [screenWidth])
 
+    const firstSelectedIndex = days.findIndex(day => day.selected === true)
 
-    console.log(screenWidth)
+    // react-paginate intial page should has the first selected day
+    useEffect(() => {
+        if (firstSelectedIndex !== -1) {
+            setPageNumber(Math.floor(firstSelectedIndex / daysPerPage))
+        }
+    }, [firstSelectedIndex])
+
+
+
+
+
+
+
 
 
     return (
         <div className='mt-36 flex flex-col justify-center items-center'>
-            <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{startDate}</span> au <span className='text-hobbizer'>{endDate}</span></h2>
+            {startDate && endDate && <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{startDate}</span> au <span className='text-hobbizer'>{endDate}</span></h2>}
             <p className='text-gray-500 mb-3 text-center'>Cliquez sur une période de la journée et sélectionnez vos activités</p>
-            <ReactPaginate
-                previousLabel={"Previous"}
-                nextLabel={"Next"}
-                pageCount={pageCount}
-                onPageChange={({ selected }) => setPageNumber(selected)}
-                containerClassName={"pagination"}
-            />
-            <div className='flex'>
-                {diplayDays}
+            <div className='w-full sm:w-auto'>
+                <ReactPaginate
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={({ selected }) => setPageNumber(selected)}
+                    containerClassName={"pagination"}
+                    initialPage={pageNumber}
+                />
+                <div className='flex w-full'>
+                    {diplayDays}
+                </div>
             </div>
         </div>
     )

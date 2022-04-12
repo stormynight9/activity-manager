@@ -8,8 +8,9 @@ const dayContainer = (props) => {
 
 
     return (
-        <div className='flex-col w-full sm:max-w-fit '>
-            <div className=' flex justify-center  rounded-t-lg'>
+        <div className='flex-col w-full'>
+            <div className=' flex justify-center  rounded-t-lg mb-2'>
+                {String(props.selected)}
                 {props.day}
             </div>
             <div className='flex-col space-y-[8px] p-1  rounded-b-lg'>

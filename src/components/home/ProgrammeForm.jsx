@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import addDays from "date-fns/addDays";
 import { format } from "date-fns";
 import './ProgrammeForm.css'
-import dateContext from '../../context/date-context'
+import programmeContext from '../../context/programme-context'
 
 
 const ProgrammeForm = () => {
@@ -15,8 +15,10 @@ const ProgrammeForm = () => {
     const [maxDate, setMaxDate] = useState(addDays(new Date(), 30))
     const [startDateInput, setStartDateInput] = useState()
     const [endDateInput, setEndDateInput] = useState()
-    const dateCtx = useContext(dateContext)
+    const programmeCtx = useContext(programmeContext)
     const navigate = useNavigate();
+
+
 
     const StartDatejsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col sm:border-r-2 sm:px-6 w-full mb-4 sm:mb-0'>
@@ -50,7 +52,7 @@ const ProgrammeForm = () => {
                         <div className='flex flex-col sm:border-r-2 sm:pr-6 w-full mb-4 sm:mb-0'>
                             <label className='text-sm  text-hobbizer' htmlFor='participants'>Number of participants</label>
                             <div className='flex relative items-center '>
-                                <input onChange={e => dateCtx.setParticipants(e.target.value)} max={99} min={1} className='relative h-12  pr-8 bg-transparent border sm:text-center text-lg border-white outline-none text-gray-900  rounded-lg  focus:border-hobbizer  block w-full p-2.5' type='number' id='participants' placeholder="0" />
+                                <input onChange={e => programmeCtx.setParticipants(e.target.value)} max={99} min={1} className='relative h-12  pr-8 bg-transparent border sm:text-center text-lg border-white outline-none text-gray-900  rounded-lg  focus:border-hobbizer  block w-full p-2.5' type='number' id='participants' placeholder="0" />
                                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute text-gray-400 right-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
@@ -62,7 +64,7 @@ const ProgrammeForm = () => {
                             onChange={(date) => {
                                 setStartDate(date)
                                 setMinDate(date)
-                                dateCtx.setStartDate(format(date, "yyyy-MM-dd"))
+                                programmeCtx.setSelectedStartDate(format(date, 'EEEE d MMM, yyyy'))
                             }}
                             selectsStart
                             startDate={startDate}
@@ -78,7 +80,7 @@ const ProgrammeForm = () => {
                             onChange={(date) => {
                                 setEndDate(date)
                                 setMaxDate(date)
-                                dateCtx.setEndDate(format(date, "yyyy-MM-dd"))
+                                programmeCtx.setSelectedEndDate(format(date, 'EEEE d MMM, yyyy'))
                             }}
                             selectsEnd
                             startDate={startDate}
