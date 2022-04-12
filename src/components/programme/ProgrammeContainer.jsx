@@ -4,6 +4,8 @@ import { useContext, useState, useLayoutEffect, useEffect } from "react"
 import { format } from 'date-fns'
 import ReactPaginate from "react-paginate"
 import './ProgrammeContainer.css'
+import { FaChevronLeft } from 'react-icons/fa'
+import { FaChevronRight } from 'react-icons/fa'
 
 const Programme = () => {
     const dateCtx = useContext(dateContext)
@@ -17,7 +19,7 @@ const Programme = () => {
     const diplayDays = days.slice(pagesVisited, pagesVisited + daysPerPage).map(day => {
         return <DayContainer key={day} day={day} />
     })
-    const pageCount = Math.ceil(days.length / daysPerPage)
+    const [pageCount, setPageCount] = useState(Math.ceil(days.length / daysPerPage))
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     useLayoutEffect(() => {
@@ -31,30 +33,39 @@ const Programme = () => {
     useEffect(() => {
         if (screenWidth > 1170) {
             setDaysperPage(4)
+            setPageNumber(0)
+            setPageCount(Math.ceil(days.length / daysPerPage))
         } else if (screenWidth > 767) {
             setDaysperPage(3)
-        } else {
+            setPageNumber(0)
+            setPageCount(Math.ceil(days.length / daysPerPage))
+        } else if (screenWidth < 767) {
             setDaysperPage(2)
+            setPageNumber(0)
+            setPageCount(Math.ceil(days.length / daysPerPage))
         }
     }, [screenWidth])
 
+    console.log(pageCount)
 
-    console.log(screenWidth)
 
 
     return (
         <div className='mt-36 flex flex-col justify-center items-center'>
             <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{startDate}</span> au <span className='text-hobbizer'>{endDate}</span></h2>
-            <p className='text-gray-500 mb-3 text-center'>Cliquez sur une période de la journée et sélectionnez vos activités</p>
-            <ReactPaginate
-                previousLabel={"Previous"}
-                nextLabel={"Next"}
-                pageCount={pageCount}
-                onPageChange={({ selected }) => setPageNumber(selected)}
-                containerClassName={"pagination"}
-            />
-            <div className='flex'>
-                {diplayDays}
+            <p className='text-gray-500 mb-8 text-center'>Cliquez sur une période de la journée et sélectionnez vos activités</p>
+            <div className='w-full sm:w-auto relative'>
+                <ReactPaginate
+                    previousLabel={<FaChevronLeft className='text-hobbizer text-xl' />}
+                    nextLabel={<FaChevronRight className='text-hobbizer text-xl' />}
+                    pageCount={pageCount}
+                    onPageChange={({ selected }) => setPageNumber(selected)}
+                    containerClassName={"pagination"}
+                    forcePage={pageNumber}
+                />
+                <div className='flex'>
+                    {diplayDays}
+                </div>
             </div>
         </div>
     )

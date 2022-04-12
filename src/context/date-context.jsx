@@ -25,7 +25,7 @@ export const DateContextProvider = (props) => {
             const end = new Date(endDate)
             const dates = []
             while (start <= end) {
-                dates.push(format(start, 'EEEE d MMM, yyyy'))
+                dates.push(format(start, 'EE d MMM, yyyy'))
                 start.setDate(start.getDate() + 1)
             }
             setDatesInterval(dates)
