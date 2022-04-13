@@ -9,15 +9,8 @@ const Navbar = () => {
     const [state, setState] = useState(false)
     const navRef = useRef()
 
-    // Replace javascript:void(0) path with your path
-    const navigation = [
-        { title: "Customers", path: "javascript:void(0)" },
-        { title: "Careers", path: "javascript:void(0)" },
-        { title: "Guides", path: "javascript:void(0)" },
-        { title: "Partners", path: "javascript:void(0)" },
-        { title: "Teams", path: "javascript:void(0)" },
-        { title: "Blog", path: "javascript:void(0)" }
-    ]
+
+
 
     const modalCtx = useContext(ModalContext)
 
@@ -60,19 +53,19 @@ const Navbar = () => {
                     <div>
                         <ul className="flex flex-col-reverse space-x-0 md:space-x-6 md:flex-row">
                             <li className="mt-4 md:mt-0">
-                                <a href="javascript:void(0)" className="py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
+                                <button className="py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
                                     How it works
-                                </a>
+                                </button>
                             </li>
                             <li className="mt-4 md:mt-0">
-                                <a href="javascript:void(0)" onClick={() => modalHandler(<Login />)} className="py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                <button onClick={() => modalHandler(<Login />)} className="py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Login
-                                </a>
+                                </button>
                             </li>
                             <li className="mt-8 md:mt-0">
-                                <a href="javascript:void(0)" onClick={() => modalHandler(<Register />)} className="py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
+                                <button onClick={() => modalHandler(<Register />)} className="py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
                                     Sign Up
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>

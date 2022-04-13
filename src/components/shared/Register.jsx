@@ -45,7 +45,7 @@ const Register = () => {
                     <button type='submit' className='w-1/2 text-2xl text-white border rounded-md inline-flex justify-center   duration-300 font-medium   px-5 py-2.5 text-center hover:shadow'><FcGoogle /></button>
                 </div>
                 <div className='text-sm font-medium text-gray-500 '>
-                    Already registered? <a onClick={() => modalCtx.setModalContent(<Login />)} href='#' className='text-hobbizer hover:underline '>Login</a>
+                    Already registered? <a onClick={() => modalCtx.setModalContent(<Login />)} href='\#' className='text-hobbizer hover:underline '>Login</a>
                 </div>
             </form>
         </div>

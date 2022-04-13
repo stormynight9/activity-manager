@@ -38,7 +38,7 @@ const Login = () => {
                             <label htmlFor='remember' className='font-medium text-gray-900 '>Remember me</label>
                         </div>
                     </div>
-                    <a href='#' className='text-sm text-hobbizer hover:underline '>Lost Password?</a>
+                    <a href='\#' className='text-sm text-hobbizer hover:underline '>Lost Password?</a>
                 </div>
                 <button type='submit' className='w-full text-white bg-hobbizer  hover:bg-hobbizer-dark  duration-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center '>Login to your account</button>
                 <div className='grid grid-cols-3 gap-0 mb-6'>
@@ -51,7 +51,7 @@ const Login = () => {
                     <button type='submit' className='w-1/2 text-2xl text-white border rounded-md inline-flex justify-center   duration-300 font-medium   px-5 py-2.5 text-center hover:shadow'><FcGoogle /></button>
                 </div>
                 <div className='text-sm font-medium text-gray-500 '>
-                    Not registered? <a onClick={() => modalCtx.setModalContent(<Register />)} href='#' className='text-hobbizer hover:underline '>Create account</a>
+                    Not registered? <a onClick={() => modalCtx.setModalContent(<Register />)} href='\#' className='text-hobbizer hover:underline '>Create account</a>
                 </div>
             </form>
         </div>
