@@ -46,12 +46,12 @@ export const activities = [
         ],
         catchPhrase: 'Panique à l’Accor Hôtel Arena ! Qui a tué Tabatina Fox ?',
         shortDescription: 'Participez à une enquête policière immersive complétement déjantée et élucidez un meurtre qui vient d’avoir lieu dans l’une des plus célèbres salles de spectacles parisiennes.',
-        longDecription: `<p>Vous avez toujours rêvé de participer à une <strong>enquête&nbsp;policière</strong> ? C’est possible grâce à notre&nbsp;<strong>murder party</strong> complètement déjantée à vivre<strong> en ligne depuis chez vous</strong> !</p><br />
-        <p>Votre mission ? <strong>Enquêter&nbsp;avec votre équipe</strong> sur la <strong>disparition inquiétante d'une grande chanteuse</strong> française&nbsp;retrouvée morte dans sa loge de l’Accor Hôtel Arena....une drôle de mise en scène a été élaborée et la police à l'air de ramer un peu. Elle a clairement besoin de vous !&nbsp;&nbsp;</p><br />
-        <p>Vous allez devoir <strong>tour à tour interroger quatre suspects tous plus fous les uns que les autres</strong> interprétés par des <strong>comédiens professionnels</strong> qui interagiront en live avec vous.</p><br />
-        <p>Débriefez avec votre équipe, trouvez le coupable&nbsp;et soyez le grand gagnant de notre murder party !&nbsp;</p><br />
-        <p>Serez-vous à la hauteur pour relever ce défi&nbsp;?<strong> Les fans de TABATINA&nbsp;FOX comptent sur vous !&nbsp;</strong></p><br />`,
-        practicalInfo: `<p>Pour mener l’enquête, vous serez accompagné de 4 comédiens au talent fou qui interagiront avec vous en direct&nbsp;!</p><br />
+        longDecription: `<p>Vous avez toujours rêvé de participer à une <strong>enquête&nbsp;policière</strong> ? C’est possible grâce à notre&nbsp;<strong>murder party</strong> complètement déjantée à vivre<strong> en ligne depuis chez vous</strong> !</p>
+        <p>Votre mission ? <strong>Enquêter&nbsp;avec votre équipe</strong> sur la <strong>disparition inquiétante d'une grande chanteuse</strong> française&nbsp;retrouvée morte dans sa loge de l’Accor Hôtel Arena....une drôle de mise en scène a été élaborée et la police à l'air de ramer un peu. Elle a clairement besoin de vous !&nbsp;&nbsp;</p>
+        <p>Vous allez devoir <strong>tour à tour interroger quatre suspects tous plus fous les uns que les autres</strong> interprétés par des <strong>comédiens professionnels</strong> qui interagiront en live avec vous.</p>
+        <p>Débriefez avec votre équipe, trouvez le coupable&nbsp;et soyez le grand gagnant de notre murder party !&nbsp;</p>
+        <p>Serez-vous à la hauteur pour relever ce défi&nbsp;?<strong> Les fans de TABATINA&nbsp;FOX comptent sur vous !&nbsp;</strong></p>`,
+        practicalInfo: `<p>Pour mener l’enquête, vous serez accompagné de 4 comédiens au talent fou qui interagiront avec vous en direct&nbsp;!</p>
         <p>Cette murder party se déroulera sur ZOOM, tous les détails vous seront envoyés pour que vous puissiez y assister facilement.</p>`
     },
     {
@@ -70,11 +70,11 @@ export const activities = [
         ],
         catchPhrase: 'Prenez un cours de cuisine original et décalé 100% en ligne !',
         shortDescription: 'Préparez-vous à assister à un cours de cuisine unique et fou avec le chef Merouan (Top Chef, Le Meilleur Pâtissier).',
-        longDecription: `<p>Qui a dit qu’on ne pouvait pas rigoler en cuisinant&nbsp;? Chez Hobbizer, on a envie de vous prouver le contraire&nbsp;!</p><br />
-        <p>Prenez un<strong> chef impertinent</strong> et <strong>drôle </strong>d’un côté, une bonne connexion Internet de l’autre, et c’est parti pour un <strong>cours de cuisine totalement fou</strong>.</p><br />
-        <p>Après avoir validé ensemble une recette simple qui plaira à tout votre groupe, <strong>vous recevrez en amont de l’atelier une boxe contenant la&nbsp;liste des ingrédients&nbsp;</strong>&nbsp;indispensables à sa bonne réalisation, <strong>une bouteille de vin</strong> pour accompagner votre repas et quelques <strong>surprises</strong>.&nbsp;</p><br />
+        longDecription: `<p>Qui a dit qu’on ne pouvait pas rigoler en cuisinant&nbsp;? Chez Hobbizer, on a envie de vous prouver le contraire&nbsp;!</p>
+        <p>Prenez un<strong> chef impertinent</strong> et <strong>drôle </strong>d’un côté, une bonne connexion Internet de l’autre, et c’est parti pour un <strong>cours de cuisine totalement fou</strong>.</p>
+        <p>Après avoir validé ensemble une recette simple qui plaira à tout votre groupe, <strong>vous recevrez en amont de l’atelier une boxe contenant la&nbsp;liste des ingrédients&nbsp;</strong>&nbsp;indispensables à sa bonne réalisation, <strong>une bouteille de vin</strong> pour accompagner votre repas et quelques <strong>surprises</strong>.&nbsp;</p>
         <p>Vous n’aurez aucun préparatif à faire en amont, si ce n’est quelques répartis bien trouvés pour affronter <strong>l’humour décapant de Merouan</strong>&nbsp;!</p>`,
-        practicalInfo: `<p>Le cours se déroulera sur ZOOM. Tous les détails vous seront envoyés pour assister au cours.</p><br />
+        practicalInfo: `<p>Le cours se déroulera sur ZOOM. Tous les détails vous seront envoyés pour assister au cours.</p>
         <p>Le prix comprend l'envoie de la boxe comprenant la liste des ingrédients et la bouteille de vin. Attention, cette option est valable pour les groupe de moins de 30 personnes.&nbsp;</p>`
     },
     {
@@ -92,14 +92,14 @@ export const activities = [
         ],
         catchPhrase: 'Réalisez votre soin naturel en ligne pour corps, visage ou cheveux au choix.',
         shortDescription: 'Apprenez les bases de la cosmétique naturelle et de l’aromathérapie au cours d’un atelier 100% en ligne et créez un soin unique.',
-        longDecription: `<p>Participez à un <strong>atelier en visio-conférence</strong> avec Nathalie qui vous formera sur les bases de la <strong>cosmétique naturelle</strong>&nbsp;et vous apprendra à créer un produit cosmétique sur-mesure à l’aide des produits que vous aurez préalablement reçus à votre domicile.</p><br/>
+        longDecription: `<p>Participez à un <strong>atelier en visio-conférence</strong> avec Nathalie qui vous formera sur les bases de la <strong>cosmétique naturelle</strong>&nbsp;et vous apprendra à créer un produit cosmétique sur-mesure à l’aide des produits que vous aurez préalablement reçus à votre domicile.</p>
 
-        <p>Choisissez votre produit (le même pour tout le groupe) parmi un large choix&nbsp;: &nbsp;<strong>soin corps</strong>, baumes, <strong>soin cheveux</strong>, démaquillant, gommage, <strong>Roll-on déstressant</strong>, shampoing ou gel douche.</p><br/>
+        <p>Choisissez votre produit (le même pour tout le groupe) parmi un large choix&nbsp;: &nbsp;<strong>soin corps</strong>, baumes, <strong>soin cheveux</strong>, démaquillant, gommage, <strong>Roll-on déstressant</strong>, shampoing ou gel douche.</p>
         
         <p><strong>Tout le matériel sera fourni et envoyé</strong> dans une box à chaque participant, directement à son domicile&nbsp;! &nbsp;Vous retrouverez également dans votre box un<strong> livre de recettes</strong> simples pour faire vos cosmétiques chez vous + un <strong>coton lavable et son pochon</strong> fait main de la superbe marque <u><a href="https://paulettezerodechet.com/la-boutique/">Paulette Zero Dechet</a></u>.</p>
         `,
-        practicalInfo: `<p><strong>Atelier en ligne sur ZOOM</strong> (nous vous fournirons des explications détaillées pour vous connecter au cours)</p><br/>
-        <p><strong>Matériel fourni </strong>et envoyé à votre domicile + <strong>CADEAUX</strong></p><br/>
+        practicalInfo: `<p><strong>Atelier en ligne sur ZOOM</strong> (nous vous fournirons des explications détaillées pour vous connecter au cours)</p>
+        <p><strong>Matériel fourni </strong>et envoyé à votre domicile + <strong>CADEAUX</strong></p>
         <p><strong>Personnalisation des flacons</strong> possible sur-devis</p>`
     },
     {
@@ -119,14 +119,14 @@ export const activities = [
         ],
         catchPhrase: 'Participez à une expérience de dégustation hors du commun et 100% en ligne',
         shortDescription: 'Oubliez le tourisme œnologique classique et venez réveiller des sensations et de nouveaux goûts à travers l’hypnose.',
-        longDecription: `<p>Vous êtes à la recherche de nouvelles découvertes surprenantes ? D'un&nbsp;<strong>team building original</strong> ou d'un <strong>cadeau client</strong> qui marquera les esprits ?&nbsp;</p><br/>
-        <p>Alors lâchez prise et&nbsp;laissez-vous embarquer dans une expérience unique : une <strong>dégustation de vin sous hypnose</strong>.</p><br/>
-        <p><strong>Recevez chez vous une box</strong> contenant une bouteille de vin et un QR code qui vous permettra d’accéder à une<strong> séance d’hypnose</strong> couplée à une <strong>dégustation guidée par une œnologue.</strong>&nbsp;</p><br/>
-        <p>Cette dégustation sous hypnose vous permettra d’exacerber vos sens et ainsi mieux apprécier les saveurs, les odeurs et les sensations de cette expérience.</p><br/>
+        longDecription: `<p>Vous êtes à la recherche de nouvelles découvertes surprenantes ? D'un&nbsp;<strong>team building original</strong> ou d'un <strong>cadeau client</strong> qui marquera les esprits ?&nbsp;</p>
+        <p>Alors lâchez prise et&nbsp;laissez-vous embarquer dans une expérience unique : une <strong>dégustation de vin sous hypnose</strong>.</p>
+        <p><strong>Recevez chez vous une box</strong> contenant une bouteille de vin et un QR code qui vous permettra d’accéder à une<strong> séance d’hypnose</strong> couplée à une <strong>dégustation guidée par une œnologue.</strong>&nbsp;</p>
+        <p>Cette dégustation sous hypnose vous permettra d’exacerber vos sens et ainsi mieux apprécier les saveurs, les odeurs et les sensations de cette expérience.</p>
         <p>Vous n’avez donc rien à prévoir, laissez-vous juste transporter&nbsp;dans cette univers œnologique.&nbsp;</p>
         <p>&nbsp;</p>`,
-        practicalInfo: `<p>Cette expérience est également possible avec une bouteille de <strong>champagne.</strong></p><br/>
-        <p>L’expérience se déroule via une vidéo enregistrée en amont pour vous permettre d’en profiter quand vous le souhaitez mais elle peut se dérouler en live sur demande.</p><br/>
+        practicalInfo: `<p>Cette expérience est également possible avec une bouteille de <strong>champagne.</strong></p>
+        <p>L’expérience se déroule via une vidéo enregistrée en amont pour vous permettre d’en profiter quand vous le souhaitez mais elle peut se dérouler en live sur demande.</p>
         <p><strong>Le prix comprend l’envoi de la bouteille de vin ou champagne et l’expérience en vidéo.</strong></p>`
     },
     {
@@ -145,20 +145,20 @@ export const activities = [
         ],
         catchPhrase: `Avez-vous déjà rêvé d'approcher un loup ?`,
         shortDescription: 'Vous êtes-vous déjà demandé quelle sensation vous procurerait de marcher en compagnie d’une meute ? Ne manquez pas cette occasion unique de rencontrer le plus mythique des animaux sauvages peuplant nos forêts, et approchez-le comme nul part ailleurs !',
-        longDecription: `<p>La <strong>balade en immersion avec des loups</strong> est un concept inédit en France&nbsp;: au sein d’un <strong>centre de dressage dédié au cinéma</strong>, vous évoluerez au sein de ces animaux impressionnants dans un espace naturel sécurisé de 2 hectares.</p><br/>
-        <p>Après un <strong>petit déjeuner</strong> d’accueil, vous partirez à la rencontre des loups pour apprendre leurs tactiques d’approches, observer leurs jeux et leurs relations sociales. Vous visiterez ensuite le centre de dressage&nbsp;qui accueille une quarantaine d’espèces d’animaux.</p><br/>
-        <p>Cette expérience peut être organisée sur&nbsp;toute journée en incluant d’autres activités telle&nbsp;que<strong> l'initiation&nbsp;à l'art de la Fauconnerie</strong>.</p><br/>
+        longDecription: `<p>La <strong>balade en immersion avec des loups</strong> est un concept inédit en France&nbsp;: au sein d’un <strong>centre de dressage dédié au cinéma</strong>, vous évoluerez au sein de ces animaux impressionnants dans un espace naturel sécurisé de 2 hectares.</p>
+        <p>Après un <strong>petit déjeuner</strong> d’accueil, vous partirez à la rencontre des loups pour apprendre leurs tactiques d’approches, observer leurs jeux et leurs relations sociales. Vous visiterez ensuite le centre de dressage&nbsp;qui accueille une quarantaine d’espèces d’animaux.</p>
+        <p>Cette expérience peut être organisée sur&nbsp;toute journée en incluant d’autres activités telle&nbsp;que<strong> l'initiation&nbsp;à l'art de la Fauconnerie</strong>.</p>
         <p>Nous pouvons également organiser sur demande une <strong>nuit dans un lodge</strong> au sein du centre de dressage au plus près des loups.</p>`,
-        practicalInfo: `<p><strong>INCLUS :&nbsp;</strong></p><br/>
-        <p>Petit déjeuner d'accueil</p><br/>
-        <p>Visite du centre de dressage</p><br/>
-        <p><strong>EN OPTION SUR DEVIS&nbsp;</strong></p><br/>
-        <p><strong>Privatisation des lieux</strong> pour votre groupe</p><br/>
-        <p>Organisation d'une<strong> réunion&nbsp;de travail</strong> (salle de réception disponible)</p><br/>
-        <p>Organisation d'un déjeuner et/ ou goûter&nbsp;</p><br/>
-        <p>Découverte des autres animaux du centre de dressage</p><br/>
-        <p>Initiation&nbsp;à l'art de la Fauconnerie&nbsp;</p><br/>
-        <p>Nuit avec les loups dans un hôtel</p><br/>
+        practicalInfo: `<p><strong>INCLUS :&nbsp;</strong></p>
+        <p>Petit déjeuner d'accueil</p>
+        <p>Visite du centre de dressage</p>
+        <p><strong>EN OPTION SUR DEVIS&nbsp;</strong></p>
+        <p><strong>Privatisation des lieux</strong> pour votre groupe</p>
+        <p>Organisation d'une<strong> réunion&nbsp;de travail</strong> (salle de réception disponible)</p>
+        <p>Organisation d'un déjeuner et/ ou goûter&nbsp;</p>
+        <p>Découverte des autres animaux du centre de dressage</p>
+        <p>Initiation&nbsp;à l'art de la Fauconnerie&nbsp;</p>
+        <p>Nuit avec les loups dans un hôtel</p>
         `
     },
     {
@@ -178,14 +178,14 @@ export const activities = [
         ],
         catchPhrase: 'Découvrez l’astronomie en pleine nature avec un passionné !',
         shortDescription: `Partez observer les étoiles en pleine nature et découvrez le ciel et l’univers avec un guide.`,
-        longDecription: `<p>L’aventure à 1h de Paris, c’est possible&nbsp;!</p><br/>
-        <p>Suivez Stephen à la découverte des meilleurs spots en forêt pour <strong>observer les étoiles</strong>.</p><br/>
-        <p>Après une petite<strong> randonnée</strong> accessible à tous, vous installerez votre<strong> bivouac</strong> pendant que votre guide préparera le <strong>télescope</strong>. En attendant que la nuit tombe, vous pourrez avec un guide aller à la découverte de la faune et la flore qui se trouve autour de vous.</p><br/>
-        <p>Ça y est&nbsp;! Il fait nuit&nbsp;noire&nbsp;! Tout est prêt&nbsp;? Le spectacle peut commencer&nbsp;: &nbsp;A tour de rôle, observez la magie qui opère en direct du ciel et comprenez ce qui se joue au-dessus de vos têtes.</p><br/>
+        longDecription: `<p>L’aventure à 1h de Paris, c’est possible&nbsp;!</p>
+        <p>Suivez Stephen à la découverte des meilleurs spots en forêt pour <strong>observer les étoiles</strong>.</p>
+        <p>Après une petite<strong> randonnée</strong> accessible à tous, vous installerez votre<strong> bivouac</strong> pendant que votre guide préparera le <strong>télescope</strong>. En attendant que la nuit tombe, vous pourrez avec un guide aller à la découverte de la faune et la flore qui se trouve autour de vous.</p>
+        <p>Ça y est&nbsp;! Il fait nuit&nbsp;noire&nbsp;! Tout est prêt&nbsp;? Le spectacle peut commencer&nbsp;: &nbsp;A tour de rôle, observez la magie qui opère en direct du ciel et comprenez ce qui se joue au-dessus de vos têtes.</p>
         <p>Une expérience unique à vivre tout près de chez vous&nbsp;!</p>`,
-        practicalInfo: `<p>Repas (autour du feu évidemment) inclus</p><br/>
-        <p><strong>Nous pouvons vous organisez au choix une nuit en bivouac ou une nuit en hotel.</strong></p><br/>
-        <p><strong>Nous pouvons vous louer l’ensemble du matériel </strong>indispensable au bivouac si vous n’êtes pas équipés</p><br/>
+        practicalInfo: `<p>Repas (autour du feu évidemment) inclus</p>
+        <p><strong>Nous pouvons vous organisez au choix une nuit en bivouac ou une nuit en hotel.</strong></p>
+        <p><strong>Nous pouvons vous louer l’ensemble du matériel </strong>indispensable au bivouac si vous n’êtes pas équipés</p>
         <p>Pour toute personnalisation de l’aventure, contactez-nous.</p>`
     }
 

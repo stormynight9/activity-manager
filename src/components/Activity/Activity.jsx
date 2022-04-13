@@ -21,13 +21,13 @@ const Activity = () => {
         <div className='mt-36 p-2 '>
             <div className='max-w-2xl lg:max-w-6xl mx-auto'>
                 <h1 className='text-2xl uppercase'>{activity.title}</h1>
-                <div className='border-2 p-1 lg:flex mb-16'>
+                <div className='border-2 p-1 lg:flex'>
                     <SwiperComponent images={activity.images} />
                     <div className='p-3'>
                         <h2 className='text-base font-semibold mb-2'>{activity.catchPhrase}</h2>
                         <p>{activity.shortDescription}</p>
-                        <a className='block text-right text-sm underline text-hobbizer mt-2 pb-4 mb-2 border-b-2' href="#">Descriptif détaillé</a>
-                        <ul>
+                        <a className='block text-right text-sm underline text-hobbizer mt-2 pb-4 mb-2 border-b-2' href='#description'>Descriptif détaillé</a>
+                        <ul className='mt-4'>
                             <li className='flex items-center gap-1 mb-2'>
                                 <FaHourglassHalf className='text-hobbizer text-xl' />
                                 <span className='text-sm'>L'activité dure {activity.duration} mins</span>
@@ -43,10 +43,11 @@ const Activity = () => {
                         </ul>
                     </div>
                 </div>
-                <h3 className='text-hobbizer text-xl mb-1'>Description détaillée de l'activité</h3>
-                <div className='leading-7 text-sm'>{parse(activity.longDecription)}</div>
-                <h3 className='text-hobbizer text-xl mb-1 mt-7'>Informations pratiques</h3>
-                <div className='leading-7 text-sm'>{parse(activity.practicalInfo)}</div>
+                <h3 className="text-hobbizer text-xl mb-2 mt-16 before:content[''] before:block before:h-24 before:-mt-24 before:invisible" id='description'>Description détaillée de l'activité</h3>
+                <div className='leading-7 text-sm' >{parse(activity.longDecription)}</div>
+                <h3 className='text-hobbizer text-xl mb-2 mt-7'>Informations pratiques</h3>
+                <div className='leading-7 text-sm mb-20'>{parse(activity.practicalInfo)}</div>
+
 
             </div>
         </div>
