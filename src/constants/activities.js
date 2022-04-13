@@ -164,7 +164,7 @@ export const activities = [
     {
         id: 7,
         title: 'Observation des étoiles',
-        duration: 'Une nuit',
+        duration: 'une nuit',
         range: [4, 20],
         location: 'Région parsienne',
         price: 60,

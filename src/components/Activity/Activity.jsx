@@ -15,7 +15,20 @@ const Activity = () => {
         return <Navigate to="/categories" />
     }
 
+    // convert minutes to hours and minutes and if minutes are 0 then remove the minutes from the string
+    const convertMinutesToHours = (minutes) => {
+        // check if minutes can be coverted to numbrer
+        if (isNaN(minutes)) {
+            return minutes
+        }
 
+        const hours = Math.floor(minutes / 60)
+        const minutesLeft = minutes % 60
+        if (minutesLeft === 0) {
+            return `${hours}h`
+        }
+        return `${hours}h${minutesLeft}`
+    }
 
     return (
         <div className='mt-36 p-2 '>
@@ -30,7 +43,7 @@ const Activity = () => {
                         <ul className='mt-4'>
                             <li className='flex items-center gap-1 mb-2'>
                                 <FaHourglassHalf className='text-hobbizer text-xl' />
-                                <span className='text-sm'>L'activité dure {activity.duration} mins</span>
+                                <span className='text-sm'>L'activité dure {convertMinutesToHours(activity.duration)}</span>
                             </li>
                             <li className='flex items-center gap-1 mb-2'>
                                 <IoIosPeople className='text-hobbizer text-xl' />
