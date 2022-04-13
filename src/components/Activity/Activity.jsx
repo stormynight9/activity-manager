@@ -4,6 +4,7 @@ import { activities } from "../../constants/activities"
 import { FaHourglassHalf } from 'react-icons/fa'
 import { IoIosPeople } from 'react-icons/io'
 import { MdLocationOn } from 'react-icons/md'
+import parse from 'html-react-parser'
 
 const Activity = () => {
     const { activityId } = useParams()
@@ -20,7 +21,7 @@ const Activity = () => {
         <div className='mt-36 p-2 '>
             <div className='max-w-2xl lg:max-w-6xl mx-auto'>
                 <h1 className='text-2xl uppercase'>{activity.title}</h1>
-                <div className='border-2 p-1 lg:flex'>
+                <div className='border-2 p-1 lg:flex mb-16'>
                     <SwiperComponent images={activity.images} />
                     <div className='p-3'>
                         <h2 className='text-base font-semibold mb-2'>{activity.catchPhrase}</h2>
@@ -42,6 +43,11 @@ const Activity = () => {
                         </ul>
                     </div>
                 </div>
+                <h3 className='text-hobbizer text-xl mb-1'>Description détaillée de l'activité</h3>
+                <div className='leading-7 text-sm'>{parse(activity.longDecription)}</div>
+                <h3 className='text-hobbizer text-xl mb-1 mt-7'>Informations pratiques</h3>
+                <div className='leading-7 text-sm'>{parse(activity.practicalInfo)}</div>
+
             </div>
         </div>
     )
