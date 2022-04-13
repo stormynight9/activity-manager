@@ -1,7 +1,7 @@
 export const activities = [
     {
         id: 1,
-        title: 'Degustation interactive de vins',
+        title: 'Dégustation interactive de vins',
         duration: 60,
         range: [2, 100],
         location: 'En visio',

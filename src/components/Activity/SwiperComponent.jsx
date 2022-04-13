@@ -12,7 +12,7 @@ import { Pagination, Navigation } from "swiper";
 
 const SwiperComponent = (props) => {
   return (
-    <div className='mt-36 max-w-3xl max-h-96'>
+    <div className='max-w-2xl max-h-96'>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}

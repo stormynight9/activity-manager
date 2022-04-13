@@ -1,5 +1,5 @@
 import { forwardRef, useContext, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import addDays from "date-fns/addDays";
@@ -50,7 +50,7 @@ const ProgrammeForm = () => {
         if (startDateToForward && endDateToForward) {
             dateCtx.setStartDate(() => startDateToForward)
             dateCtx.setEndDate(() => endDateToForward)
-            setTimeout(() => navigate('/programme'), 100)
+            setTimeout(() => navigate('/programme'), 10)
         }
     }
 
