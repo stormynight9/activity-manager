@@ -46,7 +46,6 @@ const Programme = () => {
         }
     }, [screenWidth])
 
-    console.log(pageCount)
 
 
 
