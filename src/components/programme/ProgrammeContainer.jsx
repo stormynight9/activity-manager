@@ -60,6 +60,7 @@ const Programme = () => {
                     pageCount={pageCount}
                     onPageChange={({ selected }) => setPageNumber(selected)}
                     containerClassName={"pagination"}
+                    disabledClassName={"disabled"}
                     forcePage={pageNumber}
                 />
                 <div className='flex'>
