@@ -26,9 +26,11 @@ const Activity = () => {
         return <Navigate to="/categories" />
     }
 
+    // use activity id to get time array property
+
+
+
     // convert string to date object
-
-
     const convertMinutesToHours = (minutes) => {
         // check if minutes can be coverted to numbrer
         if (isNaN(minutes)) {
@@ -114,7 +116,7 @@ const Activity = () => {
                                 customInput={<DateInputjsx />}
                             />
 
-                            <TimesInput />
+                            <TimesInput times={activity.time} />
 
 
 

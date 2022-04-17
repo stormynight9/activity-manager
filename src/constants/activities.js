@@ -6,7 +6,7 @@ export const activities = [
         range: [2, 100],
         location: 'En visio',
         price: 120,
-        time: ['midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        time: ['11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5fbd0b1872680_DEGUSTATION-VIN-VISIO-HOBBIZER.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/602e8eb4d6eff_DEGUSUATION-VIN-VISIO-OENOLOGIE.jpg',
@@ -37,7 +37,7 @@ export const activities = [
         range: [2, 100],
         location: 'En visio',
         price: 40,
-        time: ['morning', 'midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        time: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/602e9e16f1089_MURDER-PARTY-TEAM-BUILDING-VISIO.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/602e97722c551_MURDER-PARTY-HOBBIZER-VISIO.jpg',
@@ -61,7 +61,7 @@ export const activities = [
         range: [1, 100],
         location: 'En ligne',
         price: 50,
-        time: ['midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        time: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5fa16adeb3989_COURS-CUISINE-MEROUAN-TOP-CHEF-HOBBIZER.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fa16aecb6a33_COURS-CUISINE-EN-LIGNE-TEAM-BUILDING-HOBBIZER.jpg',
@@ -84,7 +84,7 @@ export const activities = [
         range: [5, 15],
         location: 'Votre domicile',
         price: 65,
-        time: ['morning', 'midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        time: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5f9c20ca3bdf3_ATELIER-HUILE-EN-LIGNE-HOBBIZER.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f9ae298c2985_ATELIER-EN-LIGNE-HOBBIZER-TEAM-BUILDING-COSMETIQUE.jpg',
@@ -109,7 +109,7 @@ export const activities = [
         range: [2, 100],
         location: 'En viso',
         price: 50,
-        time: ['morning', 'midday', 'afternoon', 'late afternoon', 'evening', 'night'],
+        time: ['11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5fbcf1853993b_DEGUSTATION-VIN-HYPNOSE-HOBBIZER.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/602e8848a315a_VIN-SOUS-HYPNOSE-VISIO-DEGUSTATION-TEAM-BUILDING.jpg',
@@ -136,7 +136,7 @@ export const activities = [
         range: [2, 20],
         location: 'Région parsienne',
         price: 120,
-        time: ['morning', 'afternoon', 'late afternoon', 'evening'],
+        time: ['09:00', '12:00', '14:00', '17:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5f9050ee9661f_BALADE-LOUP-HOBBIZER-FICHE.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5f90510e6a068_BALADE-LOUPS-HOBBIZER-3.jpg',
@@ -168,7 +168,7 @@ export const activities = [
         range: [4, 20],
         location: 'Région parsienne',
         price: 60,
-        time: ['night'],
+        time: ['17:00'],
         coverImage: 'https://hobbizer.com/media/cache/activity/images/activity/list/5f998898b8bb5_ASTROBIVOUAC-HOBBIZER.jpg',
         images: [
             'https://hobbizer.com/media/cache/activity_slider/images/activity/slider/5fa02aabe47e2_ASTROBIVOUAC-HOBBIZER-EVG.jpg',
