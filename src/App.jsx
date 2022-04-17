@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Programme from './pages/Programme';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityPage from './pages/ActivityPage';
+import ScrollToTop from './components/shared/ScrollToTop';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
 
     <div className='bg-gray-50'>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/programme' element={<Programme />} />
