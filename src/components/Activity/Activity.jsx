@@ -18,7 +18,7 @@ const Activity = () => {
     const activity = activities.find(activity => activity.id === +activityId)
     const dateCtx = useContext(dateContext)
     const selectedCtx = useContext(selectedContext)
-    const [startDate, setStartDate] = useState(new Date(selectedCtx.selectedDay));
+    const [startDate, setStartDate] = useState(new Date(selectedCtx.selectedDay || dateCtx.startDate));
     const [participants, setParticipants] = useState(selectedCtx.participants);
 
     if (!activity) {
@@ -87,7 +87,7 @@ const Activity = () => {
                     <form className='md:flex'>
                         <div className='lg:flex p-2 w-full justify-center items-center'> {/*  inputs  */}
 
-                            <div className='flex flex-col lg:border-r-2 lg:pr-6 mb-4 sm:mb-0 w-full lg:max-w-[200px]'>
+                            <div className='flex flex-col lg:border-r-2 lg:pr-6 mb-4 sm:mb-0 w-full lg:max-w-[178px]'>
                                 <label className='text-sm  text-hobbizer' htmlFor='participants'>Nombre de participants</label>
                                 <div className='flex relative items-center '>
                                     <input autoComplete="off" max={99} min={1} defaultValue={participants} onChange={e => {

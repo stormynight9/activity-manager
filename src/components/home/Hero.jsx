@@ -16,9 +16,9 @@ const Hero = () => {
                 </p>
             </div>
             <div className="mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
-                <a href="\#" className="px-10 py-3.5 w-full bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300 text-white text-center rounded-md shadow-md block sm:w-auto">
+                {/* <a href="\#" className="px-10 py-3.5 w-full bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300 text-white text-center rounded-md shadow-md block sm:w-auto">
                     Get started
-                </a>
+                </a> */}
                 <a href="\#" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-hobbizer hover:shadow block sm:w-auto">
                     How does it work?
                 </a>

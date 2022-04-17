@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react'
 const SelectedContext = createContext({
-    participants: 0,
+    participants: 1,
     setParticipants: () => { },
     selectedDay: '',
     setSelectedDay: () => { },
@@ -11,11 +11,8 @@ const SelectedContext = createContext({
 export const SelectedContextProvider = (props) => {
     const [selectedDay, setSelectedDay] = useState(null)
     const [selectedTime, setSelectedTime] = useState(null)
-    const [participants, setParticipants] = useState(0)
+    const [participants, setParticipants] = useState(1)
 
-    console.log(selectedTime)
-    console.log(selectedDay)
-    console.log(participants)
 
 
     return (

@@ -48,9 +48,13 @@ export default Activities
 // prostateur de services
 // client
 
-table compte : backoffice
+table compte : backoffice - admin
                 client
-                prostateur
+                prestateur -> ynajem y7ot des activities
+
+participants: adultes, enfants
+prestateur ynajem ychouf les réservations
+paiement - facture 
 
 // reservation
 // galerie

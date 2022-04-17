@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "hobbizer": "#ff5a5f",
+        "hobbizer": "#ff5f5a",
         "hobbizer-dark": "#3a3839",
         "hobbizer-gray": "#abb4b2",
         "hobbizer-light-gray": "#eaeceb",

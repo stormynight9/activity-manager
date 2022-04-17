@@ -32,6 +32,10 @@ export const DateContextProvider = (props) => {
         }
     }, [startDate, endDate])
 
+
+
+
+
     return (
         <dateContext.Provider value={{
             participants: participants,
@@ -48,3 +52,5 @@ export const DateContextProvider = (props) => {
 }
 
 export default dateContext
+
+
