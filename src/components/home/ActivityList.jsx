@@ -1,5 +1,6 @@
 import Activity from './Activity'
 import { activities } from '../../constants/activities'
+import { Link } from 'react-router-dom'
 
 const ActivityList = () => {
 
@@ -37,7 +38,7 @@ const ActivityList = () => {
                 })}
             </div>
             <div className='p-4 w-full sm:w-auto'>
-                <button className='px-10 py-3.5 w-full mt-12 text-gray-500 text-center border rounded-md duration-300 hover:text-rose-600 hover:shadow block sm:w-auto'>See all activities</button>
+                <Link to={'/categories'} className='px-10 py-3.5 w-full mt-12 text-gray-500 text-center border rounded-md duration-300 hover:text-rose-600 hover:shadow block sm:w-auto'>En savoir plus</Link>
             </div>
         </section>
     )
