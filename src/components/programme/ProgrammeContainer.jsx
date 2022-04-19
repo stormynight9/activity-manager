@@ -6,9 +6,11 @@ import ReactPaginate from "react-paginate"
 import './ProgrammeContainer.css'
 import { FaChevronLeft } from 'react-icons/fa'
 import { FaChevronRight } from 'react-icons/fa'
+import programmeContext from "../../context/programme-context"
 
 const Programme = () => {
     const dateCtx = useContext(dateContext)
+    const programmeCtx = useContext(programmeContext)
     const startDate = format(new Date(dateCtx.startDate), 'd MMM, yyyy')
     const endDate = format(new Date(dateCtx.endDate), 'd MMM, yyyy')
 

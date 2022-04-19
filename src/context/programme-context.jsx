@@ -17,6 +17,8 @@ export const ProgrammeContextProvider = (props) => {
     const [endDate, setEndDate] = useState(null)
     const [activities, setActivities] = useState([])
 
+
+
     // create an object to store in localStorage and set it to the state of the programmeContext 
     const getProgramme = () => {
         const programme = JSON.parse(localStorage.getItem('programme'))

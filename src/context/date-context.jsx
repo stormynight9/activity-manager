@@ -13,8 +13,8 @@ const dateContext = React.createContext({
 
 export const DateContextProvider = (props) => {
     const [participants, setParticipants] = useState(0);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
 
     const [datesInterval, setDatesInterval] = useState([])
 

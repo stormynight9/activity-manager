@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import './ProgrammeForm.css'
 import dateContext from '../../context/date-context'
 import selectedContext from '../../context/selected-context'
+import programmeContext from "../../context/programme-context";
 
 
 const ProgrammeForm = () => {
@@ -18,6 +19,7 @@ const ProgrammeForm = () => {
     const [endDateInput, setEndDateInput] = useState()
     const dateCtx = useContext(dateContext)
     const selectedCtx = useContext(selectedContext)
+    const programmeCtx = useContext(programmeContext)
     const navigate = useNavigate();
 
     const StartDatejsx = forwardRef(({ value, onClick }, ref) => (
@@ -55,6 +57,12 @@ const ProgrammeForm = () => {
             dateCtx.setEndDate(() => endDateToForward)
             dateCtx.setParticipants(() => participants)
             selectedCtx.setParticipants(() => participants)
+
+            programmeCtx.setStartDate(() => startDateToForward)
+            programmeCtx.setEndDate(() => endDateToForward)
+            programmeCtx.setParticipants(() => +participants)
+
+
             setTimeout(() => navigate('/programme'), 10)
         }
     }

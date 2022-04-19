@@ -11,14 +11,17 @@ import dateContext from "../../context/date-context"
 import parseISO from "date-fns/parseISO"
 import selectedContext from "../../context/selected-context"
 import TimesInput from "./TimesInput"
-import { format } from "date-fns"
+import { addDays, format } from "date-fns"
 
 const Activity = () => {
     const { activityId } = useParams()
     const activity = activities.find(activity => activity.id === +activityId)
     const dateCtx = useContext(dateContext)
     const selectedCtx = useContext(selectedContext)
-    const [startDate, setStartDate] = useState(new Date(selectedCtx.selectedDay || dateCtx.startDate));
+    const [startDate, setStartDate] = useState(selectedCtx.selectedDay ? new Date(selectedCtx.selectedDay) : null)
+    const [minDate, setMinDate] = useState(dateCtx.startDate ? parseISO(dateCtx.startDate) : addDays(new Date(), 3))
+    const [maxDate, setMaxDate] = useState(dateCtx.endDate ? parseISO(dateCtx.endDate) : addDays(new Date(), 30))
+    console.log(minDate)
     const [participants, setParticipants] = useState(selectedCtx.participants);
 
     if (!activity) {
@@ -26,7 +29,9 @@ const Activity = () => {
         return <Navigate to="/categories" />
     }
 
-    // use activity id to get time array property
+
+
+
 
 
 
@@ -51,7 +56,7 @@ const Activity = () => {
         <div onClick={onClick} className='flex flex-col lg:border-r-2 lg:px-6 w-full mb-4 sm:mb-0'>
             <label className='text-sm text-hobbizer' htmlFor='startDate'>Date</label>
             <div className='flex relative items-center'>
-                <input autoComplete="off" required value={value} ref={ref} readOnly className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='From' id='startDate' />
+                <input autoComplete="off" required value={value} ref={ref} readOnly className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='Choissisez une date' id='startDate' />
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2  " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
@@ -111,8 +116,8 @@ const Activity = () => {
                                 }}
                                 selectsStart
                                 startDate={startDate}
-                                minDate={parseISO(dateCtx.startDate)}
-                                maxDate={parseISO(dateCtx.endDate)}
+                                minDate={minDate}
+                                maxDate={maxDate}
                                 customInput={<DateInputjsx />}
                             />
 

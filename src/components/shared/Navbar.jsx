@@ -53,17 +53,17 @@ const Navbar = () => {
                     <div>
                         <ul className="flex flex-col-reverse space-x-0 md:space-x-6 md:flex-row">
                             <li className="mt-4 md:mt-0">
-                                <button className="py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
+                                <button className="w-full py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
                                     How it works
                                 </button>
                             </li>
                             <li className="mt-4 md:mt-0">
-                                <button onClick={() => modalHandler(<Login />)} className="py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                <button onClick={() => modalHandler(<Login />)} className="w-full py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Login
                                 </button>
                             </li>
                             <li className="mt-8 md:mt-0">
-                                <button onClick={() => modalHandler(<Register />)} className="py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
+                                <button onClick={() => modalHandler(<Register />)} className="w-full py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
                                     Sign Up
                                 </button>
                             </li>
