@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import addDays from "date-fns/addDays";
 import { format } from "date-fns";
 import './ProgrammeForm.css'
-import dateContext from '../../context/date-context'
 import selectedContext from '../../context/selected-context'
 import programmeContext from "../../context/programme-context";
 
@@ -17,7 +16,6 @@ const ProgrammeForm = () => {
     const [maxDate, setMaxDate] = useState(addDays(new Date(), 30))
     const [startDateInput, setStartDateInput] = useState()
     const [endDateInput, setEndDateInput] = useState()
-    const dateCtx = useContext(dateContext)
     const selectedCtx = useContext(selectedContext)
     const programmeCtx = useContext(programmeContext)
     const navigate = useNavigate();
@@ -53,9 +51,6 @@ const ProgrammeForm = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (startDateToForward && endDateToForward) {
-            dateCtx.setStartDate(() => startDateToForward)
-            dateCtx.setEndDate(() => endDateToForward)
-            dateCtx.setParticipants(() => participants)
             selectedCtx.setParticipants(() => participants)
 
             programmeCtx.resetProgramme()

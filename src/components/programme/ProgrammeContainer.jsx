@@ -1,5 +1,4 @@
 import DayContainer from "./DayContainer"
-import dateContext from '../../context/date-context'
 import { useContext, useState, useLayoutEffect, useEffect } from "react"
 import { format } from 'date-fns'
 import ReactPaginate from "react-paginate"
@@ -9,12 +8,11 @@ import { FaChevronRight } from 'react-icons/fa'
 import programmeContext from "../../context/programme-context"
 
 const Programme = () => {
-    const dateCtx = useContext(dateContext)
     const programmeCtx = useContext(programmeContext)
-    const startDate = format(new Date(dateCtx.startDate), 'd MMM, yyyy')
-    const endDate = format(new Date(dateCtx.endDate), 'd MMM, yyyy')
+    const startDate = format(new Date(programmeCtx.startDate), 'd MMM, yyyy')
+    const endDate = format(new Date(programmeCtx.endDate), 'd MMM, yyyy')
 
-    const [days, setDays] = useState(dateCtx.datesInterval.slice(0, dateCtx.datesInterval.length))
+    const days = programmeCtx.datesInterval.slice(0, programmeCtx.datesInterval.length)
     const [pageNumber, setPageNumber] = useState(0)
     const [daysPerPage, setDaysperPage] = useState(4)
     const pagesVisited = pageNumber * daysPerPage

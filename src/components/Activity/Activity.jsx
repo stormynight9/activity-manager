@@ -3,7 +3,6 @@ import parse from 'html-react-parser'
 import { Navigate, useParams, useNavigate } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import { activities } from "../../constants/activities"
-import dateContext from "../../context/date-context"
 import parseISO from "date-fns/parseISO"
 import selectedContext from "../../context/selected-context"
 import TimesInput from "./TimesInput"
@@ -14,12 +13,11 @@ import programmeContext from '../../context/programme-context'
 const Activity = () => {
     const { activityId } = useParams()
     const activity = activities.find(activity => activity.id === +activityId)
-    const dateCtx = useContext(dateContext)
     const selectedCtx = useContext(selectedContext)
     const programmeCtx = useContext(programmeContext)
     const [startDate, setStartDate] = useState(selectedCtx.selectedDay && new Date(selectedCtx.selectedDay))
-    const minDate = dateCtx.startDate ? parseISO(dateCtx.startDate) : addDays(new Date(), 3)
-    const maxDate = dateCtx.endDate ? parseISO(dateCtx.endDate) : addDays(new Date(), 30)
+    const minDate = programmeCtx.startDate ? parseISO(programmeCtx.startDate) : addDays(new Date(), 3)
+    const maxDate = programmeCtx.endDate ? parseISO(programmeCtx.endDate) : addDays(new Date(), 30)
     const [participants, setParticipants] = useState(selectedCtx.participants);
     const [selectedTime, setSelectedTime] = useState(null)
     const navigate = useNavigate()

@@ -1,3 +1,4 @@
+import { format } from "date-fns"
 import React, { useEffect, useState } from "react"
 
 const programmeContext = React.createContext({
@@ -9,7 +10,9 @@ const programmeContext = React.createContext({
     setEndDate: () => { },
     activities: [],
     addActivity: () => { },
-    resetProgramme: () => { }
+    resetProgramme: () => { },
+    datesInterval: [],
+    setDatesInterval: () => { }
 })
 
 export const ProgrammeContextProvider = (props) => {
@@ -17,6 +20,22 @@ export const ProgrammeContextProvider = (props) => {
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const [activities, setActivities] = useState([])
+    const [datesInterval, setDatesInterval] = useState([])
+
+
+    useEffect(() => {
+        if (startDate && endDate) {
+            const start = new Date(startDate)
+            const end = new Date(endDate)
+            const dates = []
+            while (start <= end) {
+                dates.push(format(start, 'EE d MMM, yyyy'))
+                start.setDate(start.getDate() + 1)
+            }
+            setDatesInterval(dates)
+        }
+    }, [startDate, endDate])
+
 
     const addActivity = (activity) => {
         setActivities([...activities, activity])
@@ -80,7 +99,9 @@ export const ProgrammeContextProvider = (props) => {
             setEndDate: setEndDate,
             activities: activities,
             addActivity: addActivity,
-            resetProgramme: resetProgramme
+            resetProgramme: resetProgramme,
+            datesInterval: datesInterval,
+            setDatesInterval: setDatesInterval
         }}>
             {props.children}
         </programmeContext.Provider>
