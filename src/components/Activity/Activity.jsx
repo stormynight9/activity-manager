@@ -19,7 +19,7 @@ const Activity = () => {
     const minDate = programmeCtx.startDate ? parseISO(programmeCtx.startDate) : addDays(new Date(), 3)
     const maxDate = programmeCtx.endDate ? parseISO(programmeCtx.endDate) : addDays(new Date(), 30)
     const [participants, setParticipants] = useState(selectedCtx.participants);
-    const [selectedTime, setSelectedTime] = useState(null)
+    const [selectedTime, setSelectedTime] = useState(activity.time[0])
     const navigate = useNavigate()
 
 
