@@ -11,8 +11,7 @@ const Programme = () => {
     const programmeCtx = useContext(programmeContext)
     const startDate = format(new Date(programmeCtx.startDate), 'd MMM, yyyy')
     const endDate = format(new Date(programmeCtx.endDate), 'd MMM, yyyy')
-
-    const days = programmeCtx.datesInterval.slice(0, programmeCtx.datesInterval.length)
+    const days = programmeCtx.datesInterval
     const [pageNumber, setPageNumber] = useState(0)
     const [daysPerPage, setDaysperPage] = useState(4)
     const pagesVisited = pageNumber * daysPerPage
@@ -29,6 +28,12 @@ const Programme = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     })
+
+    useEffect(() => {
+        setDaysperPage(4)
+        setPageNumber(0)
+        setPageCount(Math.ceil(days.length / daysPerPage))
+    }, [days])
 
     useEffect(() => {
         if (screenWidth > 1170) {
