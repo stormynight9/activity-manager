@@ -8,7 +8,8 @@ const programmeContext = React.createContext({
     endDate: null,
     setEndDate: () => { },
     activities: [],
-    setActivities: () => { },
+    addActivity: () => { },
+    resetProgramme: () => { }
 })
 
 export const ProgrammeContextProvider = (props) => {
@@ -16,6 +17,20 @@ export const ProgrammeContextProvider = (props) => {
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const [activities, setActivities] = useState([])
+
+    const addActivity = (activity) => {
+        setActivities([...activities, activity])
+    }
+
+
+    //reset the context fucntion 
+
+    const resetProgramme = () => {
+        setParticipants(null)
+        setStartDate(null)
+        setEndDate(null)
+        setActivities([])
+    }
 
 
 
@@ -38,16 +53,19 @@ export const ProgrammeContextProvider = (props) => {
             activities: activities
         }))
     }
+
+
+
     // set the state of the programmeContext to the localStorage when the component is mounted
     useEffect(() => {
         getProgramme()
-    }
-        , [])
+    }, [])
+
     // set the state of the programmeContext to the localStorage when the component is updated
     useEffect(() => {
-        setProgramme()
-    }
-        , [participants, startDate, endDate, activities])
+        if (participants && startDate && endDate)
+            setProgramme()
+    }, [participants, startDate, endDate, activities])
 
 
 
@@ -61,7 +79,8 @@ export const ProgrammeContextProvider = (props) => {
             endDate: endDate,
             setEndDate: setEndDate,
             activities: activities,
-            setActivities: setActivities
+            addActivity: addActivity,
+            resetProgramme: resetProgramme
         }}>
             {props.children}
         </programmeContext.Provider>

@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'
+
 const SelectedContext = createContext({
     participants: 1,
     setParticipants: () => { },
@@ -13,7 +14,7 @@ export const SelectedContextProvider = (props) => {
     const [selectedTime, setSelectedTime] = useState(null)
     const [participants, setParticipants] = useState(1)
 
-
+    console.log(selectedTime)
 
     return (
         <SelectedContext.Provider value={{

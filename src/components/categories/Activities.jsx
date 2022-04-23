@@ -43,9 +43,10 @@ const Activities = () => {
 
 export default Activities
 
+
 /*
 // admin
-// prostateur de services
+// prestateur de services
 // client
 
 table compte : backoffice - admin

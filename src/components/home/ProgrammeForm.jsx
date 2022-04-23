@@ -58,6 +58,7 @@ const ProgrammeForm = () => {
             dateCtx.setParticipants(() => participants)
             selectedCtx.setParticipants(() => participants)
 
+            programmeCtx.resetProgramme()
             programmeCtx.setStartDate(() => startDateToForward)
             programmeCtx.setEndDate(() => endDateToForward)
             programmeCtx.setParticipants(() => +participants)

@@ -6,21 +6,16 @@ const TimesInput = (props) => {
     const selectedCtx = useContext(SelectedContext)
     const menuItems = props.times
 
-    // 8 => 11 matin
-    // 12 => 13 midi
-    // 14 => 15 après midi
-    // 16 => 17 fin après midi
-    // 18 => 20 soirée
-    // 21+ Nuit
 
     const [selectedItem, setSelectedItem] = useState({
-        item: menuItems[0],
+        item: selectedCtx.selectedTime ? menuItems[0] : null,
         idx: 0
     })
 
+
     const selectedItemHandler = (item) => {
         setSelectedItem(item)
-        selectedCtx.setSelectedTime(item.item)
+        props.setSelectedTime(item.item)
     }
 
     const [state, setState] = useState(false)
@@ -34,6 +29,9 @@ const TimesInput = (props) => {
         }
 
         document.addEventListener('click', handleSelectMenu)
+        return () => {
+            document.removeEventListener('click', handleSelectMenu)
+        }
 
     }, [])
 
@@ -46,7 +44,7 @@ const TimesInput = (props) => {
             <div className='flex flex-col  lg:px-6 w-full mb-4 sm:mb-0' ref={selectMenuRef} onClick={() => setState(!state)}>
                 <label className='text-sm text-hobbizer' htmlFor='startDate'>Horaire</label>
                 <div className='flex relative items-center'>
-                    <button type="button" autoComplete="off" className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8 text-left' placeholder='From' id='startDate' >{selectedItem.item}
+                    <button type="button" autoComplete="off" className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8 text-left' placeholder='From' id='startDate' >{selectedItem.item ? selectedItem.item : <span className='text-hobbizer-gray text'>Choisir Horaire</span>}
                     </button>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

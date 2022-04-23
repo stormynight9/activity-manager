@@ -1,6 +1,6 @@
 import { forwardRef, useState, useContext } from "react"
 import parse from 'html-react-parser'
-import { Navigate, useParams } from "react-router-dom"
+import { Navigate, useParams, useNavigate } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import { activities } from "../../constants/activities"
 import dateContext from "../../context/date-context"
@@ -9,30 +9,26 @@ import selectedContext from "../../context/selected-context"
 import TimesInput from "./TimesInput"
 import { addDays, format } from "date-fns"
 import ActivityCard from "./ActivityCard";
-
-
-
-
+import programmeContext from '../../context/programme-context'
 
 const Activity = () => {
     const { activityId } = useParams()
     const activity = activities.find(activity => activity.id === +activityId)
     const dateCtx = useContext(dateContext)
     const selectedCtx = useContext(selectedContext)
+    const programmeCtx = useContext(programmeContext)
     const [startDate, setStartDate] = useState(selectedCtx.selectedDay && new Date(selectedCtx.selectedDay))
     const minDate = dateCtx.startDate ? parseISO(dateCtx.startDate) : addDays(new Date(), 3)
     const maxDate = dateCtx.endDate ? parseISO(dateCtx.endDate) : addDays(new Date(), 30)
     const [participants, setParticipants] = useState(selectedCtx.participants);
+    const [selectedTime, setSelectedTime] = useState(null)
+    const navigate = useNavigate()
+
+
 
     if (!activity) {
-
         return <Navigate to="/categories" />
     }
-
-
-
-
-
 
     const DateInputjsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col lg:border-r-2 lg:px-6 w-full mb-4 sm:mb-0'>
@@ -46,15 +42,25 @@ const Activity = () => {
         </div>
     ));
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault()
+        programmeCtx.addActivity({
+            id: activity.id,
+            participants: +participants,
+            date: format(startDate, 'yyyy-MM-dd'),
+            time: selectedTime
+        })
+        navigate('/programme')
+    }
+
     return (
         <div className='mt-36 p-2 '>
             <div className='max-w-2xl lg:max-w-6xl mx-auto'>
                 <h1 className='text-2xl uppercase mb-2'>{activity.title}</h1>
                 <ActivityCard activity={activity} ></ActivityCard>
                 <div className='border-2 mt-7'>
-                    <form className='md:flex'>
-                        <div className='lg:flex p-2 w-full justify-center items-center'> {/*  inputs  */}
-
+                    <form className='md:flex' onSubmit={onSubmitHandler}>
+                        <div className='lg:flex p-2 w-full justify-center items-center'>
                             <div className='flex flex-col lg:border-r-2 lg:pr-6 mb-4 sm:mb-0 w-full lg:max-w-[178px]'>
                                 <label className='text-sm  text-hobbizer' htmlFor='participants'>Nombre de participants</label>
                                 <div className='flex relative items-center '>
@@ -82,18 +88,18 @@ const Activity = () => {
                                 customInput={<DateInputjsx />}
                             />
 
-                            <TimesInput times={activity.time} />
+                            <TimesInput setSelectedTime={setSelectedTime} times={activity.time} />
 
-
-                        </div> {/*  Inputs */}
+                        </div>
                         <div className='p-5 flex flex-col items-center bg-hobbizer-light-gray w-full md:max-w-sm'>
                             <h1 className='uppercase font-extralight mb-5'>{activity.title}</h1>
                             <p className='font-bold text-3xl'>{activity.price * participants} TND</p>
-                            <button type="button" className='px-12 py-2 mt-2 font-medium bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Valider</button>
+                            <button type="submit" className='px-12 py-2 mt-2 font-medium bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Valider</button>
                             <i className='mt-1 text-xs'>Sous réserve de disponibilité</i>
                         </div>
                     </form>
                 </div>
+
                 <h3 className="text-hobbizer text-xl mb-2 mt-16 before:content[''] before:block before:h-24 before:-mt-24 before:invisible" id='description'>Description détaillée de l'activité</h3>
                 <div className='leading-7 text-sm' >{parse(activity.longDecription)}</div>
                 <h3 className='text-hobbizer text-xl mb-2 mt-7'>Informations pratiques</h3>
