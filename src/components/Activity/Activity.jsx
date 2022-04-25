@@ -40,10 +40,39 @@ const Activity = () => {
         </div>
     ));
 
+    const matin = ['08:00', '09:00', '10:00', '11:00']
+    const midi = ['12:00', '13:00']
+    const apresmidi = ['14:00', '15:00']
+    const finapresmidi = ['16:00', '17:00']
+    const soiree = ['18:00', '19:00', '20:00']
+    const nuit = ['21:00', '22:00', '23:00', '00:00']
+
+    const generateId = (date, time) => {
+        if (matin.includes(time)) {
+            return 'matin' + format(date, 'yyyy-MM-dd')
+        }
+        if (midi.includes(time)) {
+            return 'midi' + format(date, 'yyyy-MM-dd')
+        }
+        if (apresmidi.includes(time)) {
+            return 'apresmidi' + format(date, 'yyyy-MM-dd')
+        }
+        if (finapresmidi.includes(time)) {
+            return 'finapresmidi' + format(date, 'yyyy-MM-dd')
+        }
+        if (soiree.includes(time)) {
+            return 'soiree' + format(date, 'yyyy-MM-dd')
+        }
+        if (nuit.includes(time)) {
+            return 'nuit' + format(date, 'yyyy-MM-dd')
+        }
+    }
+
     const onSubmitHandler = (e) => {
         e.preventDefault()
         programmeCtx.addActivity({
-            id: activity.id,
+            id: generateId(startDate, selectedTime),
+            activityId: activity.id,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),
             time: selectedTime

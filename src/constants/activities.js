@@ -2,6 +2,7 @@ export const activities = [
     {
         id: 1,
         title: 'Dégustation interactive de vins',
+        shortTitle: 'DEGUSTATION VINS',
         duration: 60,
         range: [2, 100],
         location: 'En visio',
@@ -33,6 +34,7 @@ export const activities = [
     {
         id: 2,
         title: 'Murder party en visio',
+        shortTitle: 'Murder Party',
         duration: 90,
         range: [2, 100],
         location: 'En visio',
@@ -57,6 +59,7 @@ export const activities = [
     {
         id: 3,
         title: 'Cours de cuisine en ligne avec merouan (top chef)',
+        shortTitle: 'CUISINE',
         duration: 90,
         range: [1, 100],
         location: 'En ligne',
@@ -80,6 +83,7 @@ export const activities = [
     {
         id: 4,
         title: 'Créez votre soin cosmétique en ligne',
+        shortTitle: 'COSMETIQUE',
         duration: 60,
         range: [5, 15],
         location: 'Votre domicile',
@@ -105,6 +109,7 @@ export const activities = [
     {
         id: 5,
         title: 'Dégustation de vin sous hyonose en visio',
+        shortTitle: 'DEGUSTATION',
         duration: 60,
         range: [2, 100],
         location: 'En viso',
@@ -132,6 +137,7 @@ export const activities = [
     {
         id: 6,
         title: 'En immerson avec les loups',
+        shortTitle: 'Loups',
         duration: 180,
         range: [2, 20],
         location: 'Région parsienne',
@@ -164,6 +170,7 @@ export const activities = [
     {
         id: 7,
         title: 'Observation des étoiles',
+        shortTitle: 'ASTRONOMIE',
         duration: 'une nuit',
         range: [4, 20],
         location: 'Région parsienne',

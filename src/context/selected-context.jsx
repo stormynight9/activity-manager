@@ -14,8 +14,6 @@ export const SelectedContextProvider = (props) => {
     const [selectedTime, setSelectedTime] = useState(null)
     const [participants, setParticipants] = useState(1)
 
-    console.log(selectedTime)
-
     return (
         <SelectedContext.Provider value={{
             participants: participants,
@@ -29,4 +27,5 @@ export const SelectedContextProvider = (props) => {
         </SelectedContext.Provider>
     )
 }
+
 export default SelectedContext
