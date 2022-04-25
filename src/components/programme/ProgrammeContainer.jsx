@@ -30,26 +30,35 @@ const Programme = () => {
     })
 
     useEffect(() => {
-        setDaysperPage(4)
+        setDaysperPage(changeLayout())
         setPageNumber(0)
         setPageCount(Math.ceil(days.length / daysPerPage))
     }, [days])
 
-    useEffect(() => {
+    const changeLayout = () => {
         if (screenWidth > 1170) {
             setDaysperPage(4)
             setPageNumber(0)
             setPageCount(Math.ceil(days.length / daysPerPage))
+            return 4
         } else if (screenWidth > 767) {
             setDaysperPage(3)
             setPageNumber(0)
             setPageCount(Math.ceil(days.length / daysPerPage))
+            return 3
         } else if (screenWidth < 767) {
             setDaysperPage(2)
             setPageNumber(0)
             setPageCount(Math.ceil(days.length / daysPerPage))
+            return 2
         }
+    }
+
+
+    useEffect(() => {
+        changeLayout()
     }, [screenWidth])
+
 
 
 
