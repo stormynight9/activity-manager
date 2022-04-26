@@ -70,8 +70,15 @@ const Activity = () => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
+        const id = generateId(startDate, selectedTime)
+        // check if activity already exist
+        const activityExist = programmeCtx.activities.find(activity => activity.id === id)
+        if (activityExist) {
+            alert('Vous avez déjà une activité ce jour à cette période')
+            return
+        }
         programmeCtx.addActivity({
-            id: generateId(startDate, selectedTime),
+            id: id,
             activityId: activity.id,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),
