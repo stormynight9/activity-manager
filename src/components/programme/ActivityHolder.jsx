@@ -14,20 +14,34 @@ const ActivityHolder = (props) => {
     const [selectedActivity, setselectedActivity] = useState(null)
     const activity = selectedActivity && activities.find(activity => activity.id === selectedActivity.activityId)
 
+
     // check if props id is in activities array
     const checkIfInArray = (id) => {
         // loop through activities array and check if id matches props id   
         for (let i = 0; i < selectedActivities.length; i++) {
             if (selectedActivities[i].id === id) {
                 setselectedActivity(selectedActivities[i])
+                return true
             }
+
         }
+        return false
     }
+
+    useEffect(() => {
+        // check if selectedActivity is in selectedActivities array
+
+        if (!checkIfInArray(props.id)) {
+            setselectedActivity(null)
+        }
+    }, [selectedActivities])
 
 
     useEffect(() => {
         checkIfInArray(props.id)
-    })
+        const newArr = [...programmeCtx.activities]
+        setSelectedActivities(newArr)
+    }, [programmeCtx.activities])
 
     const setSelectedDateTime = () => {
         selectedCtx.setSelectedDay(props.day)
@@ -36,9 +50,9 @@ const ActivityHolder = (props) => {
 
 
     if (selectedActivity) {
-        return <SelectedActivity activityId={selectedActivity.activityId} time={selectedActivity.time} activity={activity} setSelectedDateTime={setSelectedDateTime}></SelectedActivity>
+        return <SelectedActivity activityId={selectedActivity.activityId} id={props.id} time={selectedActivity.time} activity={activity} setSelectedDateTime={setSelectedDateTime} />
     } else {
-        return <EmptyActivity setSelectedDateTime={setSelectedDateTime} time={props.time}></EmptyActivity>
+        return <EmptyActivity setSelectedDateTime={setSelectedDateTime} time={props.time} />
     }
 
 

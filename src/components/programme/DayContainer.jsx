@@ -2,9 +2,6 @@ import { format } from "date-fns"
 import ActivityHolder from "./ActivityHolder"
 
 const DayContainer = (props) => {
-
-
-
     const times = [
         {
             id: 'matin',
@@ -31,10 +28,6 @@ const DayContainer = (props) => {
             time: 'Nuit'
         }
     ]
-
-
-
-
 
     return (
         <div className='flex-col w-full sm:max-w-fit '>

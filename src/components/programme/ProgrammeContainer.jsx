@@ -19,8 +19,8 @@ const Programme = () => {
         return <DayContainer key={day} day={day} />
     })
     const [pageCount, setPageCount] = useState(Math.ceil(days.length / daysPerPage))
-
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
     useLayoutEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
@@ -54,14 +54,9 @@ const Programme = () => {
         }
     }
 
-
     useEffect(() => {
         changeLayout()
     }, [screenWidth])
-
-
-
-
 
     return (
         <div className='mt-36 flex flex-col justify-center items-center'>

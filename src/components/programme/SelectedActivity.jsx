@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import { FaPencilAlt, FaTrashAlt } from 'react-icons/fa';
+import { useContext } from "react";
+import programmeContext from "../../context/programme-context";
 
 const SelectedActivity = (props) => {
+
+    const programmeCtx = useContext(programmeContext)
+    const deleteActivity = () => {
+        programmeCtx.deleteActivity(props.id)
+    }
+
     return (<div style={{
         backgroundImage: `url(${props.activity.coverImage})`
     }} className='sm:w-52 relative h-28 bg-cover hover:bg-hobbizer duration-200 rounded-md flex cursor-pointer justify-center items-center group'>
@@ -15,7 +23,7 @@ const SelectedActivity = (props) => {
         </Link>
         <div className='absolute right-0 bottom-0 z-10'>
             <button className='bg-white p-[6px] m-1 rounded-sm text-sm text-hobbizer-dark hover:bg-hobbizer hover:text-white duration-200'><FaPencilAlt /></button>
-            <button className='bg-white p-[6px] m-1 rounded-sm text-sm text-hobbizer-dark hover:bg-hobbizer hover:text-white duration-200'><FaTrashAlt /></button>
+            <button onClick={deleteActivity} className='bg-white p-[6px] m-1 rounded-sm text-sm text-hobbizer-dark hover:bg-hobbizer hover:text-white duration-200'><FaTrashAlt /></button>
         </div>
     </div>);
 }

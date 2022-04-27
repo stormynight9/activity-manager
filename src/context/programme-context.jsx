@@ -12,7 +12,8 @@ const programmeContext = React.createContext({
     addActivity: () => { },
     resetProgramme: () => { },
     datesInterval: [],
-    setDatesInterval: () => { }
+    setDatesInterval: () => { },
+    deleteActivity: () => { }
 })
 
 export const ProgrammeContextProvider = (props) => {
@@ -41,9 +42,13 @@ export const ProgrammeContextProvider = (props) => {
         setActivities([...activities, activity])
     }
 
+    const deleteActivity = (id) => {
+        const newActivities = activities.filter(activity => activity.id !== id)
+        setActivities(newActivities)
+    }
+
 
     //reset the context fucntion 
-
     const resetProgramme = () => {
         setParticipants(null)
         setStartDate(null)
@@ -101,7 +106,8 @@ export const ProgrammeContextProvider = (props) => {
             addActivity: addActivity,
             resetProgramme: resetProgramme,
             datesInterval: datesInterval,
-            setDatesInterval: setDatesInterval
+            setDatesInterval: setDatesInterval,
+            deleteActivity: deleteActivity
         }}>
             {props.children}
         </programmeContext.Provider>
@@ -109,19 +115,3 @@ export const ProgrammeContextProvider = (props) => {
 }
 
 export default programmeContext
-
-
-
-// const programmeExample = {
-//     participants: 3,
-//     startDate: '12/12/2020',
-//     endDate: '14/12/2020',
-//     activities: [
-//         {
-//             id: 1,
-//             participants: 3,
-//             date: '12/12/2020',
-//             time: '10:00',
-//         }
-//     ]
-// }
