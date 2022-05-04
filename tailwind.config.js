@@ -9,6 +9,7 @@ module.exports = {
         "hobbizer-dark": "#3a3839",
         "hobbizer-gray": "#abb4b2",
         "hobbizer-light-gray": "#eaeceb",
+        "hobbizer-green": "#65c6b7",
         "facebook": "#3360ff"
       }
     },

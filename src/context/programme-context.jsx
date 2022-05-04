@@ -9,6 +9,7 @@ const programmeContext = React.createContext({
     endDate: null,
     setEndDate: () => { },
     activities: [],
+    setActivities: () => { },
     addActivity: () => { },
     resetProgramme: () => { },
     datesInterval: [],
@@ -48,13 +49,7 @@ export const ProgrammeContextProvider = (props) => {
     }
 
 
-    //reset the context fucntion 
-    const resetProgramme = () => {
-        setParticipants(null)
-        setStartDate(null)
-        setEndDate(null)
-        setActivities([])
-    }
+
 
 
 
@@ -70,6 +65,7 @@ export const ProgrammeContextProvider = (props) => {
     }
     // set the state of the programmeContext to the localStorage
     const setProgramme = () => {
+        localStorage.removeItem('programme')
         localStorage.setItem('programme', JSON.stringify({
             participants: participants,
             startDate: startDate,
@@ -78,6 +74,13 @@ export const ProgrammeContextProvider = (props) => {
         }))
     }
 
+    //reset the context fucntion 
+    const resetProgramme = () => {
+        setParticipants(null)
+        setStartDate(null)
+        setEndDate(null)
+        setActivities([])
+    }
 
 
     // set the state of the programmeContext to the localStorage when the component is mounted
@@ -107,7 +110,8 @@ export const ProgrammeContextProvider = (props) => {
             resetProgramme: resetProgramme,
             datesInterval: datesInterval,
             setDatesInterval: setDatesInterval,
-            deleteActivity: deleteActivity
+            deleteActivity: deleteActivity,
+            setActivities: setActivities
         }}>
             {props.children}
         </programmeContext.Provider>
