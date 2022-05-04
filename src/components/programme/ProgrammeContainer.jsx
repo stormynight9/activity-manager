@@ -1,11 +1,10 @@
-import DayContainer from "./DayContainer"
-import { useContext, useState, useLayoutEffect, useEffect } from "react"
 import { format } from 'date-fns'
+import { useContext, useEffect, useLayoutEffect, useState } from "react"
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ReactPaginate from "react-paginate"
-import './ProgrammeContainer.css'
-import { FaChevronLeft } from 'react-icons/fa'
-import { FaChevronRight } from 'react-icons/fa'
 import programmeContext from "../../context/programme-context"
+import DayContainer from "./DayContainer"
+import './ProgrammeContainer.css'
 
 const Programme = () => {
     const programmeCtx = useContext(programmeContext)

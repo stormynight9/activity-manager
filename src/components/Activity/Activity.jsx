@@ -1,14 +1,14 @@
-import { forwardRef, useState, useContext } from "react"
-import parse from 'html-react-parser'
-import { Navigate, useParams, useNavigate } from "react-router-dom"
+import { addDays, format } from "date-fns";
+import parseISO from "date-fns/parseISO";
+import parse from 'html-react-parser';
+import { forwardRef, useContext, useState } from "react";
 import DatePicker from "react-datepicker";
-import { activities } from "../../constants/activities"
-import parseISO from "date-fns/parseISO"
-import selectedContext from "../../context/selected-context"
-import TimesInput from "./TimesInput"
-import { addDays, format } from "date-fns"
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { activities } from "../../constants/activities";
+import programmeContext from '../../context/programme-context';
+import selectedContext from "../../context/selected-context";
 import ActivityCard from "./ActivityCard";
-import programmeContext from '../../context/programme-context'
+import TimesInput from "./TimesInput";
 
 const Activity = () => {
     const { activityId } = useParams()

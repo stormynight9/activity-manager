@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
-import SelectedContext from "../../context/selected-context"
-import programmeContext from "../../context/programme-context"
 import { activities } from '../../constants/activities'
-import SelectedActivity from "./SelectedActivity"
+import programmeContext from "../../context/programme-context"
+import SelectedContext from "../../context/selected-context"
 import EmptyActivity from "./EmptyActivity"
+import SelectedActivity from "./SelectedActivity"
 
 
 
