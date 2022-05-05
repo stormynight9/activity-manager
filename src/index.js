@@ -9,17 +9,17 @@ import { SelectedContextProvider } from './context/selected-context';
 import { ProgrammeContextProvider } from './context/programme-context';
 
 ReactDOM.render(
-  <ProgrammeContextProvider>
-    <SelectedContextProvider>
-      <ModalContectProvider>
-        <BrowserRouter>
-          <React.StrictMode>
+  <React.StrictMode>
+    <ProgrammeContextProvider>
+      <SelectedContextProvider>
+        <ModalContectProvider>
+          <BrowserRouter>
             <App />
-          </React.StrictMode>
-        </BrowserRouter>
-      </ModalContectProvider >
-    </SelectedContextProvider>
-  </ProgrammeContextProvider>
+          </BrowserRouter>
+        </ModalContectProvider >
+      </SelectedContextProvider>
+    </ProgrammeContextProvider>
+  </React.StrictMode>
   ,
   document.getElementById('root')
 );
