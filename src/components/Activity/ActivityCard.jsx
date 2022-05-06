@@ -1,7 +1,7 @@
-import SwiperComponent from "./SwiperComponent"
 import { FaHourglassHalf } from 'react-icons/fa'
 import { IoIosPeople } from 'react-icons/io'
 import { MdLocationOn } from 'react-icons/md'
+import SwiperComponent from "./SwiperComponent"
 
 const ActivityCard = (props) => {
 

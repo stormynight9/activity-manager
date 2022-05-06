@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import { useContext, useEffect, useLayoutEffect, useState } from "react"
-import { FaChevronLeft, FaChevronRight, FaCheck } from 'react-icons/fa'
+import { FaCheck, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ReactPaginate from "react-paginate"
 import programmeContext from "../../context/programme-context"
 import DayContainer from "./DayContainer"

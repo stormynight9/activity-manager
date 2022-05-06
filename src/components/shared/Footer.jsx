@@ -1,4 +1,4 @@
-import { FaCreditCard, FaCcVisa, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaCcVisa, FaCreditCard, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
 
@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className='md:flex md:justify-between'>
                     <div className='mb-6 md:mb-0'>
                         <a href='#' className='flex items-center'>
-                            <img src='https://hobbizer.com/bundles/hobbizerorganiser/images/logo-footer.png' className='mr-3 w-[164px] h-[60px]' alt='FlowBite Logo ' />
+                            <img src='https://hobbizer.com/bundles/hobbizerorganiser/images/logo-footer.png' className='mr-3 w-[164px] h-[60px]' alt='hobbizer Logo ' />
                         </a>
                     </div>
                     <div className='grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3'>

@@ -1,12 +1,12 @@
+import { format } from "date-fns";
+import addDays from "date-fns/addDays";
 import { forwardRef, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import addDays from "date-fns/addDays";
-import { format } from "date-fns";
-import './ProgrammeForm.css'
-import selectedContext from '../../context/selected-context'
+import { useNavigate } from "react-router-dom";
 import programmeContext from "../../context/programme-context";
+import selectedContext from '../../context/selected-context';
+import './ProgrammeForm.css';
 
 
 const ProgrammeForm = () => {
@@ -52,13 +52,10 @@ const ProgrammeForm = () => {
         e.preventDefault();
         if (startDateToForward && endDateToForward) {
             selectedCtx.setParticipants(() => participants)
-
             programmeCtx.resetProgramme()
             programmeCtx.setStartDate(() => startDateToForward)
             programmeCtx.setEndDate(() => endDateToForward)
             programmeCtx.setParticipants(() => +participants)
-
-
             setTimeout(() => navigate('/programme'), 10)
         }
     }

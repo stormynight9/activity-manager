@@ -24,7 +24,6 @@ export const ProgrammeContextProvider = (props) => {
     const [activities, setActivities] = useState([])
     const [datesInterval, setDatesInterval] = useState([])
 
-
     useEffect(() => {
         if (startDate && endDate) {
             const start = new Date(startDate)
@@ -48,11 +47,6 @@ export const ProgrammeContextProvider = (props) => {
         setActivities(newActivities)
     }
 
-
-
-
-
-
     // create an object to store in localStorage and set it to the state of the programmeContext 
     const getProgramme = () => {
         const programme = JSON.parse(localStorage.getItem('programme'))
@@ -63,6 +57,7 @@ export const ProgrammeContextProvider = (props) => {
             setActivities(programme.activities)
         }
     }
+
     // set the state of the programmeContext to the localStorage
     const setProgramme = () => {
         localStorage.removeItem('programme')
@@ -82,7 +77,6 @@ export const ProgrammeContextProvider = (props) => {
         setActivities([])
     }
 
-
     // set the state of the programmeContext to the localStorage when the component is mounted
     useEffect(() => {
         getProgramme()
@@ -93,9 +87,6 @@ export const ProgrammeContextProvider = (props) => {
         if (participants && startDate && endDate)
             setProgramme()
     }, [participants, startDate, endDate, activities])
-
-
-
 
     return (
         <programmeContext.Provider value={{

@@ -5,13 +5,8 @@ import Login from './Login'
 import Register from './Register'
 
 const Navbar = () => {
-
     const [state, setState] = useState(false)
     const navRef = useRef()
-
-
-
-
     const modalCtx = useContext(ModalContext)
 
     const modalHandler = (content) => {
@@ -69,7 +64,6 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </nav>

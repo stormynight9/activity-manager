@@ -1,5 +1,5 @@
-import Modal from "../components/shared/Modal"
 import ProgrammeContainer from "../components/programme/ProgrammeContainer"
+import Modal from "../components/shared/Modal"
 
 const Programme = () => {
     return (

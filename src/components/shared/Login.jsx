@@ -1,16 +1,11 @@
-import ModalContext from '../../context/modal-context'
 import { useContext } from 'react'
-
-import Register from './Register'
 import { FaFacebook } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
-
+import ModalContext from '../../context/modal-context'
+import Register from './Register'
 
 const Login = () => {
-
     const modalCtx = useContext(ModalContext);
-
-
 
     return (
         <div className='relative bg-white rounded-lg shadow-lg mx-auto  max-w-md'>

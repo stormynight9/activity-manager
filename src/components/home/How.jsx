@@ -1,4 +1,3 @@
-
 const How = () => {
     return (
         <div className=' mt-14   text-white text-center bg-[url(https://cdn.discordapp.com/attachments/311564936004370434/957088625714151465/background-home-how-it-works.png)]'>

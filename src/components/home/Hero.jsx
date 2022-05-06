@@ -1,7 +1,4 @@
-
-
 const Hero = () => {
-
 
     return (
 

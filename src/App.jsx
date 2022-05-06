@@ -1,18 +1,16 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/shared/Footer';
 import Navbar from './components/shared/Navbar';
+import ScrollToTop from './components/shared/ScrollToTop';
+import ActivitiesPage from './pages/ActivitiesPage';
+import ActivityPage from './pages/ActivityPage';
 import CategoriesPage from './pages/CategoriesPage';
 import Home from './pages/Home';
 import Programme from './pages/Programme';
-import ActivitiesPage from './pages/ActivitiesPage';
-import ActivityPage from './pages/ActivityPage';
-import ScrollToTop from './components/shared/ScrollToTop';
 
 function App() {
 
-
   return (
-
     <div className='bg-gray-50'>
       <Navbar />
       <ScrollToTop />

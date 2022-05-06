@@ -1,17 +1,13 @@
-import { useEffect, useRef, useState } from "react"
-import { useContext } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import SelectedContext from "../../context/selected-context"
-const TimesInput = (props) => {
 
+const TimesInput = (props) => {
     const selectedCtx = useContext(SelectedContext)
     const menuItems = props.times
-
-
     const [selectedItem, setSelectedItem] = useState({
         item: selectedCtx.selectedTime ? menuItems[0] : null,
         idx: 0
     })
-
 
     const selectedItemHandler = (item) => {
         setSelectedItem(item)
@@ -39,8 +35,6 @@ const TimesInput = (props) => {
     return (
 
         <div className="relative   mx-auto text-[15px] w-full">
-
-
             <div className='flex flex-col  lg:px-6 w-full mb-4 sm:mb-0' ref={selectMenuRef} onClick={() => setState(!state)}>
                 <label className='text-sm text-hobbizer' htmlFor='startDate'>Horaire</label>
                 <div className='flex relative items-center'>

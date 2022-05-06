@@ -1,15 +1,14 @@
-import { useParams, NavLink, Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, NavLink, useParams } from 'react-router-dom'
 import { activities } from '../../constants/activities'
 import { categories } from '../../constants/categories'
 import Timeline from '../shared/Timeline'
+
 const Activities = () => {
     const { categoryId } = useParams()
     const category = categories.find(category => category.id === +categoryId)
     if (!category) {
-
         return <Navigate to="/categories" />
     }
-
 
     const activitiesByCategory = activities.filter(activity => category.activities.includes(activity.id))
 

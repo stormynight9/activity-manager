@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-
+import App from './App';
 import { ModalContectProvider } from './context/modal-context';
-import { SelectedContextProvider } from './context/selected-context';
 import { ProgrammeContextProvider } from './context/programme-context';
+import { SelectedContextProvider } from './context/selected-context';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>

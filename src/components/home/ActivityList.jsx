@@ -1,12 +1,10 @@
-import Activity from './Activity'
-import { activities } from '../../constants/activities'
 import { Link } from 'react-router-dom'
+import { activities } from '../../constants/activities'
+import Activity from './Activity'
 
 const ActivityList = () => {
-
     //get all ids from activities
     const ids = activities.map(activity => activity.id)
-
     // get 5 random activities from ids
     const randomActivities = () => {
         const randomIds = []

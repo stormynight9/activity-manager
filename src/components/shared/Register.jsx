@@ -1,16 +1,11 @@
-import ModalContext from '../../context/modal-context'
 import { useContext } from 'react'
-
 import { FaFacebook } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
+import ModalContext from '../../context/modal-context'
 import Login from './Login'
 
-
 const Register = () => {
-
     const modalCtx = useContext(ModalContext);
-
-
 
     return (
         <div className='relative bg-white rounded-lg shadow mx-auto  max-w-md'>
@@ -33,7 +28,6 @@ const Register = () => {
                     <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 '>Your password</label>
                     <input type='password' name='password' id='password' placeholder='••••••••' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-hobbizer block w-full p-2.5  ' required />
                 </div>
-
                 <button type='submit' className='w-full text-white bg-hobbizer  hover:bg-hobbizer-dark  duration-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center '>Create my account</button>
                 <div className='grid grid-cols-3 gap-0 mb-6'>
                     <hr className='mt-3 block border-gray-200' />

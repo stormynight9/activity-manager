@@ -11,8 +11,6 @@ export const ModalContectProvider = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [modalContent, setModalContent] = useState(<></>);
 
-
-
     const toggleModal = () => {
         setIsOpen(() => !isOpen);
     };

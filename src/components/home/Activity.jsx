@@ -4,14 +4,10 @@ const Activity = (props) => {
     return (
         <div className="flex flex-col m-1 justify-between bg-white rounded-lg border h-full border-gray-200 shadow-md ">
             <div className='h-60'>
-                <a href="#">
-                    <img className="rounded-t-lg object-cover w-full h-full" src={props.coverImage} alt="" />
-                </a>
+                <img className="rounded-t-lg object-cover w-full h-full" src={props.coverImage} alt="" />
             </div>
             <div className="p-5 mb-auto">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{props.title}</h5>
-                </a>
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{props.title}</h5>
                 <p className="mb-3 font-normal text-gray-700 ">{props.description}</p>
             </div>
             <div className="pb-5 pr-5 pl-5 flex flex-col justify-between">

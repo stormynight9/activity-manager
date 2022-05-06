@@ -23,14 +23,12 @@ const ActivityHolder = (props) => {
                 setselectedActivity(selectedActivities[i])
                 return true
             }
-
         }
         return false
     }
 
     useEffect(() => {
         // check if selectedActivity is in selectedActivities array
-
         if (!checkIfInArray(props.id)) {
             setselectedActivity(null)
         }

@@ -1,5 +1,5 @@
-import Modal from '../components/shared/Modal'
 import Activities from '../components/categories/Activities'
+import Modal from '../components/shared/Modal'
 
 const ActivitiesPage = () => {
     return (
