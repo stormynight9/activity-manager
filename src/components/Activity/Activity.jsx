@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import { forwardRef, useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 import { activities } from "../../constants/activities";
 import programmeContext from '../../context/programme-context';
 import selectedContext from "../../context/selected-context";
@@ -20,8 +21,6 @@ const Activity = () => {
     const [participants, setParticipants] = useState(selectedCtx.participants);
     const [selectedTime, setSelectedTime] = useState(activity.time[0])
     const navigate = useNavigate()
-
-
 
     if (!activity) {
         return <Navigate to="/categories" />
@@ -82,9 +81,18 @@ const Activity = () => {
         // check if activity already exist
         const activityExist = programmeCtx.activities.find(activity => activity.id === id)
         if (activityExist) {
-            alert('Vous avez déjà une activité ce jour à cette période')
+            toast('Vous avez déjà une activité ce jour à cette période', {
+                type: 'error',
+                position: "bottom-center",
+                autoClose: 5000,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
             return
         }
+
         programmeCtx.addActivity({
             id: id,
             activityId: activity.id,
@@ -93,6 +101,15 @@ const Activity = () => {
             time: selectedTime
         })
         navigate('/programme')
+        toast("L'activité a bien été ajoutée à votre programme", {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 5000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
     }
 
     return (

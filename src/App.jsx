@@ -1,4 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { Slide, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/shared/Footer';
 import Navbar from './components/shared/Navbar';
 import ScrollToTop from './components/shared/ScrollToTop';
@@ -22,6 +24,17 @@ function App() {
         <Route path='/activities/:activityId' element={<ActivityPage />} />
         <Route path='/*' element={<Navigate to='/' />} />
       </Routes>
+      <ToastContainer position="bottom-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='colored'
+        transition={Slide} />
       <Footer />
     </div>
   );

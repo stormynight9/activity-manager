@@ -1,3 +1,8 @@
+:root {
+  --toastify-color-error: #ff5f5a !important;
+  --toastify-color-success: #65c6b7 !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
