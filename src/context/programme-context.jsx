@@ -84,7 +84,7 @@ export const ProgrammeContextProvider = (props) => {
 
     // set the state of the programmeContext to the localStorage when the component is updated
     useEffect(() => {
-        if (participants && startDate && endDate)
+        if (startDate && endDate)
             setProgramme()
     }, [participants, startDate, endDate, activities])
 

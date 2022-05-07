@@ -1,5 +1,4 @@
-import { addDays, format } from "date-fns";
-import parseISO from "date-fns/parseISO";
+import { addDays, format, isAfter, isBefore } from "date-fns";
 import parse from 'html-react-parser';
 import { forwardRef, useContext, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -16,8 +15,8 @@ const Activity = () => {
     const selectedCtx = useContext(selectedContext)
     const programmeCtx = useContext(programmeContext)
     const [startDate, setStartDate] = useState(selectedCtx.selectedDay && new Date(selectedCtx.selectedDay))
-    const minDate = programmeCtx.startDate ? parseISO(programmeCtx.startDate) : addDays(new Date(), 3)
-    const maxDate = programmeCtx.endDate ? parseISO(programmeCtx.endDate) : addDays(new Date(), 30)
+    const minDate = addDays(new Date(), 3)
+    const maxDate = addDays(new Date(), 30)
     const [participants, setParticipants] = useState(selectedCtx.participants);
     const [selectedTime, setSelectedTime] = useState(activity.time[0])
     const navigate = useNavigate()
@@ -71,6 +70,15 @@ const Activity = () => {
     const onSubmitHandler = (e) => {
         e.preventDefault()
         const id = generateId(startDate, selectedTime)
+        // if selected day is greater than end date of the programme change the selected day to the end date
+        if (isAfter(startDate, new Date(programmeCtx.endDate)) || programmeCtx.startDate === null) {
+            programmeCtx.setEndDate(format(startDate, 'yyyy-MM-dd'))
+        }
+
+        if (isBefore(startDate, new Date(programmeCtx.startDate)) || programmeCtx.startDate === null) {
+            programmeCtx.setStartDate(format(startDate, 'yyyy-MM-dd'))
+        }
+
         // check if activity already exist
         const activityExist = programmeCtx.activities.find(activity => activity.id === id)
         if (activityExist) {
