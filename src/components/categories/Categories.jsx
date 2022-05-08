@@ -1,8 +1,23 @@
-import { categories } from "../../constants/categories"
+import { collection, getDocs } from 'firebase/firestore'
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { db } from "../../firebase-config"
 import Timeline from "../shared/Timeline"
 
 const Categories = () => {
+    const [categories, setCategories] = useState([])
+    const categoriesCollectionRef = collection(db, 'categories')
+    console.log(categories)
+
+    useEffect(() => {
+        const getCategories = async () => {
+            const data = await getDocs(categoriesCollectionRef)
+            setCategories(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
+
+        getCategories()
+    }, [])
+
     return (
         <main className='flex items-center flex-col mb-8'>
             <div>
