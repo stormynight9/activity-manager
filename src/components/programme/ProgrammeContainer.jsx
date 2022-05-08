@@ -32,7 +32,7 @@ const Programme = () => {
         setDaysperPage(changeLayout())
         setPageNumber(0)
         setPageCount(Math.ceil(days.length / daysPerPage))
-    }, [days])
+    }, [days, daysPerPage])
 
     const changeLayout = () => {
         if (screenWidth > 1170) {
