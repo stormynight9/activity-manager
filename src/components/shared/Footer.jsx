@@ -14,10 +14,10 @@ const Footer = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3'>
                         <div>
-                            <h2 className='mb-6 text-sm font-semibold uppercase '>About Hobbizer</h2>
+                            <h2 className='mb-6 text-sm font-semibold uppercase '>A propos de Tunisie Séjours</h2>
                             <ul className='text-hobbizer-gray '>
                                 <li className='mb-4'>
-                                    <a href='#' className='hover:underline'>How it works</a>
+                                    <a href='#' className='hover:underline'>Comment ça marche</a>
                                 </li>
                                 <li className='mb-4'>
                                     <a href='#' className='hover:underline'>FAQ</a>
@@ -28,7 +28,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className='mb-6 text-sm font-semibold  uppercase '>Payement Secured</h2>
+                            <h2 className='mb-6 text-sm font-semibold  uppercase '>Paiement Sécurisé</h2>
                             <ul className='text-hobbizer-gray  inline-flex'>
                                 <li className='mb-4 mr-2'>
                                     <span href='#' className='text-3xl cursor-default'><FaCreditCard /></span>
@@ -39,7 +39,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className='mb-6 text-sm font-semibold  uppercase '>Follow us</h2>
+                            <h2 className='mb-6 text-sm font-semibold  uppercase '>SUIVEZ-NOUS</h2>
                             <ul className='text-hobbizer-gray  inline-flex'>
                                 <li className='mb-4 mr-2'>
                                     <a href='#' className='text-3xl hover:text-hobbizer'><FaInstagram /></a>
@@ -53,7 +53,7 @@ const Footer = () => {
                 </div>
                 <hr className='my-6 border-hobbizer-gray sm:mx-auto  lg:my-8' />
                 <div className='sm:flex sm:items-center sm:justify-between'>
-                    <span className='text-sm text-hobbizer-gray sm:text-center '>© 2022 <a href='#' className='hover:underline'>Hobbizer™</a>. All Rights Reserved.
+                    <span className='text-sm text-hobbizer-gray sm:text-center '>© 2022 <a href='#' className='hover:underline'>Tunisie Séjours™</a>. Tout droit réservé.
                     </span>
 
                 </div>

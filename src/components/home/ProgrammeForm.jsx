@@ -22,9 +22,9 @@ const ProgrammeForm = () => {
 
     const StartDatejsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col sm:border-r-2 sm:px-6 w-full mb-4 sm:mb-0'>
-            <label className='text-sm text-hobbizer' htmlFor='startDate'>Start Date</label>
+            <label className='text-sm text-hobbizer' htmlFor='startDate'>Date de début</label>
             <div className='flex relative items-center'>
-                <input autoComplete="off" required onChange={e => setStartDateInput(e.target.value)} value={value} ref={ref} className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='From' id='startDate' />
+                <input autoComplete="off" required onChange={e => setStartDateInput(e.target.value)} value={value} ref={ref} className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='Du' id='startDate' />
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2  " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
@@ -34,9 +34,9 @@ const ProgrammeForm = () => {
 
     const EndDatejsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col lg:border-r-2 sm:px-6 w-full'>
-            <label className='text-sm text-hobbizer' htmlFor='endDate'>End Date</label>
+            <label className='text-sm text-hobbizer' htmlFor='endDate'>Date de fin</label>
             <div className='flex relative items-center'>
-                <input autoComplete="off" required onChange={e => setEndDateInput(e.target.value)} value={value} ref={ref} className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='Until' id='endDate' />
+                <input autoComplete="off" required onChange={e => setEndDateInput(e.target.value)} value={value} ref={ref} className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='au' id='endDate' />
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2  " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>

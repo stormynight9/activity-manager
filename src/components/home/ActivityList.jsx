@@ -25,9 +25,8 @@ const ActivityList = () => {
         <section className='flex flex-wrap max-w-screen-xl mt-14 mx-auto  items-baseline justify-center '>
             <div className='text-center space-y-4'>
                 <h2 className='text-gray-800 font-semibold mb-14 text-3xl md:text-4xl'>
-                    The
-                    <span className='text-hobbizer'> Hobbizer </span>
-                    Selection
+                    La selection de
+                    <span className='text-hobbizer'> Tunisie Séjours </span>
                 </h2>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto gap-2'>
