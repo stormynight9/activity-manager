@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { activities } from '../../constants/activities'
+import DataContext from "../../context/data-context"
 import programmeContext from "../../context/programme-context"
 import SelectedContext from "../../context/selected-context"
 import EmptyActivity from "./EmptyActivity"
@@ -8,11 +8,12 @@ import SelectedActivity from "./SelectedActivity"
 
 
 const ActivityHolder = (props) => {
+    const dataCtx = useContext(DataContext)
     const programmeCtx = useContext(programmeContext)
     const selectedCtx = useContext(SelectedContext)
     const [selectedActivities, setSelectedActivities] = useState(programmeCtx.activities)
     const [selectedActivity, setselectedActivity] = useState(null)
-    const activity = selectedActivity && activities.find(activity => activity.id === selectedActivity.activityId)
+    const activity = selectedActivity && dataCtx.activities.find(activity => activity.id === selectedActivity.activityId)
 
 
     // check if props id is in activities array

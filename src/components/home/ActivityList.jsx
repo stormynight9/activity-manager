@@ -1,10 +1,15 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { activities } from '../../constants/activities'
+import DataContext from '../../context/data-context'
 import Activity from './Activity'
 
 const ActivityList = () => {
+
+    const dataCtx = useContext(DataContext)
+
     //get all ids from activities
-    const ids = activities.map(activity => activity.id)
+    const ids = dataCtx.activities.map(activity => activity.id)
     // get 5 random activities from ids
     const randomActivities = () => {
         const randomIds = []
@@ -15,7 +20,7 @@ const ActivityList = () => {
             }
         }
         // get the activities from the random ids
-        const randomActivities = randomIds.map(id => activities[id])
+        const randomActivities = randomIds.map(id => dataCtx.activities[id])
         return randomActivities
     }
 

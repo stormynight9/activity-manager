@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { activities } from "../../constants/activities";
+import DataContext from "../../context/data-context";
 import programmeContext from '../../context/programme-context';
 import selectedContext from "../../context/selected-context";
 import ActivityCard from "./ActivityCard";
@@ -12,7 +13,8 @@ import TimesInput from "./TimesInput";
 
 const Activity = () => {
     const { activityId } = useParams()
-    const activity = activities.find(activity => activity.id === +activityId)
+    const dataCtx = useContext(DataContext)
+    const activity = dataCtx.activities.find(activity => activity.id === activityId)
     const selectedCtx = useContext(selectedContext)
     const programmeCtx = useContext(programmeContext)
     const [startDate, setStartDate] = useState(selectedCtx.selectedDay && new Date(selectedCtx.selectedDay))

@@ -1,16 +1,18 @@
+import { useContext } from 'react'
 import { Link, Navigate, NavLink, useParams } from 'react-router-dom'
-import { activities } from '../../constants/activities'
-import { categories } from '../../constants/categories'
+import DataContext from "../../context/data-context"
 import Timeline from '../shared/Timeline'
 
 const Activities = () => {
+    const dataCtx = useContext(DataContext)
     const { categoryId } = useParams()
-    const category = categories.find(category => category.id === +categoryId)
+    const category = dataCtx.categories.find(category => category.id === categoryId)
+
     if (!category) {
         return <Navigate to="/categories" />
     }
 
-    const activitiesByCategory = activities.filter(activity => category.activities.includes(activity.id))
+    const activitiesByCategory = dataCtx.activities.filter(activity => category.activities.includes(activity.id))
 
     return (
         <div className='flex justify-center mb-7 mt-36'>
@@ -18,7 +20,7 @@ const Activities = () => {
                 <Timeline />
                 <main className='flex justify-start md:ml-6'>
                     <div className='hidden lg:flex flex-col border-r-[1px]  border-r-gray-200 shrink-0'>
-                        {categories.map(category => (
+                        {dataCtx.categories.map(category => (
                             <NavLink to={`/categories/${category.id}`} className={(navData) => navData.isActive ? 'py-3 px-6 bg-hobbizer text-white' : 'py-3 px-6  hover:bg-hobbizer hover:text-white'} key={category.id}>{category.title}</NavLink>
                         ))}
                     </div>
@@ -41,25 +43,3 @@ const Activities = () => {
 }
 
 export default Activities
-
-
-/*
-// admin
-// prestateur de services
-// client
-
-table compte : backoffice - admin
-                client
-                prestateur -> ynajem y7ot des activities
-
-participants: adultes, enfants
-prestateur ynajem ychouf les réservations
-paiement - facture 
-
-// reservation
-// galerie
-
-
-
-
-*/
