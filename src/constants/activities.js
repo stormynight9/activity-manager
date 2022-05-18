@@ -1,6 +1,5 @@
 export const activities = [
     {
-        id: 1,
         title: 'Dégustation interactive de vins',
         shortTitle: 'DEGUSTATION VINS',
         duration: 60,
@@ -32,7 +31,6 @@ export const activities = [
         <p>Envie d'accompagner&nbsp;vos verres de vin ? <strong>Nous pouvons vous fournir des plateaux de charcuterie et de fromages </strong>afin d'accompagner votre dégustation. Demandez-nous un devis !&nbsp;</p>`
     },
     {
-        id: 2,
         title: 'Murder party en visio',
         shortTitle: 'Murder Party',
         duration: 90,
@@ -57,7 +55,6 @@ export const activities = [
         <p>Cette murder party se déroulera sur ZOOM, tous les détails vous seront envoyés pour que vous puissiez y assister facilement.</p>`
     },
     {
-        id: 3,
         title: 'Cours de cuisine en ligne avec merouan (top chef)',
         shortTitle: 'CUISINE',
         duration: 90,
@@ -81,7 +78,6 @@ export const activities = [
         <p>Le prix comprend l'envoie de la boxe comprenant la liste des ingrédients et la bouteille de vin. Attention, cette option est valable pour les groupe de moins de 30 personnes.&nbsp;</p>`
     },
     {
-        id: 4,
         title: 'Créez votre soin cosmétique en ligne',
         shortTitle: 'COSMETIQUE',
         duration: 60,
@@ -107,7 +103,6 @@ export const activities = [
         <p><strong>Personnalisation des flacons</strong> possible sur-devis</p>`
     },
     {
-        id: 5,
         title: 'Dégustation de vin sous hyonose en visio',
         shortTitle: 'DEGUSTATION',
         duration: 60,
@@ -135,7 +130,6 @@ export const activities = [
         <p><strong>Le prix comprend l’envoi de la bouteille de vin ou champagne et l’expérience en vidéo.</strong></p>`
     },
     {
-        id: 6,
         title: 'En immerson avec les loups',
         shortTitle: 'Loups',
         duration: 180,
@@ -168,7 +162,6 @@ export const activities = [
         `
     },
     {
-        id: 7,
         title: 'Observation des étoiles',
         shortTitle: 'ASTRONOMIE',
         duration: 'une nuit',
@@ -195,7 +188,4 @@ export const activities = [
         <p><strong>Nous pouvons vous louer l’ensemble du matériel </strong>indispensable au bivouac si vous n’êtes pas équipés</p>
         <p>Pour toute personnalisation de l’aventure, contactez-nous.</p>`
     }
-
-
-
 ]
