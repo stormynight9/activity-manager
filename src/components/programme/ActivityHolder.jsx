@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react"
-import { activities } from '../../constants/activities'
 import DataContext from "../../context/data-context"
 import programmeContext from "../../context/programme-context"
 import SelectedContext from "../../context/selected-context"
