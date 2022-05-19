@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useForm } from 'react-hook-form'
 import { FaFacebook } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import ModalContext from '../../context/modal-context'
@@ -6,6 +7,10 @@ import Register from './Register'
 
 const Login = () => {
     const modalCtx = useContext(ModalContext);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data)
+    }
 
     return (
         <div className='relative bg-white rounded-lg shadow-lg mx-auto  max-w-md'>
@@ -14,15 +19,17 @@ const Login = () => {
                     <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fillRule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clipRule='evenodd'></path></svg>
                 </button>
             </div>
-            <form className='px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8' action='#'>
+            <form onSubmit={handleSubmit(onSubmit)} className='px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8'>
                 <h3 className='text-xl font-medium text-gray-900 '>Sign in to Hobbizer</h3>
                 <div>
-                    <label htmlFor='email' className='block mb-2 text-sm font-medium text-gray-900 '>Your email</label>
-                    <input type='email' name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500 block w-full p-2.5    ' placeholder='name@company.com' required />
+                    <label htmlFor='email' className='block mb-2 text-sm font-medium text-gray-900 '>Email</label>
+                    <input {...register('email', { required: 'Ce champ est obligatoire', pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: 'This is invalid email' } })} name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500 block w-full p-2.5' placeholder='name@company.com' />
+                    {errors.email && <p className='pt-1 text-sm text-red-500'>{errors.email?.message}</p>}
                 </div>
                 <div>
-                    <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 '>Your password</label>
-                    <input type='password' name='password' id='password' placeholder='••••••••' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-hobbizer block w-full p-2.5  ' required />
+                    <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 '>Mot de passe</label>
+                    <input {...register('password', { required: 'Ce champ est obligatoire', minLength: { value: 8, message: 'La longueur minimum est de 8 caractères.' } })} type='password' name='password' id='password' placeholder='••••••••' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-hobbizer block w-full p-2.5  ' />
+                    {errors.password && <p className='pt-1 text-sm text-red-500'>{errors.password?.message}</p>}
                 </div>
                 <div className='flex justify-between'>
                     <div className='flex items-start'>
