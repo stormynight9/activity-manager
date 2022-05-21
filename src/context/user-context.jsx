@@ -8,6 +8,9 @@ const UserContext = createContext({
     isLoaded: false,
     signIn: () => { },
     signOut: () => { },
+    registerUser: () => { },
+    loginUser: () => { },
+    logoutUser: () => { }
 });
 
 export const UserContextProvider = ({ children }) => {
@@ -26,6 +29,7 @@ export const UserContextProvider = ({ children }) => {
     }, [])
 
     const registerUser = (email, name, password) => {
+        console.log('yo')
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
@@ -34,7 +38,7 @@ export const UserContextProvider = ({ children }) => {
                         setLoading(false);
                         setUser(auth.currentUser);
                     })
-                    .catch(() => {
+                    .catch((err) => {
                         setLoading(false);
                         setError("Error while updating profile");
                     })
@@ -46,7 +50,7 @@ export const UserContextProvider = ({ children }) => {
     const loginUser = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then(res => console.log(res))
-            .catch(err => setError(err.message))
+            .catch(err => console.log(err.message))
             .finally(() => setLoading(false));
     }
 

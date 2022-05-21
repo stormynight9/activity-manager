@@ -3,13 +3,16 @@ import { useForm } from 'react-hook-form'
 import { FaFacebook } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import ModalContext from '../../context/modal-context'
+import UserContext from '../../context/user-context'
 import Register from './Register'
 
 const Login = () => {
     const modalCtx = useContext(ModalContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const userCtx = useContext(UserContext);
     const onSubmit = data => {
         console.log(data)
+        userCtx.loginUser(data.email, data.password)
     }
 
     return (
@@ -20,10 +23,10 @@ const Login = () => {
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8'>
-                <h3 className='text-xl font-medium text-gray-900 '>Sign in to Hobbizer</h3>
+                <h3 className='text-xl font-medium text-gray-900 '>Inscrivez-vous sur Tunisie Séjour</h3>
                 <div>
                     <label htmlFor='email' className='block mb-2 text-sm font-medium text-gray-900 '>Email</label>
-                    <input {...register('email', { required: 'Ce champ est obligatoire', pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: 'This is invalid email' } })} name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500 block w-full p-2.5' placeholder='name@company.com' />
+                    <input {...register('email', { required: 'Ce champ est obligatoire', pattern: { value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, message: 'Ce adresse email est invalide' } })} name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-blue-500 block w-full p-2.5' placeholder='exemple@email.com' />
                     {errors.email && <p className='pt-1 text-sm text-red-500'>{errors.email?.message}</p>}
                 </div>
                 <div>
