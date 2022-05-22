@@ -9,6 +9,7 @@ import DataContext from './context/data-context';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityPage from './pages/ActivityPage';
 import CategoriesPage from './pages/CategoriesPage';
+import CheckoutPage from './pages/CheckoutPage';
 import Home from './pages/Home';
 import Programme from './pages/Programme';
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/categories' element={<CategoriesPage />} />
           <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
           <Route path='/activities/:activityId' element={<ActivityPage />} />
+          <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
         <ToastContainer position="bottom-center"

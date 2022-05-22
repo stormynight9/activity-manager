@@ -18,6 +18,8 @@ export const UserContextProvider = ({ children }) => {
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
 
+    console.log(user)
+
     useEffect(() => {
         setLoading(true)
         const unsubscribe = onAuthStateChanged(auth, res => {
@@ -33,7 +35,7 @@ export const UserContextProvider = ({ children }) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
-                return updateProfile(auth, { displayName: name })
+                updateProfile(auth.currentUser, { displayName: name })
                     .then(() => {
                         setLoading(false);
                         setUser(auth.currentUser);
