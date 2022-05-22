@@ -11,7 +11,6 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const userCtx = useContext(UserContext);
     const onSubmit = data => {
-        console.log(data)
         userCtx.loginUser(data.email, data.password)
     }
 

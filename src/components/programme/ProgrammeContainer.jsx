@@ -2,11 +2,13 @@ import { format } from 'date-fns'
 import { useContext, useEffect, useLayoutEffect, useState } from "react"
 import { FaCheck, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ReactPaginate from "react-paginate"
+import { Link, useNavigate } from 'react-router-dom'
 import programmeContext from "../../context/programme-context"
 import DayContainer from "./DayContainer"
 import './ProgrammeContainer.css'
 
 const Programme = () => {
+    const navigate = useNavigate()
     const programmeCtx = useContext(programmeContext)
     const startDate = format(new Date(programmeCtx.startDate), 'd MMM, yyyy')
     const endDate = format(new Date(programmeCtx.endDate), 'd MMM, yyyy')
@@ -78,7 +80,7 @@ const Programme = () => {
             {programmeCtx.activities.length > 0 && <div className='w-full p-4 flex flex-col sm:flex-row gap-2 sm:gap-1 md:gap-4 sm:justify-end max-w-4xl'>
                 <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 bg-hobbizer-green hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Recommencer</button>
                 <button className='h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer-green hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Sauvegarder mon programme</button>
-                <button className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'><FaCheck />Valider mon programme</button>
+                <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'><FaCheck />Valider mon programme</Link>
             </div>}
 
         </div>

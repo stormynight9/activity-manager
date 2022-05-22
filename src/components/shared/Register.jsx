@@ -13,10 +13,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
-        console.log('yorr')
         userCtx.registerUser(data.email, data.name, data.password)
-        console.log('yorrdd')
     }
 
 
