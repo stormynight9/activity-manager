@@ -20,9 +20,8 @@ const Navbar = () => {
                 <div className="flex items-center justify-between py-3 md:py-4 md:block">
                     <Link to='/'>
                         <img
-                            src="https://hobbizer.com/bundles/hobbizerorganiser/images/logo.png"
+                            src="https://svgur.com/i/hbu.svg"
                             width={120}
-                            height={50}
                             alt="Float UI logo"
                         />
                     </Link>
