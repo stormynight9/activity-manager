@@ -5,23 +5,25 @@ import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, sign
 const UserContext = createContext({
     user: null,
     setUser: () => { },
-    isLoaded: false,
+    loading: false,
     signIn: () => { },
     signOut: () => { },
     registerUser: () => { },
     loginUser: () => { },
-    logoutUser: () => { }
+    logoutUser: () => { },
+    error: null,
 });
 
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
-
+    console.log("user: ", user);
+    console.log("error: ", error);
     useEffect(() => {
         setLoading(true)
-        const unsubscribe = onAuthStateChanged(auth, res => {
-            res ? setUser(res) : setUser(null)
+        const unsubscribe = onAuthStateChanged(auth, user => {
+            user ? setUser(user) : setUser(null)
             setError("")
             setLoading(false)
         })
@@ -47,13 +49,22 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const loginUser = (email, password) => {
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
-            .then(res => console.log(res))
-            .catch(err => console.log(err.message))
+            .then(res => {
+                setLoading(false);
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err.message)
+                setError(err.message)
+                setLoading(false);
+            })
             .finally(() => setLoading(false));
     }
 
     const logoutUser = () => {
+        console.log("logoutUser");
         signOut(auth)
     }
 
@@ -65,7 +76,7 @@ export const UserContextProvider = ({ children }) => {
             error,
             registerUser,
             loginUser,
-            logoutUser
+            logoutUser,
         }}>
             {children}
         </UserContext.Provider>

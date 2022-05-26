@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ModalContext from '../../context/modal-context'
+import UserContext from '../../context/user-context'
 import Login from './Login'
 import Register from './Register'
 
@@ -8,6 +9,7 @@ const Navbar = () => {
     const [state, setState] = useState(false)
     const navRef = useRef()
     const modalCtx = useContext(ModalContext)
+    const userCtx = useContext(UserContext)
 
     const modalHandler = (content) => {
         modalCtx.setModalContent(content)
@@ -51,16 +53,21 @@ const Navbar = () => {
                                     Comment ça marche
                                 </button>
                             </li>
-                            <li className="mt-4 md:mt-0">
+                            {!userCtx.user && <li className="mt-4 md:mt-0">
                                 <button onClick={() => modalHandler(<Login />)} className="w-full py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Connexion
                                 </button>
-                            </li>
-                            <li className="mt-8 md:mt-0">
+                            </li>}
+                            {!userCtx.user && <li className="mt-8 md:mt-0">
                                 <button onClick={() => modalHandler(<Register />)} className="w-full py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
                                     Inscription
                                 </button>
-                            </li>
+                            </li>}
+                            {!!userCtx.user && <li className="mt-8 md:mt-0">
+                                <button onClick={() => userCtx.logoutUser()} className="w-full py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
+                                    Déconnexion
+                                </button>
+                            </li>}
                         </ul>
                     </div>
                 </div>
