@@ -28,7 +28,7 @@ export const UserContextProvider = ({ children }) => {
         toast(message, {
             type: 'success',
             position: "bottom-center",
-            autoClose: 5000,
+            autoClose: 4000,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,

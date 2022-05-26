@@ -85,7 +85,7 @@ const Activity = () => {
             toast('Vous avez déjà une activité ce jour à cette période', {
                 type: 'error',
                 position: "bottom-center",
-                autoClose: 5000,
+                autoClose: 4000,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
@@ -105,7 +105,7 @@ const Activity = () => {
         toast("L'activité a bien été ajoutée à votre programme", {
             type: 'success',
             position: "bottom-center",
-            autoClose: 5000,
+            autoClose: 4000,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
