@@ -1,6 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase-config";
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { toast } from 'react-toastify';
+import ModalContext from "../context/modal-context";
 
 const UserContext = createContext({
     user: null,
@@ -18,8 +20,23 @@ export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
+    const modalCtx = useContext(ModalContext);
     console.log("user: ", user);
     console.log("error: ", error);
+
+    const displayToast = (message) => {
+        toast(message, {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 5000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+    }
+
+
     useEffect(() => {
         setLoading(true)
         const unsubscribe = onAuthStateChanged(auth, user => {
@@ -34,10 +51,12 @@ export const UserContextProvider = ({ children }) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
+                modalCtx.closeModal()
                 updateProfile(auth.currentUser, { displayName: name })
                     .then(() => {
                         setLoading(false);
                         setUser(auth.currentUser);
+                        displayToast("Vous êtes connecté")
                     })
                     .catch((err) => {
                         setLoading(false);
@@ -52,6 +71,8 @@ export const UserContextProvider = ({ children }) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
+                modalCtx.closeModal()
+                displayToast("Vous êtes connecté")
                 setLoading(false);
                 console.log(res)
             })
@@ -66,6 +87,9 @@ export const UserContextProvider = ({ children }) => {
     const logoutUser = () => {
         console.log("logoutUser");
         signOut(auth)
+            .then(() => {
+                displayToast("Vous êtes déconnecté")
+            })
     }
 
 

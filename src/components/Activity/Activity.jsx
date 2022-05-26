@@ -4,7 +4,6 @@ import { forwardRef, useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { activities } from "../../constants/activities";
 import DataContext from "../../context/data-context";
 import programmeContext from '../../context/programme-context';
 import selectedContext from "../../context/selected-context";

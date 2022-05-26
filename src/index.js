@@ -11,19 +11,19 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserContextProvider>
-      <DataContextProvider>
-        <ProgrammeContextProvider>
-          <SelectedContextProvider>
-            <ModalContectProvider>
+    <ModalContectProvider>
+      <UserContextProvider>
+        <DataContextProvider>
+          <ProgrammeContextProvider>
+            <SelectedContextProvider>
               <BrowserRouter>
                 <App />
               </BrowserRouter>
-            </ModalContectProvider >
-          </SelectedContextProvider>
-        </ProgrammeContextProvider>
-      </DataContextProvider>
-    </UserContextProvider>
+            </SelectedContextProvider>
+          </ProgrammeContextProvider>
+        </DataContextProvider>
+      </UserContextProvider>
+    </ModalContectProvider >
   </React.StrictMode>
   ,
   document.getElementById('root')
