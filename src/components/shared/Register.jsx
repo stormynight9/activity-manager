@@ -13,7 +13,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        userCtx.registerUser(data.email, data.name, data.password)
+        userCtx.registerUser(data.email, data.firstName, data.lastName, data.password)
     }
 
 
@@ -28,7 +28,12 @@ const Register = () => {
                 <h3 className='text-xl font-medium text-gray-900 '>Connectez-vous à Tunisie Séjour</h3>
                 <div>
                     <label htmlFor='name' className='block mb-2 text-sm font-medium text-gray-900 '>Votre nom</label>
-                    <input {...register('name', { required: 'Ce champ est obligatoire' })} type='name' name='name' id='name' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' placeholder='John doe' />
+                    <input {...register('firstName', { required: 'Ce champ est obligatoire' })} type='name' name='firstName' id='firstName' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' placeholder='John' />
+                    {errors.firstName && <p className='pt-1 text-sm text-red-500'>{errors.firstName?.message}</p>}
+                </div>
+                <div>
+                    <label htmlFor='name' className='block mb-2 text-sm font-medium text-gray-900 '>Votre prénom</label>
+                    <input {...register('lastName', { required: 'Ce champ est obligatoire' })} type='name' name='lastName' id='lastName' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' placeholder='Doe' />
                     {errors.name && <p className='pt-1 text-sm text-red-500'>{errors.name?.message}</p>}
                 </div>
                 <div>

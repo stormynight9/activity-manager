@@ -48,34 +48,33 @@ export const UserContextProvider = ({ children }) => {
     }, [])
 
 
-    const createUser = async (user, name) => {
+    const createUser = async (user, firstName, lastName) => {
         await setDoc(doc(db, 'users', user.uid), {
             id: user.uid,
-            name: name,
+            firstName: firstName,
+            lastName: lastName,
             email: user.email,
         })
     }
 
-    const registerUser = (email, name, password) => {
+    const registerUser = (email, firstName, lastName, password) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
-                console.log("user: ", res, name);
-
                 modalCtx.closeModal()
-                updateProfile(auth.currentUser, { displayName: name })
+                updateProfile(auth.currentUser, { displayName: firstName })
                     .then(() => {
                         setLoading(false);
                         setUser(() => auth.currentUser);
-                        createUser(res.user, name)
+                        createUser(res.user, firstName, lastName)
                         displayToast("Vous êtes connecté")
                     })
                     .catch((err) => {
                         setLoading(false);
                         setError("Error while updating profile");
                     })
-            }).then(ress => {
-                console.log("user: ", ress);
+            }).then(res => {
+                console.log("user: ", res);
             })
             .catch(err => setError(err.message))
             .finally(() => setLoading(false));
