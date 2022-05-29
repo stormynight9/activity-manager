@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../firebase-config";
+import { auth, db } from "../firebase-config";
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { toast } from 'react-toastify';
 import ModalContext from "../context/modal-context";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 const UserContext = createContext({
     user: null,
@@ -21,8 +22,7 @@ export const UserContextProvider = ({ children }) => {
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
     const modalCtx = useContext(ModalContext);
-    console.log("user: ", user);
-    console.log("error: ", error);
+
 
     const displayToast = (message) => {
         toast(message, {
@@ -47,22 +47,36 @@ export const UserContextProvider = ({ children }) => {
         return () => unsubscribe
     }, [])
 
+
+    const createUser = async (user, name) => {
+        await setDoc(doc(db, 'users', user.uid), {
+            id: user.uid,
+            name: name,
+            email: user.email,
+        })
+    }
+
     const registerUser = (email, name, password) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
-            .then(() => {
+            .then((res) => {
+                console.log("user: ", res, name);
+
                 modalCtx.closeModal()
                 updateProfile(auth.currentUser, { displayName: name })
                     .then(() => {
                         setLoading(false);
-                        setUser(auth.currentUser);
+                        setUser(() => auth.currentUser);
+                        createUser(res.user, name)
                         displayToast("Vous êtes connecté")
                     })
                     .catch((err) => {
                         setLoading(false);
                         setError("Error while updating profile");
                     })
-            }).then(res => console.log(res))
+            }).then(ress => {
+                console.log("user: ", ress);
+            })
             .catch(err => setError(err.message))
             .finally(() => setLoading(false));
     }
@@ -85,7 +99,6 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const logoutUser = () => {
-        console.log("logoutUser");
         signOut(auth)
             .then(() => {
                 displayToast("Vous êtes déconnecté")
