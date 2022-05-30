@@ -94,12 +94,15 @@ const Activity = () => {
             return
         }
 
+        // TODO: add service provider's id
         programmeCtx.addActivity({
             id: id,
             activityId: activity.id,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),
-            time: selectedTime
+            time: selectedTime,
+            status: 'pending',
+            availability: 'pending'
         })
         navigate('/programme')
         toast("L'activité a bien été ajoutée à votre programme", {

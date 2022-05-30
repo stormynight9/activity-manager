@@ -14,7 +14,8 @@ const programmeContext = React.createContext({
     resetProgramme: () => { },
     datesInterval: [],
     setDatesInterval: () => { },
-    deleteActivity: () => { }
+    deleteActivity: () => { },
+    programDetails: {}
 })
 
 export const ProgrammeContextProvider = (props) => {
@@ -23,6 +24,13 @@ export const ProgrammeContextProvider = (props) => {
     const [endDate, setEndDate] = useState(null)
     const [activities, setActivities] = useState([])
     const [datesInterval, setDatesInterval] = useState([])
+
+    let programDetails = {
+        participants,
+        startDate,
+        endDate,
+        activities,
+    }
 
     useEffect(() => {
         if (startDate && endDate) {
@@ -102,7 +110,8 @@ export const ProgrammeContextProvider = (props) => {
             datesInterval: datesInterval,
             setDatesInterval: setDatesInterval,
             deleteActivity: deleteActivity,
-            setActivities: setActivities
+            setActivities: setActivities,
+            programDetails: programDetails
         }}>
             {props.children}
         </programmeContext.Provider>
