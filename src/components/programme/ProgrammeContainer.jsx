@@ -64,47 +64,36 @@ const Programme = () => {
     }, [screenWidth])
 
     const saveProgram = async () => {
-        await addDoc(collection(db, 'programs'), {
+        let savedActivities = []
+
+        for (const activity of programmeCtx.activities) {
+            const activityRef = await addDoc(collection(db, 'savedActivities'), {
+                activity
+            })
+            savedActivities.push(activityRef.id)
+        }
+
+        const programRef = await addDoc(collection(db, 'savedPrograms'), {
             participants: programmeCtx.participants,
             startDate: programmeCtx.startDate,
             endDate: programmeCtx.endDate,
             userId: userCtx.user.uid,
-            bookedActivities: [],
-        }).then((programRef) => {
-            updateDoc(doc(db, 'users', userCtx.user.uid), {
-                savedPrograms: arrayUnion(programRef.id)
-            }).then(() => {
-                programmeCtx.activities.forEach(async activity => {
-                    const bookedActivityRef = await addDoc(collection(db, 'bookedActivities'), {
-                        activity
-                    })
-                    updateDoc(doc(db, 'programs', programRef.id), {
-                        programActivities: arrayUnion(bookedActivityRef.id)
-                    })
-                })
-            })
-        }).then(() => {
-            toast('Votre programme a bien été enregistré dans votre compte.', {
-                type: 'success',
-                position: "bottom-center",
-                autoClose: 4000,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
+            bookedActivities: savedActivities,
         })
 
-        // toast('Votre programme a bien été enregistré dans votre compte.', {
-        //     type: 'success',
-        //     position: "bottom-center",
-        //     autoClose: 4000,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        // })
+        await updateDoc(doc(db, 'users', userCtx.user.uid), {
+            savedPrograms: arrayUnion(programRef.id)
+        })
 
+        toast('Votre programme a bien été enregistré dans votre compte.', {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 4000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
     }
 
     return (
@@ -130,7 +119,6 @@ const Programme = () => {
                 <button onClick={() => saveProgram()} className='h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer-green hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Sauvegarder mon programme</button>
                 <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'><FaCheck />Valider mon programme</Link>
             </div>}
-
         </div>
     )
 
