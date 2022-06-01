@@ -12,6 +12,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Home from './pages/Home';
 import Programme from './pages/Programme';
+import ProviderPage from './pages/ProviderPage';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       {dataCtx.isLoaded && <div className='bg-gray-50'>
-        <Navbar />
+        {/* <Navbar /> */}
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -29,6 +30,7 @@ function App() {
           <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
           <Route path='/activities/:activityId' element={<ActivityPage />} />
           <Route path='/checkout' element={<CheckoutPage />} />
+          <Route path='/provider' element={<ProviderPage />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
         <ToastContainer position="bottom-center"
@@ -42,7 +44,7 @@ function App() {
           pauseOnHover
           theme='colored'
           transition={Slide} />
-        <Footer />
+        {/* <Footer /> */}
       </div>}
     </>
   );

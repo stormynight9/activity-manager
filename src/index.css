@@ -21,6 +21,9 @@ html {
   scroll-behavior: smooth;
 }
 
+.ql-editor {
+  @apply min-h-[400px] w-[640px] mx-auto;
+}
 
 @tailwind base;
 @tailwind components;
