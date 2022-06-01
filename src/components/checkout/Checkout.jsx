@@ -1,13 +1,17 @@
+import { addDoc, arrayUnion, collection, doc, updateDoc } from "firebase/firestore"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 import DataContext from "../../context/data-context"
 import programmeContext from "../../context/programme-context"
+import UserContext from "../../context/user-context"
+import { db } from "../../firebase-config"
 import CartElement from "./CartElement"
 
 const Checkout = () => {
-
     const programmeCtx = useContext(programmeContext)
     const dataCtx = useContext(DataContext)
+    const userCtx = useContext(UserContext)
 
     const findActivityById = (id) => {
         return dataCtx.activities.find(activity => activity.id === id)
@@ -20,6 +24,39 @@ const Checkout = () => {
     const total = cartItems.reduce((acc, item) => {
         return acc + item.price * item.participants
     }, 0)
+
+    const validateProgram = async () => {
+        let validatedActivities = []
+
+        for (const activity of programmeCtx.activities) {
+            const activityRef = await addDoc(collection(db, 'validatedActivities'), {
+                activity
+            })
+            validatedActivities.push(activityRef.id)
+        }
+
+        const programRef = await addDoc(collection(db, 'validatedPrograms'), {
+            participants: programmeCtx.participants,
+            startDate: programmeCtx.startDate,
+            endDate: programmeCtx.endDate,
+            userId: userCtx.user.uid,
+            bookedActivities: validatedActivities,
+        })
+
+        await updateDoc(doc(db, 'users', userCtx.user.uid), {
+            validatedPrograms: arrayUnion(programRef.id)
+        })
+
+        toast('Demande a été envoyé.', {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 4000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+    }
 
 
     return (
@@ -37,7 +74,7 @@ const Checkout = () => {
                     <p className='text-3xl font-semibold'>Total</p>
                     <p className='text-3xl font-semibold'>{total} TND</p>
                 </div>
-                <button className='mx-2 md:mx-0 md:ml-auto sm:px-16 h-14 sm:w-auto mt-7 lg:mt-0  bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Payer</button>
+                <button onClick={validateProgram} className='mx-2 md:mx-0 md:ml-auto sm:px-8 h-14 sm:w-auto mt-7 lg:mt-0  bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Envoyer demande</button>
             </div>
         </div>
 
