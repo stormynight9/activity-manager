@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, sign
 import { toast } from 'react-toastify';
 import ModalContext from "../context/modal-context";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-
+import { format } from "date-fns";
 // const arr = [
 //     {
 //         title: 'Dégustation interactive de vins',
@@ -214,8 +214,6 @@ export const UserContextProvider = ({ children }) => {
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
     const modalCtx = useContext(ModalContext);
-
-    console.log(user)
 
     const displayToast = (message) => {
         toast(message, {

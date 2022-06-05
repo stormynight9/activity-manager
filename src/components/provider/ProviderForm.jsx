@@ -1,36 +1,32 @@
 import React from 'react'
+import TextEditor from './TextEditor'
 
 const ProviderForm = () => {
     return (
-        <form className=' max-w-5xl'>
+        <form>
+            <h2 className='block mb-8 text-center text-2xl font-medium text-gray-900'>Remplissez la formulaire avec les informations de l'activité que vous voulez ajouter.</h2>
             <div className="grid gap-6 mb-6 lg:grid-cols-2">
                 <div>
-                    <label
-                        htmlFor="first_name"
-                        className="block mb-2 text-sm font-medium text-gray-900"
-                    >
-                        First name
+                    <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900">
+                        Titre de l'activité
                     </label>
                     <input
                         type="text"
                         id="first_name"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="John"
+                        placeholder="Saisir le titre de l'activité"
                         required=""
                     />
                 </div>
                 <div>
-                    <label
-                        htmlFor="last_name"
-                        className="block mb-2 text-sm font-medium text-gray-900 "
-                    >
-                        Last name
+                    <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 ">
+                        Slogan
                     </label>
                     <input
                         type="text"
                         id="last_name"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="Doe"
+                        placeholder="Faire du ciel le plus bel endroit de la terre"
                         required=""
                     />
                 </div>
@@ -141,6 +137,7 @@ const ProviderForm = () => {
                     required=""
                 />
             </div>
+            <TextEditor />
             <button
                 type="submit"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
