@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextEditor from './TextEditor'
+import ImageUploader from "react-images-upload"
 
-const ProviderForm = () => {
+const ProviderForm = (props) => {
+    const [pictures, setPictures] = useState([]);
+
+    console.log(pictures);
+    const onDrop = picture => {
+        console.log('yo')
+        setPictures(picture);
+    };
+
     return (
         <form>
             <h2 className='block mb-8 text-center text-2xl font-medium text-gray-900'>Remplissez la formulaire avec les informations de l'activité que vous voulez ajouter.</h2>
@@ -135,6 +144,15 @@ const ProviderForm = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     placeholder="•••••••••"
                     required=""
+                />
+            </div>
+            <div>
+                <ImageUploader
+                    withIcon={true}
+                    onChange={onDrop}
+                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                    maxFileSize={5242880}
+                    withPreview={true}
                 />
             </div>
             <TextEditor />

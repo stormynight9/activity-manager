@@ -22,7 +22,7 @@ html {
 }
 
 .ql-editor {
-  @apply min-h-[200px] w-[640px] mx-auto;
+  @apply min-h-[200px];
 }
 
 @tailwind base;
