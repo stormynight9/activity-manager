@@ -16,36 +16,36 @@ import ProviderPage from './pages/ProviderPage';
 
 function App() {
 
-  const dataCtx = useContext(DataContext);
+  // const dataCtx = useContext(DataContext);
 
   return (
     <>
-      {dataCtx.isLoaded && <div className='bg-gray-50'>
-        {/* <Navbar /> */}
-        <ScrollToTop />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/programme' element={<Programme />} />
-          <Route path='/categories' element={<CategoriesPage />} />
-          <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
-          <Route path='/activities/:activityId' element={<ActivityPage />} />
-          <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/provider' element={<ProviderPage />} />
-          <Route path='/*' element={<Navigate to='/' />} />
-        </Routes>
-        <ToastContainer position="bottom-center"
-          autoClose={4000}
-          hideProgressBar
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme='colored'
-          transition={Slide} />
-        {/* <Footer /> */}
-      </div>}
+      {/* {dataCtx.isLoaded && <div className='bg-gray-50'> */}
+      {/* <Navbar /> */}
+      <ScrollToTop />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/programme' element={<Programme />} />
+        <Route path='/categories' element={<CategoriesPage />} />
+        <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
+        <Route path='/activities/:activityId' element={<ActivityPage />} />
+        <Route path='/checkout' element={<CheckoutPage />} />
+        <Route path='/provider' element={<ProviderPage />} />
+        <Route path='/*' element={<Navigate to='/' />} />
+      </Routes>
+      <ToastContainer position="bottom-center"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='colored'
+        transition={Slide} />
+      {/* <Footer /> */}
+      {/* </div> */}
     </>
   );
 }
