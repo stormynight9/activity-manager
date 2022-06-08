@@ -14,6 +14,8 @@ const ProviderForm = (props) => {
         range: [1, 100],
         category: null,
         time: [],
+        description: null,
+        details: null,
     })
     console.log(formDetails);
 
@@ -164,11 +166,11 @@ const ProviderForm = (props) => {
             </div>
             <div className='mt-6'>
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
-                <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Votre description..." defaultValue={""} />
+                <textarea onChange={(e) => setFormDetails({ ...formDetails, description: e.target.value })} id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Votre description..." defaultValue={""} />
             </div>
             <div className='mt-6'>
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Details</label>
-                <TextEditor />
+                <TextEditor setFormDetails={setFormDetails} formDetails={formDetails} />
             </div>
             <button
                 type="submit"

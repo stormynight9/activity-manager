@@ -12,11 +12,12 @@ const formats = [
     'bold', 'italic', 'underline', 'strike', 'blockquote',
 ]
 
-const TextEditor = () => {
+const TextEditor = ({ formDetails, setFormDetails }) => {
     const [body, setBody] = useState("")
 
     const handleBody = (e) => {
         setBody(e)
+        setFormDetails({ ...formDetails, details: body })
     }
 
     return (
@@ -28,9 +29,6 @@ const TextEditor = () => {
                 modules={modules}
                 formats={formats}
             />
-            <div dangerouslySetInnerHTML={{ __html: body }}>
-
-            </div>
         </div>
     )
 }
