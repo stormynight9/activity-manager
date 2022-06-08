@@ -1,11 +1,10 @@
-import React, { useCallback, useRef, useState } from 'react';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import React, { useState } from 'react';
 import ImageUploader from "react-images-upload";
-import Range from './Range';
+import { v4 } from 'uuid';
+import { storage } from '../../firebase-config';
 import TextEditor from './TextEditor';
 import TimeSelect from './TimeSelect';
-import { storage } from '../../firebase-config';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { v4 } from 'uuid';
 
 const ProviderForm = (props) => {
     const [formDetails, setFormDetails] = useState({
@@ -20,11 +19,12 @@ const ProviderForm = (props) => {
         description: null,
         details: null,
         coverImage: null,
+        images: [],
     })
     console.log(formDetails);
 
-    const [pictures, setPictures] = useState([]);
-    console.log(pictures)
+
+
 
     const onDrop = picture => {
         setPictures(picture);
@@ -40,6 +40,23 @@ const ProviderForm = (props) => {
             })
         })
     }
+    const [pictures, setPictures] = useState([]);
+    const uploadImages = async () => {
+        if (pictures.length === 0) return null
+        let images = []
+        for (const picture of pictures) {
+            const imageRef = ref(storage, `images/${picture.name + v4()}`);
+            await uploadBytes(imageRef, picture).then((e) => {
+                getDownloadURL(e.ref).then((e) => {
+                    console.log(formDetails.images);
+                    images.push(e)
+                })
+            })
+        }
+        setFormDetails({ ...formDetails, images: images })
+    }
+
+    console.log(pictures)
 
 
     return (
@@ -180,6 +197,7 @@ const ProviderForm = (props) => {
                     withPreview={true}
                     buttonText='Choisir des images'
                 />
+                <button type='button' onClick={uploadImages}>dsqdqs</button>
             </div>
             <div className='mt-6'>
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
