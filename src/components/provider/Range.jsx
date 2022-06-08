@@ -10,7 +10,7 @@ const Range = () => {
             <MultiRangeSlider
                 min={1}
                 max={100}
-                onChange={({ min, max }) => { setMinValue(min); setMaxValue(max) }}
+                onChange={({ min, max }) => { setMinValue(min); setMaxValue(max); }}
             />
             <p>De {minValue} à {maxValue} personnes</p>
         </>

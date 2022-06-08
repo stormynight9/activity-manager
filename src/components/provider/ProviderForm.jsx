@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import ImageUploader from "react-images-upload";
 import Range from './Range';
 import TextEditor from './TextEditor';
 import TimeSelect from './TimeSelect';
 
 const ProviderForm = (props) => {
+    const [formDetails, setFormDetails] = useState({
+        title: null,
+        location: null,
+        catchPhrase: null,
+        price: null,
+        duration: null,
+        range: [1, 100],
+        category: null
+    })
+    console.log(formDetails);
+
+
     const [pictures, setPictures] = useState([]);
 
-    console.log(pictures);
     const onDrop = picture => {
-        console.log('yo')
         setPictures(picture);
     };
 
@@ -22,6 +32,7 @@ const ProviderForm = (props) => {
                         Titre de l'activité
                     </label>
                     <input
+                        onChange={(e) => setFormDetails({ ...formDetails, title: e.target.value })}
                         type="text"
                         id="first_name"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
@@ -34,6 +45,7 @@ const ProviderForm = (props) => {
                         Emplacement
                     </label>
                     <input
+                        onChange={(e) => setFormDetails({ ...formDetails, location: e.target.value })}
                         type="text"
                         id="last_name"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
@@ -43,12 +55,12 @@ const ProviderForm = (props) => {
                 </div>
 
             </div>
-
             <div className="mb-6">
                 <label htmlFor="slogan" className="block mb-2 text-sm font-medium text-gray-900">
                     Slogan
                 </label>
                 <input
+                    onChange={(e) => setFormDetails({ ...formDetails, catchPhrase: e.target.value })}
                     type="text"
                     id="slogan"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
@@ -62,6 +74,7 @@ const ProviderForm = (props) => {
                         Prix
                     </label>
                     <input
+                        onChange={(e) => setFormDetails({ ...formDetails, price: +e.target.value })}
                         min="0"
                         type="number"
                         id="first_name"
@@ -75,21 +88,51 @@ const ProviderForm = (props) => {
                         Durée en minutes
                     </label>
                     <input
+                        onChange={(e) => setFormDetails({ ...formDetails, duration: +e.target.value })}
                         type="number"
                         min="0"
                         id="last_name"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 "
                         placeholder="120 minutes"
                         required=""
                     />
                 </div>
-                <div className='mb-4'>
-                    <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 ">Nombre de participants</label>
-                    <Range />
+                <div className='flex mb-4 justify-between space-x-2'>
+                    <div>
+                        <label htmlFor="last_name" className="block mb-2 text-xs font-medium text-gray-900 ">Nombre minimum de participants</label>
+                        <input
+                            onChange={(e) => setFormDetails({ ...formDetails, range: [+e.target.value, formDetails.range[1]] })}
+                            type="number"
+                            min="1"
+                            max="100"
+                            defaultValue={1}
+                            id="last_name"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 "
+                            placeholder="1"
+                            required=""
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="last_name" className="block mb-2 text-xs font-medium text-gray-900 ">
+                            Nombre maximum de participants
+                        </label>
+                        <input
+                            onChange={(e) => setFormDetails({ ...formDetails, range: [formDetails.range[0], +e.target.value] })}
+                            type="number"
+                            min="1"
+                            max="100"
+                            defaultValue={100}
+                            id="last_name"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            placeholder="100"
+                            required=""
+                        />
+                    </div>
+
                 </div>
                 <div>
                     <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900">Choisir une catégorie</label>
-                    <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    <select onChange={(e) => setFormDetails({ ...formDetails, category: e.target.value })} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         {/* TODO: CHANGE THESE */}
                         <option value="JnCEGykVuJkZR7LgoiV4">Expériences digitales</option>
                         <option value="LS1vtCoFNeJmnKxIVLHs">Team building</option>
@@ -111,15 +154,16 @@ const ProviderForm = (props) => {
                 <ImageUploader
                     withIcon={true}
                     onChange={onDrop}
-                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                    maxFileSize={5242880}
+                    maxFileSize={9242880}
+                    label='Formats acceptés: jpg, jpeg, png'
+                    imgExtension={[".jpg", ".jpeg", ".png",]}
                     withPreview={true}
                     buttonText='Choisir des images'
                 />
             </div>
             <div className='mt-6'>
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
-                <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Your message..." defaultValue={""} />
+                <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Votre description..." defaultValue={""} />
             </div>
             <div className='mt-6'>
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Details</label>
@@ -127,9 +171,8 @@ const ProviderForm = (props) => {
             </div>
             <button
                 type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
-            >
-                Submit
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">
+                Envoyer demande
             </button>
         </form>
 

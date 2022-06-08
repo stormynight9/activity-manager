@@ -78,7 +78,6 @@ const TimeSelect = () => {
         }))
     }
 
-    console.log(times)
 
     return (
         <div className=''>
