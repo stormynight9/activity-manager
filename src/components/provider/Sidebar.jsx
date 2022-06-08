@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
     return (
-        <div className="flex h-screen flex-col top-0 left-0 w-64 bg-white border-r">
+        <div className="flex h-screen sticky flex-col top-0 left-0 w-64 bg-white border-r">
             <div className="flex items-center justify-center h-16 border-b">
                 <div>
                     <img src="https://svgur.com/i/hbu.svg" width={120} alt="Float UI logo" />
