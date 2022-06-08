@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, arrayUnion, collection, doc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import React, { useState } from 'react';
 import ImageUploader from "react-images-upload";
@@ -67,6 +67,9 @@ const ProviderForm = (props) => {
         const activityRef = await addDoc(collection(db, 'activities'), formDetails);
         await uploadCoverImage(activityRef);
         await uploadImages(activityRef);
+        await updateDoc(doc(db, 'categories', formDetails.category), {
+            activities: arrayUnion(activityRef.id)
+        })
         toast('La demande a été envoyée', {
             type: 'success',
             position: "bottom-center",
