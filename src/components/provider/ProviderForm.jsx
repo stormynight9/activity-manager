@@ -1,10 +1,13 @@
+import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import React, { useState } from 'react';
 import ImageUploader from "react-images-upload";
 import { v4 } from 'uuid';
-import { storage } from '../../firebase-config';
+import { db, storage } from '../../firebase-config';
 import TextEditor from './TextEditor';
 import TimeSelect from './TimeSelect';
+import { updateDoc } from "firebase/firestore";
+import { toast } from 'react-toastify';
 
 const ProviderForm = (props) => {
     const [formDetails, setFormDetails] = useState({
@@ -21,46 +24,63 @@ const ProviderForm = (props) => {
         coverImage: null,
         images: [],
     })
-    console.log(formDetails);
 
-
-
+    const [loading, setLoading] = useState(false)
 
     const onDrop = picture => {
         setPictures(picture);
     };
 
     const [coverImage, setCoverImage] = useState(null);
-    const uploadCoverImage = () => {
+    const uploadCoverImage = async (activityRef) => {
         if (coverImage == null) return null
         const imageRef = ref(storage, `coverImages/${coverImage.name + v4()}`);
-        uploadBytes(imageRef, coverImage).then((e) => {
-            getDownloadURL(e.ref).then((e) => {
-                setFormDetails({ ...formDetails, coverImage: e })
+        await uploadBytes(imageRef, coverImage).then(async (e) => {
+            await getDownloadURL(e.ref).then(async (e) => {
+                await updateDoc(activityRef, { coverImage: e })
+                return e
             })
         })
+
     }
+
     const [pictures, setPictures] = useState([]);
-    const uploadImages = async () => {
+    const uploadImages = async (activityRef) => {
         if (pictures.length === 0) return null
         let images = []
         for (const picture of pictures) {
             const imageRef = ref(storage, `images/${picture.name + v4()}`);
-            await uploadBytes(imageRef, picture).then((e) => {
-                getDownloadURL(e.ref).then((e) => {
-                    console.log(formDetails.images);
+            await uploadBytes(imageRef, picture).then(async (e) => {
+                await getDownloadURL(e.ref).then((e) => {
                     images.push(e)
                 })
             })
         }
-        setFormDetails({ ...formDetails, images: images })
+        await updateDoc(activityRef, { images: images })
     }
 
-    console.log(pictures)
+    // TODO: add id of the provider
 
+    const submitHandler = async (e) => {
+        setLoading(true)
+        e.preventDefault();
+        const activityRef = await addDoc(collection(db, 'activities'), formDetails);
+        await uploadCoverImage(activityRef);
+        await uploadImages(activityRef);
+        toast('La demande a été envoyée', {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 3000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+        setLoading(false)
+    }
 
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <h2 className='block mb-8 text-center text-2xl font-medium text-gray-900'>Remplissez la formulaire avec les informations de l'activité que vous voulez ajouter.</h2>
             <div className="grid gap-6 mb-6 lg:grid-cols-2">
                 <div>
@@ -184,7 +204,6 @@ const ProviderForm = (props) => {
             <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Image de couverture</label>
                 <input onChange={(e) => setCoverImage(e.target.files[0])} className="block w-full  rounded-tr-md rounded-br-md text-sm text-gray-900 bg-gray-50  border-b border-t border-r border-gray-300 cursor-pointer" id="file_input" type="file" />
-                <button type='button' onClick={uploadCoverImage}>dsqsq</button>
             </div>
             <div className='mt-6'>
                 <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Images</label>
@@ -197,7 +216,6 @@ const ProviderForm = (props) => {
                     withPreview={true}
                     buttonText='Choisir des images'
                 />
-                <button type='button' onClick={uploadImages}>dsqdqs</button>
             </div>
             <div className='mt-6'>
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
@@ -210,7 +228,10 @@ const ProviderForm = (props) => {
             <button
                 type="submit"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">
-                Envoyer demande
+                {!loading ? 'Envoyer demande' : <svg className="animate-spin mx-auto h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>}
             </button>
         </form>
 
