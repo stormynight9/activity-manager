@@ -12,7 +12,8 @@ const ProviderForm = (props) => {
         price: null,
         duration: null,
         range: [1, 100],
-        category: null
+        category: null,
+        time: [],
     })
     console.log(formDetails);
 
@@ -143,7 +144,7 @@ const ProviderForm = (props) => {
             </div>
             <div className='mb-6'>
                 <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900">Horaire</label>
-                <TimeSelect />
+                <TimeSelect setFormDetails={setFormDetails} formDetails={formDetails} />
             </div>
             <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Image de couverture</label>

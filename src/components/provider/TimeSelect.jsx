@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TimeSelect = () => {
+const TimeSelect = ({ setFormDetails, formDetails }) => {
     const [times, setTimes] = useState([
         {
             time: '08:00',
@@ -76,6 +76,12 @@ const TimeSelect = () => {
             }
             return t
         }))
+        setFormDetails({ ...formDetails, time: getSelectedTimes() })
+    }
+
+    // function retunes array of selected times
+    const getSelectedTimes = () => {
+        return times.filter(t => t.isSelected).map(t => t.time)
     }
 
 
