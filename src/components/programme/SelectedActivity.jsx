@@ -16,7 +16,7 @@ const SelectedActivity = (props) => {
         <Link to={`/activities/${+props.activityId}`} onClick={props.setSelectedDateTime}>
             <div className='flex justify-center items-center bg-[#00000080] absolute top-0 bottom-0 right-0 left-0 rounded-md'>
                 <div className='flex flex-col text-center items-center gap-1 text-white z-10'>
-                    <p className='font-medium text-lg'>{props.activity.shortTitle}</p>
+                    <p className='font-medium text-lg'>{props.activity.title.split('').slice(0, 20).join('')}...</p>
                     <p>{props.time.replace(':', 'h')}</p>
                 </div>
             </div>

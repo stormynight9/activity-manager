@@ -164,9 +164,7 @@ const Activity = () => {
                 </div>
 
                 <h3 className="text-hobbizer text-xl mb-2 mt-16 before:content[''] before:block before:h-24 before:-mt-24 before:invisible" id='description'>Description détaillée de l'activité</h3>
-                <div className='leading-7 text-sm' >{parse(activity.longDecription)}</div>
-                <h3 className='text-hobbizer text-xl mb-2 mt-7'>Informations pratiques</h3>
-                <div className='leading-7 text-sm mb-20'>{parse(activity.practicalInfo)}</div>
+                <div className='leading-7 text-sm' >{parse(activity.details)}</div>
             </div>
         </div>
     )

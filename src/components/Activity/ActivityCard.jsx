@@ -25,7 +25,7 @@ const ActivityCard = (props) => {
         <SwiperComponent images={props.activity.images} />
         <div className='p-3'>
             <h2 className='text-base font-semibold mb-2'>{props.activity.catchPhrase}</h2>
-            <p>{props.activity.shortDescription}</p>
+            <p>{props.activity.description}</p>
             <a className='block text-right text-sm underline text-hobbizer mt-2 pb-4 mb-2 border-b-2' href='#description'>Descriptif détaillé</a>
             <ul className='mt-4'>
                 <li className='flex items-center gap-1 mb-2'>
