@@ -3,6 +3,9 @@ import ImageUploader from "react-images-upload";
 import Range from './Range';
 import TextEditor from './TextEditor';
 import TimeSelect from './TimeSelect';
+import { storage } from '../../firebase-config';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { v4 } from 'uuid';
 
 const ProviderForm = (props) => {
     const [formDetails, setFormDetails] = useState({
@@ -16,15 +19,28 @@ const ProviderForm = (props) => {
         time: [],
         description: null,
         details: null,
+        coverImage: null,
     })
     console.log(formDetails);
 
-
     const [pictures, setPictures] = useState([]);
+    console.log(pictures)
 
     const onDrop = picture => {
         setPictures(picture);
     };
+
+    const [coverImage, setCoverImage] = useState(null);
+    const uploadCoverImage = () => {
+        if (coverImage == null) return null
+        const imageRef = ref(storage, `coverImages/${coverImage.name + v4()}`);
+        uploadBytes(imageRef, coverImage).then((e) => {
+            getDownloadURL(e.ref).then((e) => {
+                setFormDetails({ ...formDetails, coverImage: e })
+            })
+        })
+    }
+
 
     return (
         <form>
@@ -150,7 +166,8 @@ const ProviderForm = (props) => {
             </div>
             <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Image de couverture</label>
-                <input className="block w-full  rounded-tr-md rounded-br-md text-sm text-gray-900 bg-gray-50  border-b border-t border-r border-gray-300 cursor-pointer" id="file_input" type="file" />
+                <input onChange={(e) => setCoverImage(e.target.files[0])} className="block w-full  rounded-tr-md rounded-br-md text-sm text-gray-900 bg-gray-50  border-b border-t border-r border-gray-300 cursor-pointer" id="file_input" type="file" />
+                <button type='button' onClick={uploadCoverImage}>dsqsq</button>
             </div>
             <div className='mt-6'>
                 <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Images</label>
