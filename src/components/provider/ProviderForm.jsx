@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ImageUploader from "react-images-upload";
 import Range from './Range';
 import TextEditor from './TextEditor';
+import TimeSelect from './TimeSelect';
 
 const ProviderForm = (props) => {
     const [pictures, setPictures] = useState([]);
@@ -82,42 +83,31 @@ const ProviderForm = (props) => {
                         required=""
                     />
                 </div>
+                <div className='mb-4'>
+                    <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 ">Nombre de participants</label>
+                    <Range />
+                </div>
+                <div>
+                    <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900">Choisir une catégorie</label>
+                    <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                        {/* TODO: CHANGE THESE */}
+                        <option value="JnCEGykVuJkZR7LgoiV4">Expériences digitales</option>
+                        <option value="LS1vtCoFNeJmnKxIVLHs">Team building</option>
+                        <option value="U2YuOHXMpSRtIDDFnr7y">EVJF</option>
+                        <option value="vLds17PddaUVsX6Uy13q">EVG</option>
+                    </select>
+                </div>
+            </div>
+            <div className='mb-6'>
+                <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900">Horaire</label>
+                <TimeSelect />
             </div>
             <div>
-                <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 ">Nombre de participants</label>
-                <Range />
+                <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Image de couverture</label>
+                <input className="block w-full  rounded-tr-md rounded-br-md text-sm text-gray-900 bg-gray-50  border-b border-t border-r border-gray-300 cursor-pointer" id="file_input" type="file" />
             </div>
-            <div className="mb-6">
-                <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 d"
-                >
-                    Password
-                </label>
-                <input
-                    type="password"
-                    id="password"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="•••••••••"
-                    required=""
-                />
-            </div>
-            <div className="mb-6">
-                <label
-                    htmlFor="confirm_password"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                >
-                    Confirm password
-                </label>
-                <input
-                    type="password"
-                    id="confirm_password"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="•••••••••"
-                    required=""
-                />
-            </div>
-            <div>
+            <div className='mt-6'>
+                <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Images</label>
                 <ImageUploader
                     withIcon={true}
                     onChange={onDrop}
@@ -127,7 +117,14 @@ const ProviderForm = (props) => {
                     buttonText='Choisir des images'
                 />
             </div>
-            <TextEditor />
+            <div className='mt-6'>
+                <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
+                <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Your message..." defaultValue={""} />
+            </div>
+            <div className='mt-6'>
+                <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Details</label>
+                <TextEditor />
+            </div>
             <button
                 type="submit"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
