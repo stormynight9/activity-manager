@@ -207,12 +207,14 @@ const UserContext = createContext({
     loginUser: () => { },
     logoutUser: () => { },
     error: null,
+    isProvider: false,
 });
 
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
+    const [isProvider, setIsProvider] = useState(false);
     const modalCtx = useContext(ModalContext);
 
     const displayToast = (message) => {
@@ -242,25 +244,26 @@ export const UserContextProvider = ({ children }) => {
     }, [])
 
 
-    const createUser = async (user, firstName, lastName) => {
+    const createUser = async (user, firstName, lastName, type) => {
         await setDoc(doc(db, 'users', user.uid), {
             id: user.uid,
             firstName: firstName,
             lastName: lastName,
             email: user.email,
+            type: type,
         })
     }
 
-    const registerUser = (email, firstName, lastName, password) => {
+    const registerUser = (email, firstName, lastName, password, type) => {
+
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
                 modalCtx.closeModal()
-                updateProfile(auth.currentUser, { displayName: firstName })
+                updateProfile(auth.currentUser, { displayName: type })
                     .then(() => {
                         setLoading(false);
-                        setUser(() => auth.currentUser);
-                        createUser(res.user, firstName, lastName)
+                        createUser(res.user, firstName, lastName, type)
                         displayToast("Vous êtes connecté")
                     })
                     .catch((err) => {
@@ -268,7 +271,9 @@ export const UserContextProvider = ({ children }) => {
                         setError("Error while updating profile");
                     })
             }).then(res => {
-                console.log("user: ", res);
+                if (type === 'provider')
+                    setIsProvider(true)
+                setUser(() => auth.currentUser);
             })
             .catch(err => setError(err.message))
             .finally(() => setLoading(false));
@@ -307,6 +312,7 @@ export const UserContextProvider = ({ children }) => {
             registerUser,
             loginUser,
             logoutUser,
+            isProvider
         }}>
             {children}
         </UserContext.Provider>

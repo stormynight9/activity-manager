@@ -2,18 +2,21 @@ import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaFacebook } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
+import { useNavigate } from 'react-router-dom'
 import ModalContext from '../../context/modal-context'
 import UserContext from '../../context/user-context'
-import Login from './Login'
+import ProviderLogin from './ProviderLogin'
 
 
-const Register = () => {
+const ProviderRegister = () => {
     const modalCtx = useContext(ModalContext);
     const userCtx = useContext(UserContext);
+    let navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        userCtx.registerUser(data.email, data.firstName, data.lastName, data.password, 'client')
+        userCtx.registerUser(data.email, data.firstName, data.lastName, data.password, 'provider')
+        navigate('/provider')
     }
 
 
@@ -61,11 +64,11 @@ const Register = () => {
                     <button type='submit' className='w-1/2 text-2xl text-white border rounded-md inline-flex justify-center   duration-300 font-medium   px-5 py-2.5 text-center hover:shadow'><FcGoogle /></button>
                 </div> */}
                 <div className='text-sm font-medium text-gray-500 '>
-                    Vous avez déjà un compte? <a onClick={() => modalCtx.setModalContent(<Login />)} href='\#' className='text-hobbizer hover:underline '>Connexion</a>
+                    Vous avez déjà un compte? <a onClick={() => modalCtx.setModalContent(<ProviderLogin />)} href='\#' className='text-hobbizer hover:underline '>Connexion</a>
                 </div>
             </form>
         </div>
     )
 }
 
-export default Register
+export default ProviderRegister

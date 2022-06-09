@@ -1,11 +1,12 @@
-import { useContext } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/shared/Footer';
 import Navbar from './components/shared/Navbar';
 import ScrollToTop from './components/shared/ScrollToTop';
 import DataContext from './context/data-context';
+import UserContext from './context/user-context';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityPage from './pages/ActivityPage';
 import CategoriesPage from './pages/CategoriesPage';
@@ -17,11 +18,13 @@ import ProviderPage from './pages/ProviderPage';
 function App() {
 
   const dataCtx = useContext(DataContext);
+  const userCtx = useContext(UserContext);
+  const location = useLocation();
 
   return (
     <>
       {dataCtx.isLoaded && <div className='bg-gray-50'>
-        <Navbar />
+        {location.pathname !== '/provider' ? <Navbar /> : <></>}
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -30,11 +33,11 @@ function App() {
           <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
           <Route path='/activities/:activityId' element={<ActivityPage />} />
           <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/provider' element={<ProviderPage />} />
+          <Route path='/provider' element={!userCtx.user == null || userCtx.user?.displayName === 'provider' ? <ProviderPage /> : <Navigate to='/' />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
         <ToastContainer position="bottom-center"
-          autoClose={4000}
+          autoClose={3000}
           hideProgressBar
           newestOnTop={false}
           closeOnClick

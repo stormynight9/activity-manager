@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CgAdd, CgList, CgLogOff, CgPlayListCheck } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
+import UserContext from '../../context/user-context'
 
 const Sidebar = () => {
+    const userCtx = useContext(UserContext)
     return (
         <div className="flex h-screen sticky flex-col top-0 left-0 w-64 bg-white border-r">
             <div className="flex items-center justify-center h-16 border-b">
@@ -118,10 +120,7 @@ const Sidebar = () => {
                         </a>
                     </li>
                     <li>
-                        <button
-                            href="#"
-                            className="relative flex flex-row items-center w-full h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-hobbizer pr-6"
-                        >
+                        <button onClick={() => userCtx.logoutUser()} className="relative flex flex-row items-center w-full h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-hobbizer pr-6">
                             <span className="inline-flex justify-center items-center ml-4">
                                 <CgLogOff className='w-5 h-5' />
                             </span>

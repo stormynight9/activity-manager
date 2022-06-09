@@ -4,12 +4,14 @@ import ModalContext from '../../context/modal-context'
 import UserContext from '../../context/user-context'
 import Login from './Login'
 import Register from './Register'
+import ProviderLogin from './ProviderLogin'
 
 const Navbar = () => {
     const [state, setState] = useState(false)
     const navRef = useRef()
     const modalCtx = useContext(ModalContext)
     const userCtx = useContext(UserContext)
+    console.log('user from navbar', userCtx.user)
 
     const modalHandler = (content) => {
         modalCtx.setModalContent(content)
@@ -47,9 +49,19 @@ const Navbar = () => {
                 </div>
                 <div className={`flex-1 justify-between flex-row-reverse md:overflow-visible md:flex md:pb-0 md:pr-0 md:h-auto ${state ? 'h-screen pb-20 overflow-auto pr-4' : 'hidden'}`}>
                     <div>
-                        <ul className="flex flex-col-reverse space-x-0 md:space-x-6 md:flex-row">
+                        <ul className="flex flex-col-reverse space-x-0 md:space-x-6 md:flex-row md:items-center">
+                            {!userCtx.user && <li className="mt-4 md:mt-0">
+                                <button onClick={() => modalHandler(<ProviderLogin />)} className="w-full py-3 text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                    Préstataire
+                                </button>
+                            </li>}
+                            {(userCtx.isProvider || userCtx.user?.displayName === 'provider') && <li className="mt-4 md:mt-0">
+                                <Link to='/provider' className="w-full py-3 text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                    Tableau de bord
+                                </Link>
+                            </li>}
                             <li className="mt-4 md:mt-0">
-                                <button className="w-full py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
+                                <button type='button' className="w-full py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
                                     Comment ça marche
                                 </button>
                             </li>
