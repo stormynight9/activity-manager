@@ -16,7 +16,6 @@ const ProviderRegister = () => {
 
     const onSubmit = data => {
         userCtx.registerUser(data.email, data.firstName, data.lastName, data.password, 'provider')
-        navigate('/provider')
     }
 
 
@@ -64,7 +63,7 @@ const ProviderRegister = () => {
                     <button type='submit' className='w-1/2 text-2xl text-white border rounded-md inline-flex justify-center   duration-300 font-medium   px-5 py-2.5 text-center hover:shadow'><FcGoogle /></button>
                 </div> */}
                 <div className='text-sm font-medium text-gray-500 '>
-                    Vous avez déjà un compte? <a onClick={() => modalCtx.setModalContent(<ProviderLogin />)} href='\#' className='text-hobbizer hover:underline '>Connexion</a>
+                    Vous avez déjà un compte? <p onClick={() => modalCtx.setModalContent(<ProviderLogin />)} href='#' className='text-hobbizer hover:underline inline-block cursor-pointer'>Connexion</p>
                 </div>
             </form>
         </div>

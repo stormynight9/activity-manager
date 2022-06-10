@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { CgAdd, CgList, CgLogOff, CgPlayListCheck } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import UserContext from '../../context/user-context'
 
 const Sidebar = () => {
@@ -15,16 +15,16 @@ const Sidebar = () => {
             <div className="overflow-y-auto overflow-x-hidden flex-grow">
                 <ul className="flex flex-col py-4 space-y-1">
                     <li>
-                        <Link
+                        <NavLink
                             to="/add-activity"
-                            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-hobbizer pr-6">
+                            className={(navData) => !navData.isActive ? 'relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-hobbizer pr-6' : 'relative flex flex-row items-center h-11 focus:outline-none bg-gray-50 text-gray-800 border-l-4 border-hobbizer pr-6'}>
                             <span className="inline-flex justify-center items-center ml-4">
                                 <CgAdd className='w-5 h-5' />
                             </span>
                             <span className="ml-2 text-sm tracking-wide truncate">
                                 Ajouter une activité
                             </span>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
                         <Link

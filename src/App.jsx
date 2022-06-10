@@ -18,13 +18,12 @@ import ProviderPage from './pages/ProviderPage';
 function App() {
 
   const dataCtx = useContext(DataContext);
-  const userCtx = useContext(UserContext);
   const location = useLocation();
 
   return (
     <>
       {dataCtx.isLoaded && <div className='bg-gray-50'>
-        {location.pathname !== '/provider' ? <Navbar /> : <></>}
+        {location.pathname !== '/add-activity' ? <Navbar /> : <></>}
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -33,7 +32,7 @@ function App() {
           <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
           <Route path='/activities/:activityId' element={<ActivityPage />} />
           <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/provider' element={!userCtx.user == null || userCtx.user?.displayName === 'provider' ? <ProviderPage /> : <Navigate to='/' />} />
+          <Route path='/add-activity' element={<ProviderPage />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
         <ToastContainer position="bottom-center"

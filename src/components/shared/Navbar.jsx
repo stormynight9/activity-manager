@@ -55,8 +55,8 @@ const Navbar = () => {
                                     Préstataire
                                 </button>
                             </li>}
-                            {(userCtx.isProvider || userCtx.user?.displayName === 'provider') && <li className="mt-4 md:mt-0">
-                                <Link to='/provider' className="w-full py-3 text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                            {(userCtx.user?.displayName === 'provider') && <li className="mt-4 md:mt-0">
+                                <Link to='/add-activity' className="w-full py-3 text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Tableau de bord
                                 </Link>
                             </li>}

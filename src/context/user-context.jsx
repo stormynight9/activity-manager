@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import ModalContext from "../context/modal-context";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 // const arr = [
 //     {
 //         title: 'Dégustation interactive de vins',
@@ -216,6 +217,7 @@ export const UserContextProvider = ({ children }) => {
     const [error, setError] = useState("");
     const [isProvider, setIsProvider] = useState(false);
     const modalCtx = useContext(ModalContext);
+    const navigate = useNavigate();
 
     const displayToast = (message) => {
         toast(message, {
@@ -271,22 +273,27 @@ export const UserContextProvider = ({ children }) => {
                         setError("Error while updating profile");
                     })
             }).then(res => {
-                if (type === 'provider')
-                    setIsProvider(true)
+                if (type === 'provider') {
+                    navigate('/add-activity')
+                }
                 setUser(() => auth.currentUser);
             })
             .catch(err => setError(err.message))
             .finally(() => setLoading(false));
     }
 
-    const loginUser = (email, password) => {
+    const loginUser = (email, password, type) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
                 modalCtx.closeModal()
                 displayToast("Vous êtes connecté")
                 setLoading(false);
+                setUser(() => auth.currentUser);
                 console.log(res)
+                if (type === 'provider') {
+                    navigate('/add-activity')
+                }
             })
             .catch(err => {
                 console.log(err.message)
@@ -300,6 +307,7 @@ export const UserContextProvider = ({ children }) => {
         signOut(auth)
             .then(() => {
                 displayToast("Vous êtes déconnecté")
+                setIsProvider(false)
             })
     }
 

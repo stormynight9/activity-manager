@@ -61,7 +61,7 @@ const ProviderLogin = () => {
                     <button type='submit' className='w-1/2 text-2xl text-white border rounded-md inline-flex justify-center   duration-300 font-medium   px-5 py-2.5 text-center hover:shadow'><FcGoogle /></button>
                 </div> */}
                 <div className='text-sm font-medium text-gray-500 '>
-                    Vous n'avez pas de compte? <a onClick={() => modalCtx.setModalContent(<ProviderRegister />)} href='\#' className='text-hobbizer hover:underline '>Inscription</a>
+                    Vous n'avez pas de compte? <p onClick={() => modalCtx.setModalContent(<ProviderRegister />)} href='\#' className='text-hobbizer hover:underline inline-block cursor-pointer'>Inscription</p>
                 </div>
             </form>
         </div>
