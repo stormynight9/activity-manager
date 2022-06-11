@@ -94,10 +94,10 @@ const Activity = () => {
             return
         }
 
-        // TODO: add service provider's id
         programmeCtx.addActivity({
             id: id,
             activityId: activity.id,
+            providerId: activity.providerId,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),
             time: selectedTime,

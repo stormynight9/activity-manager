@@ -304,6 +304,9 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const logoutUser = () => {
+        if (auth.currentUser.displayName === 'provider') {
+            navigate('/')
+        }
         signOut(auth)
             .then(() => {
                 displayToast("Vous êtes déconnecté")

@@ -9,7 +9,7 @@ const Sidebar = () => {
         <div className="flex h-screen sticky flex-col top-0 left-0 w-64 bg-white border-r">
             <div className="flex items-center justify-center h-16 border-b">
                 <div>
-                    <img src="https://svgur.com/i/hbu.svg" width={120} alt="Float UI logo" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/pfe-95fff.appspot.com/o/NADER-02.svg?alt=media&token=7ff0dc8a-1b01-4e7f-863b-1aa595e360d0" width={120} alt="Float UI logo" />
                 </div>
             </div>
             <div className="overflow-y-auto overflow-x-hidden flex-grow">

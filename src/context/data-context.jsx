@@ -40,18 +40,6 @@ export const DataContextProvider = (props) => {
         getActivities()
     }, [])
 
-    // useEffect(() => {
-    //     const addActivities = async () => {
-    //         for (const activity of activities) {
-    //             console.log('yo')
-    //             await addDoc(collection(db, 'activities'), activity)
-    //         }
-    //     }
-    //     addActivities()
-    // }, [])
-
-
-
     return (
         <DataContext.Provider value={{
             categories: categories,

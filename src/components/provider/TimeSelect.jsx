@@ -87,7 +87,7 @@ const TimeSelect = ({ setFormDetails, formDetails }) => {
 
     return (
         <div className=''>
-            {times.map(time => <button className={time.isSelected ? 'selected-button' : 'non-selected-button'} type="button" onClick={() => handleClick(time.time)} key={time.time}>{time.time}</button>)}
+            {times.map(time => <button className={time.isSelected ? 'primary-button inline-block sm:px-4 mr-1 h-8 w-full sm:w-auto my-2 lg:mt-0' : 'secondary-button inline-block sm:px-4 mr-1 h-8 w-full sm:w-auto my-2 lg:mt-0'} type="button" onClick={() => handleClick(time.time)} key={time.time}>{time.time}</button>)}
         </div>
 
     )
