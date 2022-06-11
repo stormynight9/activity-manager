@@ -29,7 +29,7 @@ const Activity = () => {
 
     const DateInputjsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col lg:border-r-2 lg:px-6 w-full mb-4 sm:mb-0'>
-            <label className='text-sm text-hobbizer' htmlFor='startDate'>Date</label>
+            <label className='text-sm text-hobbizer font-medium' htmlFor='startDate'>Date</label>
             <div className='flex relative items-center'>
                 <input autoComplete="off" required value={value} ref={ref} readOnly className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='Choissisez une date' id='startDate' />
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2  " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -125,7 +125,7 @@ const Activity = () => {
                     <form className='md:flex' onSubmit={onSubmitHandler}>
                         <div className='lg:flex p-2 w-full justify-center items-center'>
                             <div className='flex flex-col lg:border-r-2 lg:pr-6 mb-4 sm:mb-0 w-full lg:max-w-[178px]'>
-                                <label className='text-sm  text-hobbizer' htmlFor='participants'>Nombre de participants</label>
+                                <label className='text-sm  text-hobbizer font-medium' htmlFor='participants'>Nombre de participants</label>
                                 <div className='flex relative items-center '>
                                     <input autoComplete="off" max={99} min={1} defaultValue={participants} onChange={e => {
                                         setParticipants(e.target.value)

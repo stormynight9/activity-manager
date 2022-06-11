@@ -36,7 +36,7 @@ const TimesInput = (props) => {
 
         <div className="relative   mx-auto text-[15px] w-full">
             <div className='flex flex-col  lg:px-6 w-full mb-4 sm:mb-0' ref={selectMenuRef} onClick={() => setState(!state)}>
-                <label className='text-sm text-hobbizer' htmlFor='startDate'>Horaire</label>
+                <label className='text-sm text-hobbizer font-medium' htmlFor='startDate'>Horaire</label>
                 <div className='flex relative items-center'>
                     <button type="button" autoComplete="off" className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8 text-left' placeholder='From' id='startDate' >{selectedItem.item ? selectedItem.item : <span className='text-hobbizer-gray text'>Choisir Horaire</span>}
                     </button>

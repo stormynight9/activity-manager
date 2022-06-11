@@ -1,4 +1,5 @@
 import { format } from "date-fns"
+import { fr } from "date-fns/locale"
 import React, { useEffect, useState } from "react"
 
 const programmeContext = React.createContext({
@@ -8,22 +9,38 @@ const programmeContext = React.createContext({
     setStartDate: () => { },
     endDate: null,
     setEndDate: () => { },
+    startDateFr: null,
+    setStartDateFr: () => { },
+    endDateFr: null,
+    setEndDateFr: () => { },
     activities: [],
     setActivities: () => { },
     addActivity: () => { },
     resetProgramme: () => { },
     datesInterval: [],
     setDatesInterval: () => { },
+    datesIntervalFr: [],
+    setDatesIntervalFr: () => { },
     deleteActivity: () => { },
     programDetails: {}
 })
+
+// function capitalize first letter of every word
+const capitalize = (str) => {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
 
 export const ProgrammeContextProvider = (props) => {
     const [participants, setParticipants] = useState(null)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
+    const [startDateFr, setStartDateFr] = useState(null)
+    const [endDateFr, setEndDateFr] = useState(null)
     const [activities, setActivities] = useState([])
     const [datesInterval, setDatesInterval] = useState([])
+    const [datesIntervalFr, setDatesIntervalFr] = useState([])
 
     let programDetails = {
         participants,
@@ -33,15 +50,27 @@ export const ProgrammeContextProvider = (props) => {
     }
 
     useEffect(() => {
+        setStartDateFr(capitalize(format(new Date(startDate), 'd MMM, yyyy', { locale: fr })))
+    }, [startDate])
+
+    useEffect(() => {
+        setEndDateFr(capitalize(format(new Date(endDate), 'd MMM, yyyy', { locale: fr })))
+    }, [endDate])
+
+    useEffect(() => {
         if (startDate && endDate) {
             const start = new Date(startDate)
             const end = new Date(endDate)
             const dates = []
+            const datesFr = []
             while (start <= end) {
-                dates.push(format(start, 'EE d MMM, yyyy'))
+                dates.push(format(start, 'EE, dd MMMM yyyy'))
+                datesFr.push(capitalize(format(start, 'EE dd MMMM yyyy', { locale: fr })))
                 start.setDate(start.getDate() + 1)
             }
             setDatesInterval(dates)
+            setDatesIntervalFr(datesFr)
+
         }
     }, [startDate, endDate])
 
@@ -104,11 +133,17 @@ export const ProgrammeContextProvider = (props) => {
             setStartDate: setStartDate,
             endDate: endDate,
             setEndDate: setEndDate,
+            startDateFr: startDateFr,
+            setStartDateFr: setStartDateFr,
+            endDateFr: endDateFr,
+            setEndDateFr: setEndDateFr,
             activities: activities,
             addActivity: addActivity,
             resetProgramme: resetProgramme,
             datesInterval: datesInterval,
             setDatesInterval: setDatesInterval,
+            datesIntervalFr: datesIntervalFr,
+            setDatesIntervalFr: setDatesIntervalFr,
             deleteActivity: deleteActivity,
             setActivities: setActivities,
             programDetails: programDetails

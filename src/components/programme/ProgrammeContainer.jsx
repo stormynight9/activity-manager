@@ -17,11 +17,12 @@ const Programme = () => {
     const startDate = format(new Date(programmeCtx.startDate), 'd MMM, yyyy')
     const endDate = format(new Date(programmeCtx.endDate), 'd MMM, yyyy')
     const days = programmeCtx.datesInterval
+    const daysFr = programmeCtx.datesIntervalFr
     const [pageNumber, setPageNumber] = useState(0)
     const [daysPerPage, setDaysperPage] = useState(4)
     const pagesVisited = pageNumber * daysPerPage
-    const diplayDays = days.slice(pagesVisited, pagesVisited + daysPerPage).map(day => {
-        return <DayContainer key={day} day={day} />
+    const displayDays = days.slice(pagesVisited, pagesVisited + daysPerPage).map((day, idx) => {
+        return <DayContainer key={day} day={day} dayFr={daysFr[idx]} />
     })
     const [pageCount, setPageCount] = useState(Math.ceil(days.length / daysPerPage))
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -97,8 +98,8 @@ const Programme = () => {
     }
 
     return (
-        <div className='mt-36 flex flex-col justify-center items-center'>
-            <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{startDate}</span> au <span className='text-hobbizer'>{endDate}</span></h2>
+        <div className='mt-36 flex flex-col justify-center items-center mb-24'>
+            <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{programmeCtx.startDateFr}</span> au <span className='text-hobbizer'>{programmeCtx.endDateFr}</span></h2>
             <p className='text-gray-500 mb-8 text-center'>Cliquez sur une période de la journée et sélectionnez vos activités</p>
             <div className='w-full sm:w-auto relative'>
                 <ReactPaginate
@@ -111,11 +112,11 @@ const Programme = () => {
                     forcePage={pageNumber}
                 />
                 <div className='flex'>
-                    {diplayDays}
+                    {displayDays}
                 </div>
             </div>
             {programmeCtx.activities.length > 0 && <div className='w-full p-4 flex flex-col sm:flex-row gap-2 sm:gap-1 md:gap-4 sm:justify-end max-w-4xl'>
-                <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 bg-hobbizer-green hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Recommencer</button>
+                <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 secondary-button'>Recommencer</button>
                 <button onClick={() => saveProgram()} className='h-10  w-full sm:w-auto px-3 md:px-4 secondary-button'>Sauvegarder mon programme</button>
                 <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button'><FaCheck />Valider mon programme</Link>
             </div>}

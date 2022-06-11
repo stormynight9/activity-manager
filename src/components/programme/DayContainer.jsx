@@ -1,4 +1,5 @@
 import { format } from "date-fns"
+import { fr } from "date-fns/locale"
 import ActivityHolder from "./ActivityHolder"
 
 const DayContainer = (props) => {
@@ -32,7 +33,7 @@ const DayContainer = (props) => {
     return (
         <div className='flex-col w-full sm:max-w-fit '>
             <div className=' flex justify-center  rounded-t-lg'>
-                {props.day}
+                {props.dayFr}
             </div>
             <div className='flex-col space-y-[8px] p-1  rounded-b-lg'>
                 {times.map(time => <ActivityHolder key={time.id + props.day} id={time.id + format(new Date(props.day), 'yyyy-MM-dd')} day={props.day} time={time.time} />)}

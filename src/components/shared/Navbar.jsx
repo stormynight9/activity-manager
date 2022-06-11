@@ -11,7 +11,6 @@ const Navbar = () => {
     const navRef = useRef()
     const modalCtx = useContext(ModalContext)
     const userCtx = useContext(UserContext)
-    console.log('user from navbar', userCtx.user)
 
     const modalHandler = (content) => {
         modalCtx.setModalContent(content)
