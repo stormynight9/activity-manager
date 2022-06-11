@@ -1,6 +1,6 @@
 :root {
   --toastify-color-error: #ff5f5a !important;
-  --toastify-color-success: #65c6b7 !important;
+  --toastify-color-success: #59c953 !important;
 }
 
 body {
@@ -19,6 +19,7 @@ code {
 
 html {
   scroll-behavior: smooth;
+  @apply bg-gray-50
 }
 
 .ql-editor {
