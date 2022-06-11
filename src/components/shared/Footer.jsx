@@ -53,7 +53,7 @@ const Footer = () => {
                 </div>
                 <hr className='my-6 border-hobbizer-gray sm:mx-auto  lg:my-8' />
                 <div className='sm:flex sm:items-center sm:justify-between'>
-                    <span className='text-sm text-hobbizer-gray sm:text-center '>© 2022 <a href='#' className='hover:underline'>Tunisie Séjours™</a>. Tous droit réservé.
+                    <span className='text-sm text-hobbizer-gray sm:text-center '>© 2022 <a href='#' className='hover:underline'>Tunisie Séjour™</a>. Tous droit réservé.
                     </span>
 
                 </div>

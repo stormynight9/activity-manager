@@ -65,11 +65,23 @@ const ProviderForm = (props) => {
         setLoading(true)
         e.preventDefault();
         const activityRef = await addDoc(collection(db, 'activities'), formDetails);
-        await uploadCoverImage(activityRef);
-        await uploadImages(activityRef);
-        await updateDoc(doc(db, 'categories', formDetails.category), {
-            activities: arrayUnion(activityRef.id)
-        })
+        try {
+            await uploadCoverImage(activityRef);
+        } catch {
+            toast.error("Error uploading cover image")
+        }
+        try {
+            await uploadImages(activityRef);
+        } catch {
+            toast.error("Error uploading images")
+        }
+        try {
+            await updateDoc(doc(db, 'categories', formDetails.category), {
+                activities: arrayUnion(activityRef.id)
+            })
+        } catch {
+            toast.error("Error updating category")
+        }
         toast('La demande a été envoyée', {
             type: 'success',
             position: "bottom-center",

@@ -9,14 +9,14 @@ const Hero = () => {
                     <span className="text-hobbizer"> voulez vivre</span>
                 </h1>
                 <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-                    Tunisie Séjours organise et crée des activités uniques pour tous vos évènements à Tunisie.
+                    Tunisie Séjour organise et crée des activités uniques pour tous vos évènements à Tunisie.
                 </p>
             </div>
             <div className="mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
                 {/* <a href="\#" className="px-10 py-3.5 w-full bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300 text-white text-center rounded-md shadow-md block sm:w-auto">
                     Get started
                 </a> */}
-                <a href="\#" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-hobbizer hover:shadow block sm:w-auto">
+                <a href="\#" className="px-10 py-3.5 w-full secondary-button block sm:w-auto">
                     Comment ça marche?
                 </a>
             </div>

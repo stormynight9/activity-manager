@@ -24,9 +24,9 @@ const Navbar = () => {
                 <div className="flex items-center justify-between py-3 md:py-4 md:block">
                     <Link to='/'>
                         <img
-                            src="https://svgur.com/i/hbu.svg"
+                            src="https://firebasestorage.googleapis.com/v0/b/pfe-95fff.appspot.com/o/NADER-02.svg?alt=media&token=7ff0dc8a-1b01-4e7f-863b-1aa595e360d0"
                             width={120}
-                            alt="Float UI logo"
+                            alt="Tunisie Sejour"
                         />
                     </Link>
                     <div className="md:hidden">
@@ -66,7 +66,7 @@ const Navbar = () => {
                                 </button>
                             </li>
                             {!userCtx.user && <li className="mt-4 md:mt-0">
-                                <button onClick={() => modalHandler(<Login />)} className="w-full py-3 px-4 text-center border text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                <button onClick={() => modalHandler(<Login />)} className="w-full py-3 px-4 secondary-button block md:inline ">
                                     Connexion
                                 </button>
                             </li>}

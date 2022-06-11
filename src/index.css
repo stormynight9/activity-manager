@@ -67,3 +67,11 @@ html {
 .selected-button {
   @apply sm:px-4 mr-1 h-8 w-full sm:w-auto my-2 lg:mt-0 bg-blue-600  duration-200 text-white text-center rounded-md shadow-md inline-block
 }
+
+.primary-button {
+  @apply bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md font-medium
+}
+
+.secondary-button {
+  @apply bg-hobbizer-green hover:bg-[#c7d2fe]  duration-300 text-[#4338ca] font-medium text-center rounded-md
+}

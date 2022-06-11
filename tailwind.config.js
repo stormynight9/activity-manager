@@ -5,12 +5,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "hobbizer": "#ff5f5a",
-        "hobbizer-dark": "#3a3839",
+        "hobbizer": "#4f46e5",
+        "hobbizer-dark": "#4338ca",
         "hobbizer-gray": "#abb4b2",
         "hobbizer-light-gray": "#eaeceb",
-        "hobbizer-green": "#65c6b7",
-        "facebook": "#3360ff"
+        "hobbizer-green": "#e0e7ff",
+        "facebook": "#3360ff",
+        "primary-black": "#111827"
       }
     },
   },

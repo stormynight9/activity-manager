@@ -22,7 +22,7 @@ const ProgrammeForm = () => {
 
     const StartDatejsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col sm:border-r-2 sm:px-6 w-full mb-4 sm:mb-0'>
-            <label className='text-sm text-hobbizer' htmlFor='startDate'>Date de début</label>
+            <label className='text-sm text-hobbizer  font-medium' htmlFor='startDate'>Date de début</label>
             <div className='flex relative items-center'>
                 <input autoComplete="off" required onChange={e => setStartDateInput(e.target.value)} value={value} ref={ref} className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='Du' id='startDate' />
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2  " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -34,7 +34,7 @@ const ProgrammeForm = () => {
 
     const EndDatejsx = forwardRef(({ value, onClick }, ref) => (
         <div onClick={onClick} className='flex flex-col lg:border-r-2 sm:px-6 w-full'>
-            <label className='text-sm text-hobbizer' htmlFor='endDate'>Date de fin</label>
+            <label className='text-sm text-hobbizer font-medium' htmlFor='endDate'>Date de fin</label>
             <div className='flex relative items-center'>
                 <input autoComplete="off" required onChange={e => setEndDateInput(e.target.value)} value={value} ref={ref} className='h-12 bg-transparent border outline-none border-white text-gray-900 text-lg rounded-lg  focus:border-hobbizer block w-full p-2.5 pr-8' placeholder='au' id='endDate' />
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 absolute right-2  " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -66,7 +66,7 @@ const ProgrammeForm = () => {
                 <form onSubmit={handleFormSubmit} className='flex flex-col sm:flex-row items-center justify-center lg:flex-nowrap flex-wrap'>
                     <div className='flex flex-col sm:flex-row items-center justify-center w-full'>
                         <div className='flex flex-col sm:border-r-2 sm:pr-6 w-full mb-4 sm:mb-0'>
-                            <label className='text-sm  text-hobbizer' htmlFor='participants'>Number of participants</label>
+                            <label className='text-sm  text-hobbizer font-medium' htmlFor='participants'>Number of participants</label>
                             <div className='flex relative items-center '>
                                 <input autoComplete="off" required onChange={e => {
                                     setParticipants(e.target.value)
@@ -111,7 +111,7 @@ const ProgrammeForm = () => {
 
 
                     </div>
-                    <button type='submit' className="sm:px-16 sm:mx-6 h-14 w-full sm:w-auto mt-7 lg:mt-0  bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md block ">
+                    <button type='submit' className="sm:px-16 sm:mx-6 h-14 w-full sm:w-auto mt-7 lg:mt-0 block primary-button">
                         Continue
                     </button>
                 </form>

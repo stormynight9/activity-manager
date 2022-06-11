@@ -116,8 +116,8 @@ const Programme = () => {
             </div>
             {programmeCtx.activities.length > 0 && <div className='w-full p-4 flex flex-col sm:flex-row gap-2 sm:gap-1 md:gap-4 sm:justify-end max-w-4xl'>
                 <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 bg-hobbizer-green hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Recommencer</button>
-                <button onClick={() => saveProgram()} className='h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer-green hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Sauvegarder mon programme</button>
-                <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'><FaCheck />Valider mon programme</Link>
+                <button onClick={() => saveProgram()} className='h-10  w-full sm:w-auto px-3 md:px-4 secondary-button'>Sauvegarder mon programme</button>
+                <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button'><FaCheck />Valider mon programme</Link>
             </div>}
         </div>
     )
