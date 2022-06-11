@@ -19,7 +19,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav ref={navRef} className=" w-full fixed top-0 bg-gray-50 z-20">
+        <nav ref={navRef} className=" w-full fixed top-0 bg-gray-50 z-20 bg-opacity-95 backdrop-blur backdrop-filter border-b-[1px]">
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-4 md:block">
                     <Link to='/'>
@@ -51,17 +51,17 @@ const Navbar = () => {
                     <div>
                         <ul className="flex flex-col-reverse space-x-0 md:space-x-6 md:flex-row md:items-center">
                             {!userCtx.user && <li className="mt-4 md:mt-0">
-                                <button onClick={() => modalHandler(<ProviderLogin />)} className="w-full py-3 text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                <button onClick={() => modalHandler(<ProviderLogin />)} className="w-full py-3 font-medium text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Préstataire
                                 </button>
                             </li>}
                             {(userCtx.user?.displayName === 'provider') && <li className="mt-4 md:mt-0">
-                                <Link to='/add-activity' className="w-full py-3 text-center text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                <Link to='/add-activity' className="w-full py-3 text-center font-medium text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
                                     Tableau de bord
                                 </Link>
                             </li>}
                             <li className="mt-4 md:mt-0">
-                                <button type='button' className="w-full py-3 px-4 text-center border  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
+                                <button type='button' className="w-full py-3 px-4 text-center font-medium  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
                                     Comment ça marche
                                 </button>
                             </li>

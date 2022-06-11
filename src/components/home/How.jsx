@@ -20,7 +20,7 @@ const How = () => {
                         <span>Le jour J, vous n'avez qu'à suivre votre roadbook personnalisé</span>
                     </div>
                 </div>
-                <a className='px-10 py-3.5 w-full cursor-pointer mt-12 text-white text-center border border-white hover:text-hobbizer hover:bg-white rounded-md duration-300  sm:w-auto'>En Savoir plus</a>
+                <a className='px-10 py-3.5 w-full cursor-pointer mt-12 secondary-button hover:bg-white sm:w-auto'>En savoir plus</a>
             </div>
         </div>
     )
