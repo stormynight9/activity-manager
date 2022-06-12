@@ -55,7 +55,7 @@ const Checkout = () => {
             progress: undefined,
         })
     }
-
+    // TODO: add userId to every activity
 
     return (
         <div className='max-w-5xl mx-auto mb-8'>
