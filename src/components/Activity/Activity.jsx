@@ -7,12 +7,14 @@ import { toast } from 'react-toastify';
 import DataContext from "../../context/data-context";
 import programmeContext from '../../context/programme-context';
 import selectedContext from "../../context/selected-context";
+import UserContext from "../../context/user-context";
 import ActivityCard from "./ActivityCard";
 import TimesInput from "./TimesInput";
 
 const Activity = () => {
     const { activityId } = useParams()
     const dataCtx = useContext(DataContext)
+    const userCtx = useContext(UserContext)
     const activity = dataCtx.activities.find(activity => activity.id === activityId)
     const selectedCtx = useContext(selectedContext)
     const programmeCtx = useContext(programmeContext)
@@ -97,6 +99,7 @@ const Activity = () => {
         programmeCtx.addActivity({
             id: id,
             activityId: activity.id,
+            clientId: userCtx.user.uid,
             providerId: activity.providerId,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),

@@ -13,6 +13,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Home from './pages/Home';
 import Programme from './pages/Programme';
+import ProviderBookedActivityListPage from './pages/ProviderBookedActivityListPage';
 import ProviderPage from './pages/ProviderPage';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       {dataCtx.isLoaded && <div className='bg-gray-50'>
-        {location.pathname !== '/add-activity' ? <Navbar /> : <></>}
+        {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list') ? <></> : <Navbar />}
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -33,6 +34,7 @@ function App() {
           <Route path='/activities/:activityId' element={<ActivityPage />} />
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/add-activity' element={<ProviderPage />} />
+          <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
         <ToastContainer position="bottom-center"

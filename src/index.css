@@ -68,3 +68,7 @@ html {
 .secondary-button {
   @apply bg-hobbizer-green hover:bg-[#c7d2fe]  duration-300 text-[#4338ca] font-medium text-center rounded-md
 }
+
+tbody tr:nth-child(even) {
+  @apply bg-gray-100
+}

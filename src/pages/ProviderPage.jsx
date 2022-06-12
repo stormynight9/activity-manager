@@ -1,7 +1,5 @@
-import React from 'react'
 import ProviderForm from '../components/provider/ProviderForm'
 import Sidebar from '../components/provider/Sidebar'
-import TextEditor from '../components/provider/TextEditor'
 
 const ProviderPage = () => {
     return (
@@ -9,7 +7,6 @@ const ProviderPage = () => {
             <Sidebar />
             <div className='w-full m-4 max-w-4xl flex flex-col mx-auto p-4 bg-white rounded-md shadow-md'>
                 <ProviderForm />
-
             </div>
         </div>
     )

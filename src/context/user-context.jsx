@@ -304,7 +304,7 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const logoutUser = () => {
-        if (auth.currentUser.displayName === 'provider') {
+        if (auth.currentUser?.displayName === 'provider') {
             navigate('/')
         }
         signOut(auth)

@@ -3,7 +3,7 @@ import { CgAdd, CgList, CgLogOff, CgPlayListCheck } from 'react-icons/cg'
 import { Link, NavLink } from 'react-router-dom'
 import UserContext from '../../context/user-context'
 
-const Sidebar = () => {
+const Sidebar = ({ bookedActivitesCount }) => {
     const userCtx = useContext(UserContext)
     return (
         <div className="flex h-screen sticky flex-col top-0 left-0 w-64 bg-white border-r">
@@ -41,9 +41,9 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <a
-                            href="#"
-                            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-hobbizer pr-6"
+                        <NavLink
+                            to="/booked-activity-list"
+                            className={(navData) => !navData.isActive ? 'relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-hobbizer pr-6' : 'relative flex flex-row items-center h-11 focus:outline-none bg-gray-50 text-gray-800 border-l-4 border-hobbizer pr-6'}
                         >
                             <span className="inline-flex justify-center items-center ml-4">
                                 <CgPlayListCheck className='w-5 h-5' />
@@ -52,9 +52,9 @@ const Sidebar = () => {
                                 Activités réservées
                             </span>
                             <span className="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-500 bg-green-50 rounded-full">
-                                15
+                                {bookedActivitesCount}
                             </span>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="px-5">
                         <div className="flex flex-row items-center h-8">

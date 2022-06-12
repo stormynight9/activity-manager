@@ -74,7 +74,6 @@ const Checkout = () => {
                     <p className='text-3xl font-semibold'>Total</p>
                     <p className='text-3xl font-semibold'>{total} TND</p>
                 </div>
-                <button onClick={validateProgram} className='mx-2 md:mx-0 md:ml-auto sm:px-8 h-14 sm:w-auto mt-7 lg:mt-0  bg-hobbizer hover:bg-hobbizer-dark  duration-300 text-white text-center rounded-md shadow-md'>Envoyer demande</button>
             </div>
         </div>
 
