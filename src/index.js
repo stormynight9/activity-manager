@@ -7,6 +7,7 @@ import { ModalContectProvider } from './context/modal-context';
 import { ProgrammeContextProvider } from './context/programme-context';
 import { SelectedContextProvider } from './context/selected-context';
 import { UserContextProvider } from './context/user-context';
+import { SidebarContextProvider } from './pages/sidebar-context'
 import './index.css';
 
 ReactDOM.render(
@@ -17,7 +18,9 @@ ReactDOM.render(
           <DataContextProvider>
             <ProgrammeContextProvider>
               <SelectedContextProvider>
-                <App />
+                <SidebarContextProvider>
+                  <App />
+                </SidebarContextProvider>
               </SelectedContextProvider>
             </ProgrammeContextProvider>
           </DataContextProvider>

@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import { CgAdd, CgList, CgLogOff, CgPlayListCheck } from 'react-icons/cg'
 import { Link, NavLink } from 'react-router-dom'
 import UserContext from '../../context/user-context'
+import SidebarContext from '../../pages/sidebar-context'
 
-const Sidebar = ({ bookedActivitesCount }) => {
+const Sidebar = () => {
     const userCtx = useContext(UserContext)
+    const sidebarCtx = useContext(SidebarContext)
     return (
         <div className="flex h-screen sticky flex-col top-0 left-0 w-64 bg-white border-r">
             <div className="flex items-center justify-center h-16 border-b">
@@ -52,7 +54,7 @@ const Sidebar = ({ bookedActivitesCount }) => {
                                 Activités réservées
                             </span>
                             <span className="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-500 bg-green-50 rounded-full">
-                                {bookedActivitesCount}
+                                {sidebarCtx.bookedActivitiesCount}
                             </span>
                         </NavLink>
                     </li>
