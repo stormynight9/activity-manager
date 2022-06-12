@@ -23,33 +23,36 @@ function App() {
 
   return (
     <>
-      {dataCtx.isLoaded && <div className='bg-gray-50 relative'>
-        {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list') ? <></> : <Navbar />}
-        <ScrollToTop />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/programme' element={<Programme />} />
-          <Route path='/categories' element={<CategoriesPage />} />
-          <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
-          <Route path='/activities/:activityId' element={<ActivityPage />} />
-          <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/add-activity' element={<ProviderPage />} />
-          <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
-          <Route path='/*' element={<Navigate to='/' />} />
-        </Routes>
-        <ToastContainer position="bottom-center"
-          autoClose={3000}
-          hideProgressBar
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme='colored'
-          transition={Slide} />
-        <Footer />
-      </div>}
+      {dataCtx.isLoaded &&
+        <div className='bg-gray-50 relative min-h-screen flex flex-col justify-between'>
+          <div>
+            {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list') ? <></> : <Navbar />}
+            <ScrollToTop />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/programme' element={<Programme />} />
+              <Route path='/categories' element={<CategoriesPage />} />
+              <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
+              <Route path='/activities/:activityId' element={<ActivityPage />} />
+              <Route path='/checkout' element={<CheckoutPage />} />
+              <Route path='/add-activity' element={<ProviderPage />} />
+              <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
+              <Route path='/*' element={<Navigate to='/' />} />
+            </Routes>
+            <ToastContainer position="bottom-center"
+              autoClose={3000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme='colored'
+              transition={Slide} />
+          </div>
+          <Footer />
+        </div>}
     </>
   );
 }
