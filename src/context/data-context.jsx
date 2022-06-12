@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { createContext, useEffect, useState } from "react";
 import { db } from "../firebase-config";
 
@@ -23,22 +23,14 @@ export const DataContextProvider = (props) => {
         return setIsLoaded(true)
     }, [categories, activities])
 
-    useEffect(() => {
-        const getCategories = async () => {
-            const data = await getDocs(collection(db, 'categories'))
-            setCategories(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-        }
-        getCategories()
-    }, [])
+    useEffect(() => onSnapshot(collection(db, "activities"), (doc) => {
+        setActivities(doc.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    }), [])
 
-    useEffect(() => {
-        const getActivities = async () => {
-            const data = await getDocs(collection(db, 'activities'))
-            setActivities(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    useEffect(() => onSnapshot(collection(db, "categories"), (doc) => {
+        setCategories(doc.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    }), [])
 
-        }
-        getActivities()
-    }, [])
 
     return (
         <DataContext.Provider value={{

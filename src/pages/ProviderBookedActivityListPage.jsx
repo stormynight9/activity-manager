@@ -19,8 +19,7 @@ const ProviderActivityListPage = () => {
         // filter formatedData only activities with providerId equal to the current provider
         const filteredData = formatedData.filter((activity) => activity.providerId === userCtx.user.uid)
         setBookedActivities(filteredData)
-    }),
-        [])
+    }), [])
 
 
 
