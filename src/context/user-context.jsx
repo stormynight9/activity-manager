@@ -236,13 +236,13 @@ export const UserContextProvider = ({ children }) => {
 
     //get user details
     useEffect(() => {
-        const getUserInfo = async () => {
+        const getUserDetails = async () => {
             if (user) {
                 const data = await getDoc(doc(db, "users", user.uid));
                 setUserDetails(data.data());
             }
         }
-        getUserInfo();
+        getUserDetails();
     }, [user])
 
     useEffect(() => {

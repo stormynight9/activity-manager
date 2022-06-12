@@ -29,9 +29,7 @@ const Checkout = () => {
         let validatedActivities = []
 
         for (const activity of programmeCtx.activities) {
-            const activityRef = await addDoc(collection(db, 'validatedActivities'), {
-                activity
-            })
+            const activityRef = await addDoc(collection(db, 'validatedActivities'), activity)
             validatedActivities.push(activityRef.id)
         }
 

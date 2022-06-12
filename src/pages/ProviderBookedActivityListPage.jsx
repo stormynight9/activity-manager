@@ -1,5 +1,6 @@
-import { collection, getDocs } from "firebase/firestore"
+import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore"
 import { useContext, useEffect, useState } from "react"
+import { toast } from "react-toastify"
 import BookedActivities from "../components/provider/BookedActivities"
 import Sidebar from "../components/provider/Sidebar"
 import UserContext from "../context/user-context"
@@ -8,24 +9,58 @@ import { db } from "../firebase-config"
 const ProviderActivityListPage = () => {
 
     const [bookedActivites, setBookedActivities] = useState([])
+    const [loading, setLoading] = useState(false)
     const userCtx = useContext(UserContext)
-    console.log(bookedActivites)
-    useEffect(() => {
-        const getBookedActivities = async () => {
-            const data = await getDocs(collection(db, 'validatedActivities'))
-            const formatedData = data.docs.map((doc) => ({ ...doc.data().activity, bookedActivityId: doc.id }))
-            // filter formatedData only activities with providerId equal to the current provider
-            const filteredData = formatedData.filter((activity) => activity.providerId === userCtx.user.uid)
-            setBookedActivities(filteredData)
-        }
-        getBookedActivities()
-    }, [])
+
+    //get snapshot of booked activities when database changes
+    useEffect(() => onSnapshot(collection(db, "validatedActivities"), (doc) => {
+        console.log(doc)
+        const formatedData = doc.docs.map((doc) => ({ ...doc.data(), bookedActivityId: doc.id }))
+        // filter formatedData only activities with providerId equal to the current provider
+        const filteredData = formatedData.filter((activity) => activity.providerId === userCtx.user.uid)
+        setBookedActivities(filteredData)
+    }),
+        [])
+
+
+
+
+    //function that change availability of an activity to 'accepted' by id of bookedActivities
+    const acceptActivity = async (bookedActivityId) => {
+        setLoading(true)
+        await updateDoc(doc(db, 'validatedActivities', bookedActivityId), { availability: 'accepted' })
+        toast('Activité accepté', {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 4000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+        setLoading(false)
+    }
+
+    const refuseActivity = async (bookedActivityId) => {
+        setLoading(true)
+        await updateDoc(doc(db, 'validatedActivities', bookedActivityId), { availability: 'refused' })
+        toast('Activité refusé', {
+            type: 'success',
+            position: "bottom-center",
+            autoClose: 4000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+        setLoading(false)
+    }
 
     return (
         <div className='flex'>
             <Sidebar bookedActivitesCount={bookedActivites.length} />
             <div className='w-full m-4 max-w-7xl flex flex-col mx-auto '>
-                <BookedActivities bookedActivites={bookedActivites} />
+                <BookedActivities loading={loading} bookedActivites={bookedActivites} acceptActivity={acceptActivity} refuseActivity={refuseActivity} />
             </div>
         </div>
     )

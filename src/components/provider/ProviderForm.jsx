@@ -61,7 +61,6 @@ const ProviderForm = (props) => {
         await updateDoc(activityRef, { images: images })
     }
 
-    // TODO: add id of the provider
 
     const submitHandler = async (e) => {
         setLoading(true)

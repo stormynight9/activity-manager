@@ -1,4 +1,5 @@
 import { addDays, format, isAfter, isBefore } from "date-fns";
+import { serverTimestamp } from "firebase/firestore";
 import parse from 'html-react-parser';
 import { forwardRef, useContext, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -100,13 +101,14 @@ const Activity = () => {
             id: id,
             activityId: activity.id,
             clientId: userCtx.user.uid,
-            ClientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
+            clientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
             providerId: activity.providerId,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),
             time: selectedTime,
             status: 'pending',
-            availability: 'pending'
+            availability: 'pending',
+            createdAt: serverTimestamp()
         })
         navigate('/programme')
         toast("L'activité a bien été ajoutée à votre programme", {
