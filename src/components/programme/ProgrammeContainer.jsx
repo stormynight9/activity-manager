@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 import programmeContext from "../../context/programme-context"
 import UserContext from '../../context/user-context'
 import { db } from '../../firebase-config'
+import Sidebill from '../shared/Sidebill'
 import DayContainer from "./DayContainer"
 import './ProgrammeContainer.css'
 
@@ -98,7 +99,7 @@ const Programme = () => {
     }
 
     return (
-        <div className='mt-36 flex flex-col justify-center items-center mb-24'>
+        <div className='mt-36 flex flex-col justify-center items-center mb-24 xl:mr-[28vw]'>
             <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{programmeCtx.startDateFr}</span> au <span className='text-hobbizer'>{programmeCtx.endDateFr}</span></h2>
             <p className='text-gray-500 mb-8 text-center'>Cliquez sur une période de la journée et sélectionnez vos activités</p>
             <div className='w-full sm:w-auto relative'>

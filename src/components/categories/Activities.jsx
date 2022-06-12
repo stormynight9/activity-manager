@@ -15,7 +15,7 @@ const Activities = () => {
     const activitiesByCategory = dataCtx.activities.filter(activity => category.activities.includes(activity.id))
 
     return (
-        <div className='flex justify-center mb-7 mt-36'>
+        <div className='flex justify-center mb-7 mt-36 xl:mr-[22vw]'>
             <div className='max-w-7xl w-full'>
                 <Timeline />
                 <main className='flex justify-start md:ml-6'>
@@ -25,7 +25,7 @@ const Activities = () => {
                         ))}
                     </div>
                     <div className='p-4'>
-                        <div className='flex gap-2 flex-wrap justify-center md:justify-start'>
+                        <div className='flex gap-2 flex-wrap justify-center md:justify-start mx-auto'>
                             {activitiesByCategory.map(activity => (
                                 <Link to={`/activities/${activity.id}`} key={activity.id} className='relative max-w-xs group flex flex-col border-[1px] rounded-md shadow-sm '>
                                     <img className='object-cover h-44 rounded-t-md group-hover:brightness-75 duration-200' src={activity.coverImage} alt="" />

@@ -100,8 +100,8 @@ const Activity = () => {
         programmeCtx.addActivity({
             id: id,
             activityId: activity.id,
-            clientId: userCtx.user.uid,
-            clientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
+            clientId: userCtx.user?.uid,
+            clientFullName: userCtx.userDetails?.firstName + ' ' + userCtx.userDetails?.lastName,
             providerId: activity.providerId,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),
@@ -123,7 +123,7 @@ const Activity = () => {
     }
 
     return (
-        <div className='mt-36 p-2 '>
+        <div className='mt-36 p-2 2xl:mr-[28vw]'>
             <div className='max-w-2xl lg:max-w-6xl mx-auto'>
                 <h1 className='text-2xl uppercase mb-2'>{activity.title}</h1>
                 <ActivityCard activity={activity} ></ActivityCard>

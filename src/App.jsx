@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      {dataCtx.isLoaded && <div className='bg-gray-50'>
+      {dataCtx.isLoaded && <div className='bg-gray-50 relative'>
         {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list') ? <></> : <Navbar />}
         <ScrollToTop />
         <Routes>
