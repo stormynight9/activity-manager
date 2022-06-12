@@ -1,11 +1,10 @@
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db } from "../firebase-config";
-import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import ModalContext from "../context/modal-context";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { auth, db } from "../firebase-config";
 // const arr = [
 //     {
 //         title: 'Dégustation interactive de vins',
@@ -201,6 +200,8 @@ import { useNavigate } from "react-router-dom";
 const UserContext = createContext({
     user: null,
     setUser: () => { },
+    userDetails: null,
+    setUserDetails: () => { },
     loading: false,
     signIn: () => { },
     signOut: () => { },
@@ -213,6 +214,7 @@ const UserContext = createContext({
 
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [userDetails, setUserDetails] = useState(null);
     const [loading, setLoading] = useState();
     const [error, setError] = useState("");
     const [isProvider, setIsProvider] = useState(false);
@@ -231,6 +233,17 @@ export const UserContextProvider = ({ children }) => {
         })
     }
 
+
+    //get user details
+    useEffect(() => {
+        const getUserInfo = async () => {
+            if (user) {
+                const data = await getDoc(doc(db, "users", user.uid));
+                setUserDetails(data.data());
+            }
+        }
+        getUserInfo();
+    }, [user])
 
     useEffect(() => {
         setLoading(true)
@@ -318,6 +331,8 @@ export const UserContextProvider = ({ children }) => {
     return (
         <UserContext.Provider value={{
             user,
+            userDetails,
+            setUserDetails,
             loading,
             error,
             registerUser,

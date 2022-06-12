@@ -1,5 +1,10 @@
+import { useState } from "react"
 
 const BookedActivities = ({ bookedActivites }) => {
+    const [userInfo, setUserInfo] = useState({})
+    console.log(bookedActivites)
+
+
     return (
         <div>
             <table className="w-full shadow-md rounded-md">
@@ -46,7 +51,7 @@ const BookedActivities = ({ bookedActivites }) => {
 
                         <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
                             <span
-                                className="px-3 py-1 text-sm font-medium tracking-wider text-green-800 bg-green-200 rounded-3xl bg-opacity-50">Accepté</span>
+                                className="px-3 py-1 my-6 text-sm font-medium tracking-wider text-green-800 bg-green-200 rounded-3xl bg-opacity-50">Accepté</span>
                         </td>
 
                     </tr>
