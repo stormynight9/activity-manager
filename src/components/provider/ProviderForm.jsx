@@ -231,7 +231,7 @@ const ProviderForm = (props) => {
                     onChange={onDrop}
                     maxFileSize={9242880}
                     label='Formats acceptés: jpg, jpeg, png'
-                    imgExtension={[".jpg", ".jpeg", ".png",]}
+                    imgExtension={[".jpg", ".jpeg", ".png", ".webp"]}
                     withPreview={true}
                     buttonText='Choisir des images'
                 />

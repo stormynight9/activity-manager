@@ -8,7 +8,7 @@ const Activity = (props) => {
             </div>
             <div className="p-5 mb-auto">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{props.title}</h5>
-                <p className="mb-3 font-normal text-gray-700 ">{props.description}</p>
+                <p className="mb-3 font-normal text-gray-700 line-clamp-4">{props.description}</p>
             </div>
             <div className="pb-5 pr-5 pl-5 flex flex-col justify-between">
                 <div className="flex justify-between items-center">

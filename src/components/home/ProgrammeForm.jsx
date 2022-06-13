@@ -66,7 +66,7 @@ const ProgrammeForm = () => {
                 <form onSubmit={handleFormSubmit} className='flex flex-col sm:flex-row items-center justify-center lg:flex-nowrap flex-wrap'>
                     <div className='flex flex-col sm:flex-row items-center justify-center w-full'>
                         <div className='flex flex-col sm:border-r-2 sm:pr-6 w-full mb-4 sm:mb-0'>
-                            <label className='text-sm  text-hobbizer font-medium' htmlFor='participants'>Number of participants</label>
+                            <label className='text-sm  text-hobbizer font-medium' htmlFor='participants'>Nombre de participants</label>
                             <div className='flex relative items-center '>
                                 <input autoComplete="off" required onChange={e => {
                                     setParticipants(e.target.value)

@@ -9,6 +9,7 @@ import DataContext from './context/data-context';
 import UserContext from './context/user-context';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityPage from './pages/ActivityPage';
+import AdminPage from './pages/AdminPage';
 import CategoriesPage from './pages/CategoriesPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Home from './pages/Home';
@@ -26,7 +27,7 @@ function App() {
       {dataCtx.isLoaded &&
         <div className='bg-gray-50 relative min-h-screen flex flex-col justify-between'>
           <div>
-            {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list') ? <></> : <Navbar />}
+            {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list' || location.pathname === '/admin') ? <></> : <Navbar />}
             <ScrollToTop />
             <Routes>
               <Route path='/' element={<Home />} />
@@ -37,6 +38,7 @@ function App() {
               <Route path='/checkout' element={<CheckoutPage />} />
               <Route path='/add-activity' element={<ProviderPage />} />
               <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
+              <Route path='/admin' element={<AdminPage />} />
               <Route path='/*' element={<Navigate to='/' />} />
             </Routes>
             <ToastContainer position="bottom-center"
@@ -51,7 +53,7 @@ function App() {
               theme='colored'
               transition={Slide} />
           </div>
-          <Footer />
+          {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list' || location.pathname === '/admin') ? <></> : <Footer />}
         </div>}
     </>
   );
