@@ -64,6 +64,11 @@ const Navbar = () => {
                                     Comment ça marche
                                 </button>
                             </li>
+                            {!!userCtx.user && <li className="mt-8 md:mt-0">
+                                <Link to='/programme' className="w-full py-3 text-center font-medium text-gray-600 hover:text-hobbizer rounded-md block md:inline ">
+                                    Calendrier
+                                </Link>
+                            </li>}
                             {!userCtx.user && <li className="mt-4 md:mt-0">
                                 <button onClick={() => modalHandler(<Login />)} className="w-full py-3 px-4 secondary-button block md:inline ">
                                     Connexion

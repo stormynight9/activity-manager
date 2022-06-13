@@ -100,8 +100,6 @@ const Activity = () => {
         programmeCtx.addActivity({
             id: id,
             activityId: activity.id,
-            clientId: userCtx.user?.uid,
-            clientFullName: userCtx.userDetails?.firstName + ' ' + userCtx.userDetails?.lastName,
             providerId: activity.providerId,
             participants: +participants,
             date: format(startDate, 'yyyy-MM-dd'),

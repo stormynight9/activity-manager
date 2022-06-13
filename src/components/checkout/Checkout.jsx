@@ -29,7 +29,16 @@ const Checkout = () => {
         let validatedActivities = []
 
         for (const activity of programmeCtx.activities) {
-            const activityRef = await addDoc(collection(db, 'validatedActivities'), activity)
+            console.log({
+                ...activity,
+                clientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
+                clinetId: userCtx.user.uid,
+            })
+            const activityRef = await addDoc(collection(db, 'validatedActivities'), {
+                ...activity,
+                clientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
+                clinetId: userCtx.user.uid,
+            })
             validatedActivities.push(activityRef.id)
         }
 
@@ -55,7 +64,6 @@ const Checkout = () => {
             progress: undefined,
         })
     }
-    // TODO: add userId to every activity
 
     return (
         <div className='max-w-5xl mx-auto mb-8'>
