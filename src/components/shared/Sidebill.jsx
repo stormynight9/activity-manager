@@ -126,7 +126,7 @@ const Sidebill = ({ disappear }) => {
                     {programmeCtx.activities.length > 0 && <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                         <div className="flex justify-between text-base font-medium text-gray-900">
                             <p>Prix total</p>
-                            <p>{totalPrice}.00</p>
+                            <p>{totalPrice}.00 TND</p>
                         </div>
                         <div className="mt-6 flex flex-col space-y-2">
                             <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button tracking-wide'><FaCheck />Valider mon programme</Link>

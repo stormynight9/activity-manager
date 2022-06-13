@@ -25,7 +25,7 @@ const Navbar = () => {
                         <img
                             src="https://firebasestorage.googleapis.com/v0/b/pfe-95fff.appspot.com/o/NADER-02.svg?alt=media&token=7ff0dc8a-1b01-4e7f-863b-1aa595e360d0"
                             width={120}
-                            alt="Tunisie Sejour"
+                            alt="Tunisie Séjour"
                         />
                     </Link>
                     <div className="md:hidden">
