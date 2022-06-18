@@ -8,13 +8,13 @@ const ActivityList = () => {
     const dataCtx = useContext(DataContext)
 
 
-    const activityList = dataCtx.activities.slice(0, 5)
+    const activityList = dataCtx.activities.slice(0, 6)
 
     return (
         <section className='flex flex-wrap max-w-screen-xl mt-14 mx-auto  items-baseline justify-center '>
             <div className='text-center space-y-4'>
                 <h2 className='text-gray-800 font-semibold mb-14 text-3xl md:text-4xl'>
-                    La selection de
+                    La sélection de
                     <span className='text-hobbizer'> Tunisie Séjour</span>
                 </h2>
             </div>

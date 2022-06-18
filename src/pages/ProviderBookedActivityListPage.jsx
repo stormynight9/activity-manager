@@ -61,7 +61,7 @@ const ProviderActivityListPage = () => {
     return (
         <div className='flex'>
             <Sidebar />
-            <div className='w-full m-4 max-w-7xl flex flex-col mx-auto '>
+            <div className='w-full m-4 max-w-7xl flex flex-col mx-auto p-2'>
                 <BookedActivities loading={loading} bookedActivites={bookedActivites} acceptActivity={acceptActivity} refuseActivity={refuseActivity} />
             </div>
         </div>

@@ -50,7 +50,7 @@ const Sidebill = ({ disappear }) => {
     }
 
     return (
-        <div className={disappear ? "fixed hidden 2xl:block top-24 right-0 max-w-sm w-full" : "fixed hidden xl:block top-24 right-0 max-w-sm w-full"}>
+        <div className={disappear ? "fixed hidden 2xl:block top-24 right-0 max-w-sm w-full" : " fixed hidden xl:block top-24 right-0 max-w-sm w-full"}>
             <div className="w-screen max-w-sm">
                 <div className="flex h-[80vh] flex-col bg-white shadow-md rounded-md">
                     <div className="flex-1 overflow-y-auto py-1 sm:px-4">

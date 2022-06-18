@@ -7,17 +7,17 @@ const How = () => {
                     <div className='flex flex-1 flex-col mb-10 md:mb-0 items-center'>
                         <img className='h-[72px] mb-4 w-[70px] hue-rotate-[240deg]' src="https://hobbizer.com/bundles/hobbizerorganiser/images/1.png" alt="" />
                         <strong className='text-lg mb-1 md:mb-4'>CRÉEZ VOTRE PROGRAMME SUR-MESURE</strong>
-                        <span>Choisissez et planifiez les meilleures expériences à Paris et en Ile de France</span>
+                        <span>Choisissez et planifiez les meilleures expériences à Tunisie</span>
                     </div>
                     <div className='flex flex-1  flex-col mb-10 md:mb-0 items-center'>
                         <img className='h-[72px] mb-4 w-[70px] hue-rotate-[240deg]' src="https://hobbizer.com/bundles/hobbizerorganiser/images/2.png" alt="" />
-                        <strong className='text-lg mb-1 md:mb-4'>HOBBIZER ORGANISE VOS EXPÉRIENCES</strong>
+                        <strong className='text-lg mb-1 md:mb-4'>TUNISIE SEJOUR ORGANISE VOS EXPÉRIENCES</strong>
                         <span>Votre organisateur personnel s’occupe de tout</span>
                     </div>
                     <div className='flex flex-1  flex-col items-center'>
                         <img className='h-[72px] mb-4 w-[70px] hue-rotate-[240deg]' src="https://hobbizer.com/bundles/hobbizerorganiser/images/3.png" alt="" />
-                        <strong className='text-lg mb-1 md:mb-4'>LAISSEZ-VOUS GUIDER ET PROFITEZ</strong>
-                        <span>Le jour J, vous n'avez qu'à suivre votre roadbook personnalisé</span>
+                        <strong className='text-lg mb-1 md:mb-4'>SAUVEGARDEZ VOS PROGRAMMES</strong>
+                        <span>Vos programmes seront sauvegardés dans votre compte.</span>
                     </div>
                 </div>
                 <a className='px-10 py-3.5 w-full cursor-pointer mt-12 secondary-button hover:bg-white sm:w-auto'>En savoir plus</a>

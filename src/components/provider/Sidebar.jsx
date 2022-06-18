@@ -38,7 +38,7 @@ const Sidebar = () => {
                             </span>
                             <span className="ml-2 text-sm tracking-wide truncate">Liste des activités</span>
                             <span className="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-hobborder-hobbizer bg-indigo-50 rounded-full">
-                                New
+                                2
                             </span>
                         </Link>
                     </li>

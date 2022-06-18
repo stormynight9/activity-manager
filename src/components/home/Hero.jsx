@@ -5,7 +5,7 @@ const Hero = () => {
         <section className="mt-36 mx-auto max-w-screen-xl pb-4 px-4 sm:px-8 ">
             <div className="text-center space-y-4">
                 <h1 className="text-gray-800 font-bold text-4xl md:text-5xl">
-                    Trouver les experiences que vous
+                    Trouver les expériences que vous
                     <span className="text-hobbizer"> voulez vivre</span>
                 </h1>
                 <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
