@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -221,6 +221,8 @@ export const UserContextProvider = ({ children }) => {
     const modalCtx = useContext(ModalContext);
     const navigate = useNavigate();
 
+    console.log(user)
+
     const displayToast = (message) => {
         toast(message, {
             type: 'success',
@@ -266,6 +268,7 @@ export const UserContextProvider = ({ children }) => {
             lastName: lastName,
             email: user.email,
             type: type,
+            createdAt: serverTimestamp()
         })
     }
 
