@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import ModalContext from "../context/modal-context";
 import { auth, db } from "../firebase-config";
+import programmeContext from "./programme-context";
 // const arr = [
 //     {
 //         title: 'Dégustation interactive de vins',
@@ -220,6 +221,7 @@ export const UserContextProvider = ({ children }) => {
     const [isProvider, setIsProvider] = useState(false);
     const modalCtx = useContext(ModalContext);
     const navigate = useNavigate();
+    const programmeCtx = useContext(programmeContext);
 
     console.log(user)
 
@@ -322,11 +324,15 @@ export const UserContextProvider = ({ children }) => {
     const logoutUser = () => {
         if (auth.currentUser?.displayName === 'provider') {
             navigate('/')
+            programmeCtx.resetProgramme()
         }
         signOut(auth)
             .then(() => {
                 displayToast("Vous êtes déconnecté")
                 setIsProvider(false)
+                navigate('/')
+                localStorage.removeItem('programme')
+                programmeCtx.resetProgramme()
             })
     }
 

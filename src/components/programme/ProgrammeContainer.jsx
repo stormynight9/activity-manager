@@ -3,11 +3,13 @@ import { addDoc, arrayUnion, collection, doc, updateDoc } from 'firebase/firesto
 import { useContext, useEffect, useLayoutEffect, useState } from "react"
 import { FaCheck, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ReactPaginate from "react-paginate"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import ModalContext from '../../context/modal-context'
 import programmeContext from "../../context/programme-context"
 import UserContext from '../../context/user-context'
 import { db } from '../../firebase-config'
+import Login from '../shared/Login'
 import Sidebill from '../shared/Sidebill'
 import DayContainer from "./DayContainer"
 import './ProgrammeContainer.css'
@@ -15,6 +17,8 @@ import './ProgrammeContainer.css'
 const Programme = () => {
     const programmeCtx = useContext(programmeContext)
     const userCtx = useContext(UserContext)
+    const modalCtx = useContext(ModalContext)
+    const navigate = useNavigate()
     const startDate = format(new Date(programmeCtx.startDate), 'd MMM, yyyy')
     const endDate = format(new Date(programmeCtx.endDate), 'd MMM, yyyy')
     const days = programmeCtx.datesInterval
@@ -66,6 +70,11 @@ const Programme = () => {
     }, [screenWidth])
 
     const saveProgram = async () => {
+        if (!userCtx.user) {
+            modalCtx.setModalContent(<Login />)
+            modalCtx.toggleModal()
+            return
+        }
         let savedActivities = []
 
         for (const activity of programmeCtx.activities) {
@@ -98,6 +107,18 @@ const Programme = () => {
         })
     }
 
+    const redirectValidation = () => {
+        // if user is not logged in, open modal to ask for login
+        if (!userCtx.user) {
+            modalCtx.setModalContent(<Login />)
+            modalCtx.toggleModal()
+        } else {
+            // if user is logged in, redirect to validation page
+            navigate('/checkout')
+        }
+
+    }
+
     return (
         <div className='mt-36 flex flex-col justify-center items-center mb-24 xl:mr-[28vw]'>
             <h2 className='text-2xl font-medium text-gray-700 mb-2 text-center'>Votre programme du <span className='text-hobbizer'>{programmeCtx.startDateFr}</span> au <span className='text-hobbizer'>{programmeCtx.endDateFr}</span></h2>
@@ -119,7 +140,7 @@ const Programme = () => {
             {programmeCtx.activities.length > 0 && <div className='w-full p-4 flex flex-col sm:flex-row gap-2 sm:gap-1 md:gap-4 sm:justify-end max-w-4xl'>
                 <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 secondary-button'>Recommencer</button>
                 <button onClick={() => saveProgram()} className='h-10  w-full sm:w-auto px-3 md:px-4 secondary-button'>Sauvegarder mon programme</button>
-                <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button'><FaCheck />Valider mon programme</Link>
+                <button onClick={() => redirectValidation()} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button'><FaCheck />Valider mon programme</button>
             </div>}
         </div>
     )

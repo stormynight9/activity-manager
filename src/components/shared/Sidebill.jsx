@@ -4,9 +4,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { FaCheck, FaTrashAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import DataContext from '../../context/data-context'
+import ModalContext from '../../context/modal-context'
 import programmeContext from '../../context/programme-context'
+import UserContext from '../../context/user-context'
+import Login from './Login'
 
 
 // function capitalize first letter of every word
@@ -18,6 +21,9 @@ const capitalize = (str) => {
 const Sidebill = ({ disappear }) => {
     const programmeCtx = useContext(programmeContext)
     const dataCtx = useContext(DataContext)
+    const userCtx = useContext(UserContext)
+    const modalCtx = useContext(ModalContext)
+    const navigate = useNavigate()
     const [totalPrice, setTotalPrice] = React.useState(0)
     const activities = programmeCtx.activities
 
@@ -49,6 +55,18 @@ const Sidebill = ({ disappear }) => {
         programmeCtx.deleteActivity(id)
     }
 
+    const redirectValidation = () => {
+        // if user is not logged in, open modal to ask for login
+        if (!userCtx.user) {
+            modalCtx.setModalContent(<Login />)
+            modalCtx.toggleModal()
+        } else {
+            // if user is logged in, redirect to validation page
+            navigate('/checkout')
+        }
+
+    }
+
     return (
         <div className={disappear ? "fixed hidden 2xl:block top-24 right-0 max-w-sm w-full" : " fixed hidden xl:block top-24 right-0 max-w-sm w-full"}>
             <div className="w-screen max-w-sm">
@@ -56,11 +74,12 @@ const Sidebill = ({ disappear }) => {
                     <div className="flex-1 overflow-y-auto py-1 sm:px-4">
                         <div className="mt-2">
                             <div className="flow-root">
-                                {programmeCtx.activities.length === 0 && <div className='mt-8'>
-                                    <img src="https://firebasestorage.googleapis.com/v0/b/pfe-95fff.appspot.com/o/empty-cart.SVG?alt=media&token=f64b9ea7-bddd-42f3-8106-e08e811c9a52" alt="empty cart" />
-                                    <p className='font-medium mt-10 text-xl break-words text-center'>Vous n'avez pas encore sélectionné d'activités</p>
-                                    <p className='text-center text-sm'>Cliquez sur un autre moment de la journée pour ajouter d'autres activités</p>
-                                </div>}
+                                {programmeCtx.activities.length === 0 && <div className='mt-8 justify-around'>
+                                    <img className='mt-10' src="https://firebasestorage.googleapis.com/v0/b/pfe-95fff.appspot.com/o/undraw_add_to_cart_re_wrdo%20(1).svg?alt=media&token=83c08aed-22e5-4fa4-9480-0fd303e2ed0a" alt="empty cart" />
+                                    <p className='font-medium mt-12 text-xl break-words text-center'>Vous n'avez pas encore sélectionné d'activités</p>
+                                    <p className='text-center text-sm'>Cliquez sur un moment de la journée pour ajouter des activités</p>
+                                </div>
+                                }
                                 <ul className=" divide-gray-200">
                                     {
                                         // sort by date
@@ -129,7 +148,7 @@ const Sidebill = ({ disappear }) => {
                             <p>{totalPrice}.00 TND</p>
                         </div>
                         <div className="mt-6 flex flex-col space-y-2">
-                            <Link to={'/checkout'} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button tracking-wide'><FaCheck />Valider mon programme</Link>
+                            <button onClick={() => redirectValidation()} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button tracking-wide'><FaCheck />Valider mon programme</button>
                             <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 secondary-button'>Recommencer</button>
                         </div>
                     </div>}

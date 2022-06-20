@@ -12,6 +12,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Home from './pages/Home';
 import Programme from './pages/Programme';
+import ProtectedRoutes from './pages/ProtectedRoutes';
 import ProviderBookedActivityListPage from './pages/ProviderBookedActivityListPage';
 import ProviderPage from './pages/ProviderPage';
 
@@ -33,7 +34,9 @@ function App() {
               <Route path='/categories' element={<CategoriesPage />} />
               <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
               <Route path='/activities/:activityId' element={<ActivityPage />} />
-              <Route path='/checkout' element={<CheckoutPage />} />
+              <Route element={<ProtectedRoutes />}>
+                <Route path='/checkout' element={<CheckoutPage />} />
+              </Route>
               <Route path='/add-activity' element={<ProviderPage />} />
               <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
               <Route path='/*' element={<Navigate to='/' />} />

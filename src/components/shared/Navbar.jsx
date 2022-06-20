@@ -60,7 +60,7 @@ const Navbar = () => {
                                 </Link>
                             </li>}
                             <li className="mt-4 md:mt-0">
-                                <button type='button' className="w-full py-3 px-4 text-center font-medium  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
+                                <button type='button' className="w-full py-3 text-center font-medium  text-gray-600 hover:text-hobbizer rounded-md block md:inline md:border-0">
                                     Comment ça marche
                                 </button>
                             </li>
@@ -80,7 +80,7 @@ const Navbar = () => {
                                 </button>
                             </li>}
                             {!!userCtx.user && <li className="mt-8 md:mt-0">
-                                <button onClick={() => userCtx.logoutUser()} className="w-full py-3 px-4 text-center text-white bg-hobbizer hover:bg-hobbizer-dark transition-colors duration-300  rounded-md shadow block md:inline">
+                                <button onClick={() => userCtx.logoutUser()} className="w-full py-3 px-4 secondary-button block md:inline">
                                     Déconnexion
                                 </button>
                             </li>}

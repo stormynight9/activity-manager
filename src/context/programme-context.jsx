@@ -22,7 +22,7 @@ const programmeContext = React.createContext({
     datesIntervalFr: [],
     setDatesIntervalFr: () => { },
     deleteActivity: () => { },
-    programDetails: {}
+    programDetails: {},
 })
 
 // function capitalize first letter of every word
