@@ -1,4 +1,4 @@
-import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { createContext, useEffect, useState } from "react";
 import { db } from "../firebase-config";
 
@@ -15,7 +15,6 @@ export const DataContextProvider = (props) => {
     const [categories, setCategories] = useState([])
     const [activities, setActivities] = useState([])
     const [isLoaded, setIsLoaded] = useState(null)
-    console.log(activities)
 
     useEffect(() => {
         if (categories.length === 0 || activities.length === 0) {

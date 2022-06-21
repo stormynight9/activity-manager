@@ -248,7 +248,6 @@ export const UserContextProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
                 if (isEmailVerified()) {
-                    console.log(isEmailVerified())
                     setUser(user)
                 } else {
                     setUser(null)
