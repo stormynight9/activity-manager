@@ -15,6 +15,7 @@ export const DataContextProvider = (props) => {
     const [categories, setCategories] = useState([])
     const [activities, setActivities] = useState([])
     const [isLoaded, setIsLoaded] = useState(null)
+    console.log(activities)
 
     useEffect(() => {
         if (categories.length === 0 || activities.length === 0) {
@@ -24,7 +25,10 @@ export const DataContextProvider = (props) => {
     }, [categories, activities])
 
     useEffect(() => onSnapshot(collection(db, "activities"), (doc) => {
-        setActivities(doc.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        const data = doc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        // filter data only activities with status === 'accepted'
+        const filteredData = data.filter((activity) => activity.status === 'accepted')
+        setActivities(filteredData)
     }), [])
 
     useEffect(() => onSnapshot(collection(db, "categories"), (doc) => {
