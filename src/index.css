@@ -78,3 +78,9 @@ tbody tr:nth-child(even) {
 tr {
   @apply h-20
 }
+
+.info input::-webkit-outer-spin-button,
+.info input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
