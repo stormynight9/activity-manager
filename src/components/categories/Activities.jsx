@@ -24,7 +24,7 @@ const Activities = () => {
                             <NavLink to={`/categories/${category.id}`} className={(navData) => navData.isActive ? 'py-3 px-6 bg-hobbizer text-white' : 'py-3 px-6  hover:bg-hobbizer hover:text-white'} key={category.id}>{category.title}</NavLink>
                         ))}
                     </div>
-                    <div className='p-4'>
+                    <div className='p-4 w-full'>
                         <div className='flex gap-2 flex-wrap justify-center md:justify-start mx-auto'>
                             {activitiesByCategory.map(activity => (
                                 <Link to={`/activities/${activity.id}`} key={activity.id} className='relative w-full max-w-xs group flex flex-col border-[1px] rounded-md shadow-sm '>
