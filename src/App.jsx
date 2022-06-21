@@ -36,9 +36,9 @@ function App() {
               <Route path='/activities/:activityId' element={<ActivityPage />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path='/checkout' element={<CheckoutPage />} />
+                <Route path='/add-activity' element={<ProviderPage />} />
+                <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
               </Route>
-              <Route path='/add-activity' element={<ProviderPage />} />
-              <Route path='/booked-activity-list' element={<ProviderBookedActivityListPage />} />
               <Route path='/*' element={<Navigate to='/' />} />
             </Routes>
             <ToastContainer position="bottom-center"

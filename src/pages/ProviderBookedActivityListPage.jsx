@@ -1,10 +1,11 @@
 import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore"
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import BookedActivities from "../components/provider/BookedActivities"
 import Sidebar from "../components/provider/Sidebar"
 import UserContext from "../context/user-context"
-import { db } from "../firebase-config"
+import { auth, db } from "../firebase-config"
 import SidebarContext from "./sidebar-context"
 
 const ProviderActivityListPage = () => {
@@ -12,6 +13,7 @@ const ProviderActivityListPage = () => {
     const [loading, setLoading] = useState(false)
     const userCtx = useContext(UserContext)
     const sidebarCtx = useContext(SidebarContext)
+    const navigate = useNavigate()
 
     //get snapshot of booked activities when database changes
     useEffect(() => onSnapshot(collection(db, "validatedActivities"), (doc) => {
@@ -23,6 +25,17 @@ const ProviderActivityListPage = () => {
         console.log(filteredData.length)
         sidebarCtx.setBookedActivitiesCount(filteredData.length)
     }), [])
+
+
+    useEffect(() => {
+        if (auth.currentUser.displayName !== 'provider') {
+            navigate('/')
+        }
+    }, [navigate])
+
+    if (auth.currentUser.displayName !== 'provider') {
+        return <></>
+    }
 
 
 
