@@ -12,6 +12,10 @@ module.exports = {
         "hobbizer-green": "#e0e7ff",
         "facebook": "#3360ff",
         "primary-black": "#111827"
+      },
+      screens: {
+        'calendar3': '767px',
+        'calendar4': '1170px'
       }
     },
   },

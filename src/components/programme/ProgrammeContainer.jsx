@@ -13,6 +13,7 @@ import Login from '../shared/Login'
 import Sidebill from '../shared/Sidebill'
 import DayContainer from "./DayContainer"
 import './ProgrammeContainer.css'
+import TotalPrice from './TotalPrice'
 
 const Programme = () => {
     const programmeCtx = useContext(programmeContext)
@@ -137,10 +138,11 @@ const Programme = () => {
                     {displayDays}
                 </div>
             </div>
-            {programmeCtx.activities.length > 0 && <div className='w-full p-4 flex flex-col sm:flex-row gap-2 sm:gap-1 md:gap-4 sm:justify-end max-w-4xl'>
+            {programmeCtx.activities.length > 0 && <TotalPrice />}
+            {programmeCtx.activities.length > 0 && <div className='w-full p-4 sm:p-0 calendar4:p-4 flex flex-col  sm:max-w-[430px] calendar3:max-w-[645px] calendar4:max-w-[864px] calendar4:flex-row gap-2 md:gap-2 calendar4:justify-end max-w-4xl'>
                 <button onClick={() => programmeCtx.setActivities([])} className='h-10 block w-full sm:w-auto px-3 md:px-4 secondary-button'>Recommencer</button>
                 <button onClick={() => saveProgram()} className='h-10  w-full sm:w-auto px-3 md:px-4 secondary-button'>Sauvegarder mon programme</button>
-                <button onClick={() => redirectValidation()} className='flex gap-2 justify-center items-center h-10  w-full sm:w-auto px-3 md:px-4 primary-button'><FaCheck />Valider mon programme</button>
+                <button onClick={() => redirectValidation()} className='flex gap-2 justify-center items-center h-10  w-full calendar4:w-auto px-3 md:px-4 primary-button'><FaCheck />Valider mon programme</button>
             </div>}
         </div>
     )

@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import { fr } from 'date-fns/locale'
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { FaCheck, FaTrashAlt } from 'react-icons/fa'
@@ -24,7 +24,7 @@ const Sidebill = ({ disappear }) => {
     const userCtx = useContext(UserContext)
     const modalCtx = useContext(ModalContext)
     const navigate = useNavigate()
-    const [totalPrice, setTotalPrice] = React.useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
     const activities = programmeCtx.activities
 
     // get total price
