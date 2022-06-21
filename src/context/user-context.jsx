@@ -1,8 +1,9 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, onIdTokenChanged, reload, sendEmailVerification, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import VerifyEmail from "../components/shared/VerifyEmail";
 import ModalContext from "../context/modal-context";
 import { auth, db } from "../firebase-config";
 import programmeContext from "./programme-context";
@@ -211,12 +212,15 @@ const UserContext = createContext({
     logoutUser: () => { },
     error: null,
     isProvider: false,
+    onReload: () => { },
+    loadingReload: false,
 });
 
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [userDetails, setUserDetails] = useState(null);
     const [loading, setLoading] = useState();
+    const [loadingReload, setLoadingReload] = useState();
     const [error, setError] = useState("");
     const [isProvider, setIsProvider] = useState(false);
     const modalCtx = useContext(ModalContext);
@@ -225,17 +229,7 @@ export const UserContextProvider = ({ children }) => {
 
     console.log(user)
 
-    const displayToast = (message) => {
-        toast(message, {
-            type: 'success',
-            position: "bottom-center",
-            autoClose: 4000,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        })
-    }
+
 
 
     //get user details
@@ -252,7 +246,17 @@ export const UserContextProvider = ({ children }) => {
     useEffect(() => {
         setLoading(true)
         const unsubscribe = onAuthStateChanged(auth, user => {
-            user ? setUser(user) : setUser(null)
+            if (user) {
+                if (isEmailVerified()) {
+                    console.log(isEmailVerified())
+                    setUser(user)
+                } else {
+                    setUser(null)
+                    // setError("Votre compte n'est pas vérifié, veuillez vérifier votre boite mail")
+                }
+            } else {
+                setUser(null)
+            }
             setError("")
             setLoading(false)
         })
@@ -261,6 +265,33 @@ export const UserContextProvider = ({ children }) => {
         // })
         return () => unsubscribe
     }, [])
+
+    //check if user's email is verified
+    const isEmailVerified = () => {
+        if (auth.currentUser.emailVerified) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    const onReload = () => {
+        setLoadingReload(true)
+        reload(auth.currentUser).then(() => {
+            if (isEmailVerified()) {
+                setUser(auth.currentUser)
+                toast.success("Vous êtes connecté")
+                modalCtx.toggleModal()
+            } else {
+                setUser(null)
+                toast.error("Votre compte n'est pas vérifié, veuillez vérifier votre boite mail")
+            }
+            setLoadingReload(false)
+        })
+    }
+
+
+
 
 
     const createUser = async (user, firstName, lastName, type) => {
@@ -275,26 +306,29 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const registerUser = (email, firstName, lastName, password, type) => {
-
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
-                modalCtx.closeModal()
+                // modalCtx.closeModal()
+                modalCtx.setModalContent(<VerifyEmail />)
+                sendEmailVerification(auth.currentUser)
                 updateProfile(auth.currentUser, { displayName: type })
                     .then(() => {
                         setLoading(false);
                         createUser(res.user, firstName, lastName, type)
-                        displayToast("Vous êtes connecté")
+                        // toast.success("Vous êtes connecté")
                     })
                     .catch((err) => {
                         setLoading(false);
                         setError("Error while updating profile");
                     })
             }).then(res => {
-                if (type === 'provider') {
-                    navigate('/add-activity')
+                if (isEmailVerified()) {
+                    if (type === 'provider') {
+                        navigate('/add-activity')
+                    }
+                    setUser(() => auth.currentUser);
                 }
-                setUser(() => auth.currentUser);
             })
             .catch(err => setError(err.message))
             .finally(() => setLoading(false));
@@ -305,7 +339,7 @@ export const UserContextProvider = ({ children }) => {
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
                 modalCtx.closeModal()
-                displayToast("Vous êtes connecté")
+                toast.success("Vous êtes connecté")
                 setLoading(false);
                 setUser(() => auth.currentUser);
                 console.log(res)
@@ -328,7 +362,7 @@ export const UserContextProvider = ({ children }) => {
         }
         signOut(auth)
             .then(() => {
-                displayToast("Vous êtes déconnecté")
+                toast.success("Vous êtes déconnecté")
                 setIsProvider(false)
                 navigate('/')
                 localStorage.removeItem('programme')
@@ -343,11 +377,13 @@ export const UserContextProvider = ({ children }) => {
             userDetails,
             setUserDetails,
             loading,
+            loadingReload,
             error,
             registerUser,
             loginUser,
             logoutUser,
-            isProvider
+            isProvider,
+            onReload,
         }}>
             {children}
         </UserContext.Provider>

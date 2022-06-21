@@ -1,7 +1,5 @@
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { FaFacebook } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
 import ModalContext from '../../context/modal-context'
 import UserContext from '../../context/user-context'
 import Login from './Login'
