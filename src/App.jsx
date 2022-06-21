@@ -14,6 +14,7 @@ import ActivityPage from './pages/ActivityPage';
 import CategoriesPage from './pages/CategoriesPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Home from './pages/Home';
+import HowItWorks from './pages/HowItWorks';
 import ProfilePage from './pages/ProfilePage';
 import Programme from './pages/Programme';
 import ProtectedRoutes from './pages/ProtectedRoutes';
@@ -36,6 +37,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/programme' element={<Programme />} />
               <Route path='/categories' element={<CategoriesPage />} />
+              <Route path='/how-it-works' element={<HowItWorks />} />
               <Route path='/categories/:categoryId' element={<ActivitiesPage />} />
               <Route path='/activities/:activityId' element={<ActivityPage />} />
               <Route element={<ProtectedRoutes />}>

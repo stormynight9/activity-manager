@@ -71,14 +71,13 @@ const ProfileInfo = () => {
                     </div>
                     <div>
                         <label htmlFor="visitors" className="block mb-2 text-sm font-medium text-gray-900 ">Pays</label>
-                        <input defaultValue={formDetails.country} onChange={(e) => setFormDetails({ ...formDetails, country: e.target.value })} type="text" id="visitors" lang="fr-CA" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block w-full p-2.5  " placeholder />
+                        <input defaultValue={formDetails.country} onChange={(e) => setFormDetails({ ...formDetails, country: e.target.value })} type="text" id="visitors" lang="fr-CA" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block w-full p-2.5" />
                     </div>
                     <div>
                         <label htmlFor="visitors" className="block mb-2 text-sm font-medium text-gray-900 ">Date de naissance</label>
-                        <input type="date" defaultValue={formDetails.birthDate} onChange={(e) => setFormDetails({ ...formDetails, birthDate: e.target.value })} max="2016-12-31" id="visitors" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder />
+                        <input type="date" defaultValue={formDetails.birthDate} onChange={(e) => setFormDetails({ ...formDetails, birthDate: e.target.value })} max="2016-12-31" id="visitors" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " />
                     </div>
                 </div>
-
                 <button type="submit" className="primary-button px-4 py-2">Valider</button>
             </form>
         </>
