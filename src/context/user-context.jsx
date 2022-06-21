@@ -290,10 +290,6 @@ export const UserContextProvider = ({ children }) => {
         })
     }
 
-
-
-
-
     const createUser = async (user, firstName, lastName, type) => {
         await setDoc(doc(db, 'users', user.uid), {
             id: user.uid,
@@ -338,13 +334,18 @@ export const UserContextProvider = ({ children }) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
-                modalCtx.closeModal()
-                toast.success("Vous êtes connecté")
                 setLoading(false);
-                setUser(() => auth.currentUser);
-                console.log(res)
-                if (type === 'provider') {
-                    navigate('/add-activity')
+                if (isEmailVerified()) {
+                    if (type === 'provider') {
+                        navigate('/add-activity')
+                    }
+                    setUser(() => auth.currentUser);
+                    modalCtx.closeModal()
+                    toast.success("Vous êtes connecté")
+                } else {
+                    sendEmailVerification(auth.currentUser)
+                    modalCtx.setModalContent(<VerifyEmail />)
+                    setError("Votre compte n'est pas vérifié, veuillez vérifier votre boite mail")
                 }
             })
             .catch(err => {
@@ -358,6 +359,7 @@ export const UserContextProvider = ({ children }) => {
     const logoutUser = () => {
         if (auth.currentUser?.displayName === 'provider') {
             navigate('/')
+            localStorage.removeItem('programme')
             programmeCtx.resetProgramme()
         }
         signOut(auth)
