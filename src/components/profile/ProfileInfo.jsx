@@ -294,7 +294,7 @@ const ProfileInfo = () => {
     }
 
     return (
-        <>
+        <div className='p-4 bg-white'>
             <p className='text-lg font-medium'>Changer vos informations ici</p>
             <form onSubmit={onSubmitHandler} className='mt-6 info'>
                 <div className="grid gap-6 mb-6 lg:grid-cols-2">
@@ -332,7 +332,7 @@ const ProfileInfo = () => {
                 </div>
                 <button type="submit" className="primary-button px-4 py-2">Valider</button>
             </form>
-        </>
+        </div>
     )
 }
 

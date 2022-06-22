@@ -4,7 +4,7 @@ import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfileInfo from './components/profile/ProfileInfo';
 import SavedPrograms from './components/profile/SavedPrograms';
-import ValidatedPrograms from './components/profile/ValidatedPrograms';
+import ValidatedProgramsList from './components/profile/ValidatedProgramsList';
 import Footer from './components/shared/Footer';
 import Navbar from './components/shared/Navbar';
 import ScrollToTop from './components/shared/ScrollToTop';
@@ -44,7 +44,7 @@ function App() {
                 <Route element={<ProfilePage />}>
                   <Route path='/profile/edit' element={<ProfileInfo />} />
                   <Route path='/profile/saved' element={<SavedPrograms />} />
-                  <Route path='/profile/validated' element={<ValidatedPrograms />} />
+                  <Route path='/profile/validated' element={<ValidatedProgramsList />} />
                 </Route>
                 <Route path='/checkout' element={<CheckoutPage />} />
                 <Route path='/add-activity' element={<ProviderPage />} />

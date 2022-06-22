@@ -48,6 +48,7 @@ const Checkout = () => {
             endDate: programmeCtx.endDate,
             userId: userCtx.user.uid,
             bookedActivities: validatedActivities,
+            paid: false,
         })
 
         await updateDoc(doc(db, 'users', userCtx.user.uid), {

@@ -227,7 +227,6 @@ export const UserContextProvider = ({ children }) => {
     const navigate = useNavigate();
     const programmeCtx = useContext(programmeContext);
 
-    console.log(user)
 
 
 

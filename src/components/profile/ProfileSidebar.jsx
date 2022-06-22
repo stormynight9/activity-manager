@@ -9,7 +9,7 @@ const ProfileSidebar = () => {
     const userCtx = useContext(UserContext)
 
     return (
-        <div className='border-r-[1px] h-full flex flex-col justify-between'>
+        <div className='border-r-[1px] h-full flex flex-col justify-between bg-white'>
             <div className='p-4'>
                 <ul className='space-y-4'>
                     <li className=''>
