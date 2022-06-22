@@ -5,7 +5,6 @@ import Sidebill from '../components/shared/Sidebill'
 const ActivitiesPage = () => {
     return (
         <>
-            <Modal />
             <Activities />
             <Sidebill />
         </>

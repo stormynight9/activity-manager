@@ -6,6 +6,7 @@ import ProfileInfo from './components/profile/ProfileInfo';
 import SavedPrograms from './components/profile/SavedPrograms';
 import ValidatedProgramsList from './components/profile/ValidatedProgramsList';
 import Footer from './components/shared/Footer';
+import Modal from './components/shared/Modal';
 import Navbar from './components/shared/Navbar';
 import ScrollToTop from './components/shared/ScrollToTop';
 import DataContext from './context/data-context';
@@ -32,6 +33,7 @@ function App() {
         <div className='bg-gray-50 relative min-h-screen flex flex-col justify-between'>
           <div>
             {(location.pathname === '/add-activity' || location.pathname === '/booked-activity-list' || location.pathname === '/admin') ? <></> : <Navbar />}
+            <Modal />
             <ScrollToTop />
             <Routes>
               <Route path='/' element={<Home />} />

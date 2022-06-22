@@ -6,9 +6,10 @@ const ModalContext = createContext({
     modalContent: <></>,
     setModalContent: setModalContent => { },
     closeModal: () => { },
+    setIsOpen: setIsOpen => { }
 });
 
-export const ModalContectProvider = (props) => {
+export const ModalContextProvider = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [modalContent, setModalContent] = useState(<></>);
 
@@ -26,7 +27,8 @@ export const ModalContectProvider = (props) => {
             toggleModal: toggleModal,
             modalContent: modalContent,
             setModalContent: setModalContent,
-            closeModal: closeModal
+            closeModal: closeModal,
+            setIsOpen: setIsOpen
         }}>
             {props.children}
         </ModalContext.Provider>

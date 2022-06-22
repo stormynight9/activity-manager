@@ -5,7 +5,6 @@ import Sidebill from "../components/shared/Sidebill"
 const ActivityPage = () => {
   return (
     <>
-      <Modal />
       <Activity />
       <Sidebill disappear={'2xl:mr-[28vw]'} />
     </>

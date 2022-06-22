@@ -17,7 +17,6 @@ const Programme = () => {
 
     return (
         <>
-            <Modal />
             <ProgrammeContainer />
             <Sidebill />
         </>

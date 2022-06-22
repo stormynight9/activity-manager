@@ -88,3 +88,11 @@ tr {
 .profile-sidebar-height {
   height: calc(100vh - 200px);
 }
+
+.rccs__card--maestro .rccs__card__background, .rccs__card--mastercard .rccs__card__background {
+  background: linear-gradient(25deg, #f37b26, #fdb731) !important;
+}
+
+.rccs__card--maestro > div, .rccs__card--mastercard > div {
+  color: rgb(231, 231, 231) !important;
+}

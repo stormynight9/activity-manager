@@ -7,7 +7,6 @@ import Modal from "../components/shared/Modal"
 const Home = () => {
     return (
         <>
-            <Modal />
             <Hero />
             <ProgrammeForm />
             <ActivityList />

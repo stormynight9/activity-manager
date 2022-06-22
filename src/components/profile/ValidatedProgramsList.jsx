@@ -17,7 +17,7 @@ const ValidatedProgramsList = () => {
     }
 
     return (
-        <div className='flex flex-col space-y-2 divide-y-[1px] bg-gray-50'>
+        <div className='flex flex-col space-y-2 divide-y-[1px] bg-gray-50  rounded-tr-md rounded-br-md'>
             {userCtx.userDetails.validatedPrograms.map((programId) => {
                 return (
                     <ValidatedProgram key={programId} programId={programId} />

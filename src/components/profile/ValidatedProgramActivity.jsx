@@ -43,13 +43,13 @@ const ValidatedProgramActivity = ({ activityId, updateTotalPrice }) => {
                         <p>{activityInfo?.date && <span className='capitalize'>{format(new Date(activityInfo?.date), 'q MMM yyyy', { locale: fr })}</span>} à {activityInfo?.time} | {activityInfo?.participants && <span>{activityInfo.participants === 1 ? `${activityInfo.participants} Participant` : `${activityInfo.participants} Participants`}</span>}</p>
                     </div>
                     {activityInfo?.availability === 'accepted' && <div className='px-3 py-1 text-sm capitalize font-medium tracking-wider text-green-800 bg-green-200 rounded-3xl bg-opacity-50'>
-                        {activityInfo.availability}
+                        Accepté
                     </div>}
                     {activityInfo?.availability === 'pending' && <div className='px-3 py-1 text-sm capitalize font-medium tracking-wider text-orange-800 bg-orange-200 rounded-3xl bg-opacity-50'>
-                        {activityInfo.availability}
+                        En attente
                     </div>}
                     {activityInfo?.availability === 'refused' && <div className='px-3 py-1 text-sm capitalize font-medium tracking-wider text-red-800 bg-red-200 rounded-3xl bg-opacity-50'>
-                        {activityInfo.availability}
+                        Refusé
                     </div>}
 
                 </div>

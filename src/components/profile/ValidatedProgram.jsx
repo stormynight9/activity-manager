@@ -1,13 +1,19 @@
 import { doc, onSnapshot } from 'firebase/firestore'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { FaCreditCard } from 'react-icons/fa'
+import ModalContext from '../../context/modal-context'
 import { db } from '../../firebase-config'
+import Login from '../shared/Login'
+import Modal from '../shared/Modal'
+import PaymentForm from '../shared/PaymentForm'
 import ValidatedProgramActivity from './ValidatedProgramActivity'
 
 const ValidatedProgram = ({ programId }) => {
     const [programDetails, setProgramDetails] = useState({})
     const [bookedActivities, setBookedActivities] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
+
+    const modalCtx = useContext(ModalContext)
 
 
     useEffect(() => onSnapshot(doc(db, 'validatedPrograms', programId), (doc) => {
@@ -19,8 +25,13 @@ const ValidatedProgram = ({ programId }) => {
         setTotalPrice(totalPrice + price)
     }
 
+    const onPaymentButtonClick = () => {
+        modalCtx.setModalContent(<PaymentForm totalPrice={totalPrice} />)
+        modalCtx.toggleModal()
+    }
+
     return (
-        <div className='p-4 bg-white'>
+        <div className='p-4 bg-white  rounded-tr-md rounded-br-md'>
             <p className='text-lg font-medium'>Votre programme du {programDetails.startDate} au {programDetails.endDate}</p>
             <div className='space-y-2 mt-3'>
                 {bookedActivities.map((activityId) => {
@@ -38,7 +49,7 @@ const ValidatedProgram = ({ programId }) => {
                     <p className=' font-medium text-xl mt-2'>Prix total des activités acceptées: </p>
                     <p className='text-2xl font-semibold mt-2'>{totalPrice}.00 <span className='text-base text-gray-700'>TND</span></p>
                 </div>
-                <button className='px-10 py-2.5 primary-button flex items-start space-x-2 tracking-wide'><span>Payer {totalPrice}.00 TND</span> <FaCreditCard size={20} /></button>
+                <button onClick={() => onPaymentButtonClick()} className='px-10 py-2.5 primary-button flex items-start space-x-2 tracking-wide'><span>Payer {totalPrice}.00 TND</span> <FaCreditCard size={20} /></button>
             </div>}
         </div>
     )

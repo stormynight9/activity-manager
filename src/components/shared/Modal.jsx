@@ -3,7 +3,7 @@ import ModalContext from "../../context/modal-context";
 
 const Modal = (props) => {
     const modalCtx = useContext(ModalContext);
-
+    console.log('modal')
     return (
         modalCtx.isOpen ? (
             <div className="fixed inset-0 z-30 overflow-y-auto">
