@@ -266,7 +266,6 @@ const ProfileInfo = () => {
         birthDate: '',
     })
 
-    console.log(formDetails)
 
     useEffect(() => {
         setFormDetails({

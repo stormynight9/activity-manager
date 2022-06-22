@@ -29,11 +29,6 @@ const Checkout = () => {
         let validatedActivities = []
 
         for (const activity of programmeCtx.activities) {
-            console.log({
-                ...activity,
-                clientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
-                clinetId: userCtx.user.uid,
-            })
             const activityRef = await addDoc(collection(db, 'validatedActivities'), {
                 ...activity,
                 clientFullName: userCtx.userDetails.firstName + ' ' + userCtx.userDetails.lastName,
