@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, onIdTokenChanged, reload, sendEmailVerification, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, serverTimestamp, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -233,13 +233,11 @@ export const UserContextProvider = ({ children }) => {
 
     //get user details
     useEffect(() => {
-        const getUserDetails = async () => {
-            if (user) {
-                const data = await getDoc(doc(db, "users", user.uid));
-                setUserDetails(data.data());
-            }
+        if (user) {
+            return onSnapshot(doc(db, "users", user.uid), (doc) => {
+                setUserDetails(doc.data());
+            })
         }
-        getUserDetails();
     }, [user])
 
     useEffect(() => {

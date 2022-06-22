@@ -9,8 +9,8 @@ const ProfileSidebar = () => {
     const userCtx = useContext(UserContext)
 
     return (
-        <div className='border-r-[1px] h-full flex flex-col justify-between bg-white'>
-            <div className='p-4'>
+        <div className='border-[1px] profile-sidebar-height flex flex-col justify-between bg-white sticky w-auto top-32'>
+            <div className='p-4 w-full'>
                 <ul className='space-y-4'>
                     <li className=''>
                         <NavLink to={'/profile/edit'} className={(navData) => navData.isActive ? 'flex p-3 secondary-button items-center space-x-1 text-lg' : 'flex p-3 rounded-md duration-200 hover:text-hobbizer font-medium items-center space-x-1 text-lg  text-gray-600 hover:bg-hobbizer-green'}>
